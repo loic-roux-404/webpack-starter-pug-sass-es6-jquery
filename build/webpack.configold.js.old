@@ -1,0 +1,222 @@
+const path = require('path');
+const webpack = require('webpack');
+//const merge = require('merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const pkg  = require('../package.json'); //loads npm config file
+
+
+// Files
+const utils = require('./utils');
+const plugins = require('../postcss.config');
+
+var publicPath = '';
+
+//Default config in all env
+const config = {
+
+  context: path.resolve(__dirname, '../src'),
+  entry: {
+    app: './app.js',
+    vendor  : 'gsap' //get npm vendors deps from config
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: publicPath,
+    filename: 'assets/js/[name].[hash:7].bundle.js'
+  },
+
+  devServer: {
+    contentBase: path.resolve(__dirname, '../src'),
+    // hot: true,
+  },
+  resolve: {
+    extensions: ['.js'],
+    alias: {
+      source: path.resolve(__dirname, '../src'), // Relative path of src
+      IScroll: 'iscroll/build/iscroll-probe.js',
+      anime: 'animejs/lib/anime.js',
+    }
+  },
+
+  /*
+    Loaders with their configurations
+  */
+  module: {
+    rules: [{
+        test: /\.js$/,
+        exclude: [/node_modules/],
+        use: [{
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015']
+          }
+        }]
+      },
+      //{ test: /\.js$/, loader: 'imports-loader?define=>false'},
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        })
+      },
+      {
+        use: 'css-loader!sass-loader?sourceMap',
+        test: /\.(sass|scss)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          publicPath: '../',
+          use: [{
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                sourceMap: true,
+                minimize: true
+              }
+            },
+            'postcss-loader?sourceMap',
+            'fast-sass-loader?sourceMap'
+          ]
+        }),
+
+      },
+      {
+        test: /\.pug$/,
+        use: [{
+          loader: 'pug-loader'
+        }]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          publicPath: '../../',
+          limit: 5000,
+          name: 'assets/images/[name].[ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+
+        options: {
+          publicPath: '../../',
+          limit: 5000,
+          name: 'assets/fonts/[name].[hash:7].[ext]',
+        }
+      },
+      {
+        test: /\.(mp4)(\?.*)?$/,
+        loader: 'file-loader',
+        options: {
+          limit: 10000,
+          name: 'assets/video/[name].[ext]'
+        }
+      }
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin({
+      filename: 'assets/css/[name].[hash:7].bundle.css',
+      allChunks: true
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.$': 'jquery',
+      'window.jQuery': 'jquery',
+      // TweenMax: 'TweenMax',
+      // TimelineMax:'TimelineMax',
+      // IScroll: 'IScroll',
+      // anime: 'anime',
+      // 'anime.timeline': 'anime',
+      // scrollToElement: 'scrollto',
+      // to: 'scrollto',
+      // 'ScrollMagic': 'scrollmagic',
+      // 'animation.gsap': 'animationGsap',
+      // 'animation.velocity': 'animationVelocity'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'views/index.pug',
+      inject: true,
+      title: require('../src/content/global.json').title,
+      content: require('../src/content/content.json')
+    }),
+    new WebpackNotifierPlugin({
+      title: 'Portfolio'
+    })
+  ]
+};
+const prod = {
+  plugins: [
+    new CopyWebpackPlugin([{
+        from: '../src/assets/files/*pdf',
+        to: '../dist'
+      },
+      {
+        from: '../src/assets/php/*.php',
+        to: '../dist/'
+      },
+      {
+        from: '../src/assets/*.json',
+        to: '../dist/'
+      },
+      {
+        from: '../src/assets/Sites/*',
+        to: '../dist/'
+      },
+      {
+        from: '../src/assets/jeu/*',
+        to: '../dist/'
+      },
+
+    ]),
+
+
+    /*
+      Pages
+    */
+
+    // // Desktop page
+
+
+
+
+    new ImageminPlugin({
+      pngquant: ({
+        quality: '80-85'
+      }),
+      plugins: [imageminMozjpeg({
+        quality: 60
+      })]
+    }),
+    //...utils.pages(env),
+    //...utils.pages(env, 'blog'),
+
+
+  ]
+};
+//env
+
+// Configuration
+module.exports = env => {
+  if (env.NODE_ENV === 'development') {
+    publicPath = '/';
+    return config;
+  } else if (env.NODE_ENV === 'production') {
+    publicPath = './';
+    return merge(config, prod);
+
+ }
+
+
+
+
+
+};

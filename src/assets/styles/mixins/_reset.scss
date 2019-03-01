@@ -1,0 +1,24 @@
+@mixin button {
+	outline: inherit;
+	border:none;
+	padding:0;
+	cursor: pointer;
+	&:focus,&:hover{
+		outline: none;
+		border: none;
+	}
+}
+
+@mixin background-contain {
+	background-size: contain;
+	background-position: center;
+	background-clip: border-box;
+	background-repeat: no-repeat;
+  }
+
+@mixin background-cover {
+	background-size: contain;
+	background-position: center;
+	background-clip: border-box;
+	background-repeat: no-repeat;
+  }

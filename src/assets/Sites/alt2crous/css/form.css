@@ -1,0 +1,197 @@
+
+.form-head h1{
+    padding-left: 12.5%;
+}
+.form-align{
+    display: flex;
+}
+@media screen and (min-width:900px){
+   form{
+        width:65%;
+        text-align: center;
+        margin:0 auto;
+    }
+} 
+
+input{
+    box-sizing: border-box;
+    background:transparent;
+    border:transparent;
+    border-bottom:2px solid #64FFFD;
+    height:2em;
+    width:90%;
+    color:white;
+    transition: border-bottom 0.35s ease-in-out;
+    outline:none;
+    overflow: hidden;
+    font:normal 16pt 'Raleway';
+    margin:4% 0 4% 0;
+}
+
+input[type="file"]::before{
+    content:Image Resto;
+}
+
+input[type="file"]{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    overflow: none;
+    outline: none;
+    border:none;
+    background:#B8C5D5;
+    color:black;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:11pt;
+}
+textarea{
+    box-sizing: border-box;
+    background:transparent;
+    border:transparent;
+    border-bottom:2px solid #64FFFD;
+    max-width:90%;
+    min-width:90%;
+    max-height:16.5em;
+    min-height: 38px;
+    overflow: hidden;
+    outline: none;
+    font:normal 12pt 'Lato';
+    transition: border-bottom 0.35s ease-in-out;
+    color:white;
+    margin:5% 0 3% 0;
+    padding:7px;
+}
+
+input:focus, textarea:focus{
+    border-bottom:2px solid #fff;
+}
+
+
+form .container1{
+    padding:5px;
+    margin:0;
+}
+
+
+
+
+
+#submit-button{
+    border:2px solid #64FFFD;
+    border-radius: 4px;
+    width:60%;
+    height:2.6em;
+    transition: border 0.15s linear, background-color 0.17s ease, color 0.15s linear;
+    cursor: pointer;
+    color:#64FFFD;
+    float:none;
+}
+#submit-button:hover,#submit-button:focus{
+    border:2px solid #fff;
+    background-color: RGBa(100, 255, 253,0.01);
+    color:#fff;
+}
+
+
+form label{
+    float:left;
+}
+input,textarea{
+    float:right;
+}
+/*fix icons position*/
+form label{
+    line-height: 6em;
+    color:#64FFFD;
+    transition: color 0.2s ease;
+}
+
+@media screen and (max-width:800px){
+    form label{
+    line-height: 5em;
+
+}
+} 
+
+input:focus + label i,textarea:focus + label i{
+    color:#fff !important;
+    transition:0.2s;
+}
+/*index.php finder bloc*/
+
+
+    
+select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+    position:relative;
+    background:transparent;
+    border:2px solid #64FFFD;
+    border-radius: 4px;
+    width:60%;
+    height:2.65em;
+    transition: border 0.15s linear, background-color 0.17s ease, color 0.15s linear;
+    cursor: pointer;
+    color:#D6D6D8;
+    outline:none;
+}
+select::after{
+    content:">";
+    position:relative;
+    right:-3em;
+    font-size: 1.2em;
+}
+
+
+
+select:focus, select:hover{
+    border:2px solid #fff;
+    background:RGBa(255,255,255,0.02);
+}
+
+select:before{
+    
+}
+
+option{
+    overflow:hidden;
+    outline:none;
+    background:#3D4D6C;
+    color:#D6D6D8;
+    cursor: pointer;
+}
+
+
+.find-resto{
+    margin:2.95em 0 2em 0 !important;
+}
+
+
+/*fix label float*/
+.label-index{
+    float:none;
+    color:inherit;
+    margin:0;
+    padding:0;
+}
+
+
+
+
+
+/*admin forms*/
+.admin form{
+    margin:0 auto 0 auto;
+    float:none;
+    width:80%;
+}
+
+.admin input, .admin textarea{
+    float:none;
+}

@@ -1,0 +1,110 @@
+
+#main{
+	opacity: 0;
+	transition: all 0.5s ease;
+}
+#loading-screen {
+	position: absolute;
+	top:-3.2em;
+	right:0;
+	bottom:0;
+	left:0;
+	overflow: hidden;
+}
+#loading-screen #container{
+	margin:1.37em 2em;
+}
+#main-index{
+	opacity: 0.5;
+}
+.index #header{
+	opacity:0;
+}
+body{
+	background: rgb(35,235,235);
+	background: linear-gradient(90deg, rgba(35,235,235,0.6) 0%, rgba(33,228,255,0.7) 29%, rgba(130,221,255,0.8) 63%, rgba(0,212,255,0.5) 100%) !important;
+	transition: all 0.2s ease;
+	overflow: hidden;
+}
+.index #loading-screen header{
+	position:absolute;
+	width:95%;
+	left:2.2em;
+	top:4.45em !important;
+}
+
+#loading-screen header,
+#loading-screen footer {
+	height: 4.6em !important;
+	
+}
+
+#loading-screen .bloc {
+	height: 18em;
+	width: 100%;
+}
+
+#loading-screen [class^="col-sm"] {
+	padding: 0;
+}
+#loading-screen .loader-gutter{
+	padding-right: 2em;
+	margin-right:0;
+}
+
+#loading-screen .bloc.reverse{
+	animation: reverse-ease 1.5s linear infinite;
+	transition: all 0.4s ease-in;
+}
+#loading-screen .bloc.load{
+	animation: load 1.8s linear infinite;
+	transition: all 0.7s ease;
+}
+
+@keyframes load {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+
+}
+
+@keyframes reverse-ease {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+
+/*responsive loading*/
+
+@media screen and (max-width: 955px) {
+	#loading-screen .row{
+		display: block;
+	}
+	#loading-screen [class^="col-sm"] {
+		padding: 0;
+		max-width:100% !important;
+	}
+	#loading-screen #container{
+	margin:1.37em 2.5%;
+}
+}
+
+
+
+
+
+
+
+

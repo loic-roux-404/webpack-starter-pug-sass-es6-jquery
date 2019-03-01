@@ -1,0 +1,70 @@
+div
+    h1.text-center.text-uppercase.heebo.f900.px-2.text2 Contact
+.container.bg-white
+    form#contact-form.form-card(action='', method='post')
+        //- accept-charset="utf-8"
+        .row.justify-content-around
+            .col-md-7.mb-sm-3.mb-2.mt-sm-5.mt-2.mx-sm-2
+                .form-element.form-input.p-md-0.px-3
+                    input#prenom.form-element-field(placeholder=' ', name='prenom')
+                    .form-element-bar
+                    label.form-element-label(for='prenom')
+                        span.fa-info.pr-2
+                        | Prénom
+            .col-md-7.mb-sm-3.mb-2.mx-sm-2
+                .form-element.form-input.p-md-0.px-3
+                    input#nom.form-element-field(placeholder=' ', name='nom')
+                    .form-element-bar
+                    label.form-element-label(for='nom')
+                        span.fa-user.pr-2
+                        | Nom
+            .col-md-7.mb-sm-3.mb-2.mx-sm-2
+                .form-element.form-input.p-md-0.px-3
+                    input#societe.form-element-field(placeholder=' ', name='societe')
+                    .form-element-bar
+                    label.form-element-label(for='societe')
+                        span.fa-info.pr-2
+                        | Société
+            .col-md-7.mb-sm-3.mb-2.mx-sm-2
+                .form-element.form-input.p-md-0.px-3
+                    input#email.form-element-field(placeholder=' ', name='email')
+                    .form-element-bar
+                    label.form-element-label(for='email')
+                        span.fa-at-sign.pr-2
+                        | Email
+            .col-md-7.mb-sm-3.mb-2.mx-sm-2
+                .form-element.form-textarea.p-md-0.px-3
+                    textarea#message.form-element-field(name='message', placeholder=' ')
+                    .form-element-bar
+                    label.form-element-label(for='message')
+                        span.fa-align-justify.pr-2
+                        | Votre message
+        .row.justify-content-around
+            .col-sm-4.col-8
+                button.btn.m-auto.f700.montserrat.text-white(type='submit') Envoyer
+                #loader
+                    .loader-contact.float-right.mb-5.d-block
+                        .line
+                        .line
+                        .line
+                        .line
+        .d-table.w-100.text-center
+            button#scrolltop.my-5.d-table-cell.align-middle.toTopButton(type='button')
+                i.fa-chevron-up
+    #carte-visite
+        .title-carte.text-center.mt-5
+            h1.montserrat.f700.text-dark(title='carte de visite developpeur loic roux') Carte de visite
+        .d-flex.justify-content-around
+            .vid-carte-visite.position-relative.my-5
+                div
+                    video.d-block(autoplay='', mute='', loop='', media='screen', poster='./assets/images/carte-poster.png', title='loic roux developpeur web')
+                        source(src='./assets/video/carte.mp4', type='video/mp4')
+        form.w-100.text-light.pb-5(action='./assets/files/carte-visite.pdf', method='', accept-charset='utf-8')
+            .text-center
+                button.border-0(type='submit', title='voir la carte de visite en pdf')
+                    | Voir en
+                    | PDF
+        //-
+            <div class="file-carte text-center">
+            <embed src="./files/carte-visite.pdf" width="auto" height=200 type='application/pdf'/>
+            </div>

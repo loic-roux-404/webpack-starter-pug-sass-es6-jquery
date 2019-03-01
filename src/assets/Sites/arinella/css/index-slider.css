@@ -1,0 +1,60 @@
+
+
+.slide-0{
+  background:url('../image/index-slider/villa-0.png');
+}
+.slide-1{
+  background:url('../image/index-slider/villa-1.png');
+}
+.slide-2{
+  background:url('../image/index-slider/villa-2.png');
+}
+.slide-3{
+background:url('../image/index-slider/villa-3.png');
+}
+
+
+
+.flexslider .slides > li { 
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  display: none; 
+  -webkit-backface-visibility: hidden;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.flexslider-container, 
+.flexslider .slides, 
+.flex-viewport {
+    height: 100%;
+}
+
+html, 
+body,#main-index {
+  height: 100%;
+  min-height: 100%;
+}
+
+body,#main-index {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+ul.slides {
+  margin: 0;
+  padding: 0;
+}
+
+.flexslider {
+  margin: 0; 
+  padding: 0; 
+  width: 100%; 
+  height: 100%; 
+  border: 0px; 
+  overflow: hidden;
+}

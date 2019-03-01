@@ -1,18 +1,28 @@
-extends ./layouts/master.pug
+doctype html
+html.no-js
+  head
+    include includes/head
+  body.bg-info
+    header#header
+      include includes/header
+    section#main
+      article#presentation.shadow-md.bg-info
+        include includes/presentation
 
-block title
-  title My Page - Home
+      article#cv.bg-info
+        include includes/cv
+          //- wrapper
+          //- CV
+      p.separate.bg-info
+      //-article realisation
+      include includes/realisations
+      article#contact
+        include includes/contact
+      footer#footer
+        include includes/footer
+      //- </section main
+      article.preloader-wrap
+        include includes/loader
 
-block manifestBrowserconfigFiles
-  link(href='../manifest.json', rel='manifest')
-  meta(name='msapplication-config' content='../browserconfig.xml')
+    include includes/scripts
 
-block content
-
-  //- Desktop page
-  section.page.home__page
-    h1.page__title # Index page
-    p Thank you for your supporting :)
-    p
-      a(href="https://www.buymeacoffee.com/edgardo" target="_blank")
-        img(src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;")

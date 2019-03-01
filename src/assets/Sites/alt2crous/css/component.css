@@ -1,0 +1,272 @@
+@font-face {
+	font-family: 'logo-ina';
+	src: url('../image/logo-ina.svg#image') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+html, body, .perspective {
+	width: 100%;
+	height: 100%;
+}
+
+
+.container {
+	min-height: 100%;
+	position: relative;
+	outline: 1px solid rgba(0, 0, 0, 0);
+	z-index: 10;
+	-webkit-transform: translateZ(0) translateX(0) rotateY(0deg);
+	/* reset transforms (Chrome bug) */
+	transform: translateZ(0) translateX(0) rotateY(0deg);
+}
+
+.container::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0px;
+	opacity: 0;
+	background: rgba(0, 0, 0, 0.01);
+	-webkit-transition: opacity 0.4s, height 0s 0.4s;
+	transition: opacity 0.4s, height 0s 0.4s;
+}
+
+.wrapper {
+	position: relative;
+}
+
+.component {
+	margin: 0 auto;
+	width: 60%;
+	text-align: justify;
+	font-size: 1.5em;
+}
+
+.clearfix #mobile-nav {
+	display: none;
+}
+
+.outer-nav {
+	display:none;
+	height:0;
+}
+
+@media screen and (max-width:870px) {
+	.clearfix #mobile-nav {
+		display: block;
+	}
+	#showMenu {
+		position: relative;
+		left: 3px;
+	}
+	.nav-laptop {
+		display: none;
+	}
+	.outer-nav {
+		display:initial;
+	}
+	/* Modal view */
+	.perspective.modalview {
+		position:relative;
+		-webkit-perspective: 1100px;
+		perspective: 1100px;
+	}
+	.modalview .container {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		cursor: pointer;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+	.modalview .wrapper {
+		-webkit-transform: translateZ(-1px);
+		/* solves a rendering bug in Chrome on Windows */
+	}
+	.animate .container::after {
+		opacity: 1;
+		height: 101%;
+		-webkit-transition: opacity 0.3s;
+		transition: opacity 0.3s;
+	}
+
+	/* Outer Nav */
+	.outer-nav {
+		position: absolute;
+		height: auto;
+		font-size: 1.7em;
+	}
+	.outer-nav.vertical {
+		top: 37%;
+		-webkit-transform: translateY(-30%);
+		transform: translateY(-30%);
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	}
+	.outer-nav.horizontal {
+		left: 50%;
+		width: 75%;
+		max-width: 850px;
+		text-align: center;
+		-webkit-transform: translateX(-30%);
+		transform: translateX(-30%);
+	}
+	.outer-nav.left {
+		left: 25%;
+	}
+	.outer-nav.right {
+		right: 25%;
+	}
+	.outer-nav.top {
+		top: 25%;
+	}
+	.outer-nav.bottom {
+		bottom: 25%;
+	}
+	.outer-nav a {
+		display: inline-block;
+		white-space: nowrap;
+		font-weight: 300;
+		margin: 0 0 28px 0;
+		-webkit-transition: color 0.3s;
+		transition: color 0.3s;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+		transition:color 0.3s linear;
+	}
+	.outer-nav.vertical a {
+		display: block;
+	}
+	.outer-nav.horizontal a {
+		margin: 15px 20px;
+	}
+	.outer-nav a::before {
+		display: inline-block;
+		font-family: 'typicons';
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		margin-right: 10px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+	}
+
+	/* Transitional menu*/
+	.effect-airbnb {
+		background: #RBGa(202, 213, 224, 0.6);
+	}
+	.effect-airbnb .container {
+		-webkit-transition: -webkit-transform 0.4s;
+		transition: transform 0.4s;
+		-webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+	}
+	.effect-airbnb.animate .container {
+		-webkit-transform: translateZ(-1500px) translateX(100%) rotateY(-45deg);
+		transform: translateZ(-1500px) translateX(100%) rotateY(-45deg);
+	}
+	.no-csstransforms3d .effect-airbnb.animate .container {
+		left: 75%;
+	}
+	.effect-airbnb .outer-nav a {
+		opacity: 0;
+		-webkit-transform: translateX(-150px);
+		transform: translateX(-150px);
+		-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+		transition: color 0.4s ,transform 0.4s, opacity 0.4s;
+	}
+	.effect-airbnb.animate .outer-nav a {
+		opacity: 1;
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+
+	.effect-airbnb.animate .outer-nav a:nth-child(2) {
+		-webkit-transition-delay: 0.06s;
+		transition-delay: 0.06s;
+	}
+	.effect-airbnb.animate .outer-nav a:nth-child(3) {
+		-webkit-transition-delay: 0.1s;
+		transition-delay: 0.1s;
+	}
+	.effect-airbnb.animate .outer-nav a:nth-child(4) {
+		-webkit-transition-delay: 0.14s;
+		transition-delay: 0.14s;
+	}
+	.effect-airbnb.animate .outer-nav a:nth-child(5) {
+		-webkit-transition-delay: 0.14s;
+		transition-delay: 0.14s;
+	}
+	.effect-airbnb.animate .outer-nav a:nth-child(6) {
+		-webkit-transition-delay: 0.21s;
+		transition-delay: 0.21s;
+	}
+	.effect-airbnb.animate .outer-nav a:nth-child(7) {
+		-webkit-transition-delay: 0.16s;
+		transition-delay: 0.16s;
+	}
+
+	/* Responsive Queries */
+	@media screen and (max-width: 77em) {
+		.outer-nav.top {
+			top: 15%;
+		}
+		.outer-nav.bottom {
+			bottom: 15%;
+		}
+	}
+	@media screen and (max-width: 36.625em) , screen and (max-height:
+		41.75em) {
+		.outer-nav.top {
+			top: 5%;
+		}
+		.outer-nav.bottom {
+			bottom: 5%;
+		}
+		.outer-nav.horizontal {
+			font-size: 1.7em;
+			width: 6.2em;
+		}
+		.outer-nav.horizontal a {
+			display: block;
+			text-align: left;
+		}
+
+		/* Special Case */
+		.effect-rotatetop .outer-nav.horizontal {
+			width: 95%;
+			bottom: auto;
+			top: 50%;
+		}
+		.effect-rotatetop .outer-nav.horizontal a {
+			display: inline-block;
+		}
+	}
+}
+
+@media screen and (max-width: 31em) , screen and (max-height: 36.2em) {
+	.outer-nav.horizontal, .outer-nav.vertical {
+		font-size: 1.3em;
+		width: 6.8em;
+	}
+	.outer-nav.right {
+		right: auto;
+		left: 50%;
+	}
+}
+
+@media screen and (max-height: 31.6em) {
+	.outer-nav a {
+		margin-bottom: 20px;
+	}
+}

@@ -1,0 +1,84 @@
+//-============Imports
+- const realisations = htmlWebpackPlugin.options.content.realisations;
+- var rea1 = realisations.rea1 ;
+- var rea2 = realisations.rea2 ;
+
+article#realisations.hero3
+  span.round-background.d-block
+  .buttons-rea
+    button.rounded-circle.site(data-state='1', title='Réalisations web')
+      i.fa-globe
+    button.rounded-circle.game(data-state='0', title='Plus de projets : infographie, jeux...')
+      i.fa-more-horizontal
+  .text-center.py-3
+    h1.text-center.text-uppercase.heebo.f900.px-2.text-dark.d-inline.text2(title='réalisation javascript php cms html5 et css3')
+      | Réalisations
+  #bloc-vid
+    #videos1.container-fluid-sm.py-5.p-0
+      .back-desc
+        //- lightbox background
+        .text-center
+          button.close-wrapper.bg-transparent.align-center.text-center.pt-md-3.pt-2(title='fermer expériences developpeur')
+            span.close.hairline
+        - for (var j = 0;j < 5;j++){
+        - var item = rea1[j];
+        div(class="desc desc-"+j+" px-2")
+          .container.container-fluid.w-xl-60
+            h4.pt-2.m-0= item.subtitle
+            p.d-inline= item.date
+            p.pt-2.m-0= item.intro
+            span.d-block(style='height:8px;')
+            if item.content
+              p.main-content.py-2.text-md-left !{item.content}
+            else if item.list
+              ul.main-content.py-1.py-sm-2.text-md-left
+                each val in item.list
+                  li= val
+            else
+              | No Project description
+            a(href=item.link, title=item.title) Voir le projet
+        - }//-END FOR
+        - for (var i = 5;i < 7;i++){
+        - var item = rea2[i];
+        div(class="desc desc-"+i+" px-2")
+          .container.container-fluid.w-xl-60
+            h4.pt-2.m-0= item.subtitle
+            p.d-inline= item.date
+            p.pt-2.m-0= item.intro
+
+            span.d-block(style='height:8px;')
+
+            if item.content
+              p.main-content.py-2.text-md-left !{item.content}
+            else if item.list
+              ul.main-content.py-1.py-sm-2.text-md-left
+                each val in item.list
+                  li= val
+            else
+              | No Project description
+            a(href=item.link, title=item.title) Voir le projet
+        - }//-END FOR
+
+      .site-wrap.row.justify-content-center.container-vid-1
+        - for (var l = 0;l < 5;l++){
+          a.video-bloc-1.col-5.btn-6(href='')
+            - var item = rea1[l];
+              .vid-wrapper
+                video(autoplay='', loop='', muted='', poster='./assets/images/'+l+'.png')
+                  source(src='./assets/video/'+l+'.mp4', type='video/mp4', title=item.title)
+                p.text-white-50.heebo.p-2.p-sm-3.p-xl-5.text-center.text-uppercase= item.subtitle
+
+                span
+        - }
+
+      .game-wrap.row.justify-content-center.container-vid-2
+        - for (var k =5;k < 7;k++){
+          a.video-bloc-1.col-5.btn-6(href='')
+            - var item = rea2[k];
+              .vid-wrapper
+                video(autoplay='', loop='', muted='', poster='./assets/images/'+k+'.png')
+                  source(src='./assets/video/'+k+'.mp4', type='video/mp4', title=item.title)
+                p.text-white-50.heebo.p-2.p-sm-3.p-xl-5.text-center.text-uppercase= item.subtitle
+
+                span
+        - }

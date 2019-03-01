@@ -1,0 +1,268 @@
+/*admin form*/
+
+@media screen and (max-width:555px) {
+	[class^="container-"] {
+		padding: 0 1.9em;
+	}
+}
+
+input {
+	background: #fff;
+	border: none;
+	border-bottom: 1.5px solid #85929E;
+	height: 2.5em;
+	display: block;
+	width: 100%;
+	margin: 2em auto;
+	outline: none;
+	transition: border-bottom 0.4s ease-in-out;
+}
+
+input:focus {
+	border-bottom: 1.5px solid #3498DB;
+}
+
+form button[type="submit"] {
+	margin: 1.2em auto;
+}
+
+/*-----------FILE IMPORT SETTINGS----*/
+.file-field >input{
+	border:none;
+	width:18em;
+	margin:0 auto;
+}
+
+.admin .connected{
+	position: absolute;
+	left:-13%;
+	transform: translate(0,-13%);
+}
+@media screen and (max-width: 992px) {
+	.admin .connected{
+		position: static;
+		text-align:center;
+		font-size:16pt;
+		transform: none;
+	}
+}
+
+
+/*admin interface*/
+
+.separate-border {
+	display: block;
+	height: 0.17em;
+	width: 80%;
+	margin: 1.5em auto;
+	background: #FF8E32;
+	border-radius: 8px
+}
+
+.php-active{
+	display: none;
+}
+
+.admin-banner{
+	background: RGBa(255, 147, 32,1);
+	color:#FFF;
+}
+.adm-account{
+	width:100%;
+}
+/*manage input bloc during validation*/
+
+.input-content {
+	position: relative;
+}
+
+.input-content label i.checked {
+	position: absolute;
+	top: 7px;
+	right: 0;
+}
+
+.input-content label {
+	margin-bottom: 15px;
+}
+
+
+/*--change form class during validation--*/
+
+.error-highlight {
+	border-bottom: 1.5px solid red;
+	margin: 1.2em auto;
+}
+
+.error {
+	color: #CF4A4A;
+}
+
+.checked {
+	color: #5DDC6E;
+}
+
+/*---------php generated code-----*/
+/*-------------*/
+/*---------PICTURE GALLERY-----*/
+
+
+.pic-del-btn,.upload-wrapper{
+	background:#dadada;
+	border:none;
+	padding:0.7em;
+	cursor:pointer;
+	border-radius:8px;
+	transition:0.3s;
+	outline:none;
+	border:2px solid transparent;
+}
+
+.pic-del-btn:hover,
+.pic-del-btn:focus,
+.upload-wrapper:hover
+{
+	background:#eaeaea;
+	border:2px solid #9a9a9a;
+	cursor:pointer;
+}
+.pic-del-btn:hover i,
+.upload-wrapper:hover i
+{
+	color:#7a7a7a;
+}
+.pic-del-btn i,
+.upload-wrapper i{
+	color:#575757;
+	font-size:1.78rem;
+}
+
+/*---update btn-----*/
+/*test tableau*/
+
+.upload-wrapper{
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	cursor:pointer;
+}
+
+.upload-wrapper input{
+	height: 2.5em; 
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+.upload-wrapper button{
+	margin:1.1em auto;
+	cursor: pointer;
+
+}
+.upload-wrapper input[type=file] {
+	font-size: 100px;
+	position: absolute;
+	top: 0px;
+	opacity: 0;
+	cursor:pointer;
+	z-index:12;
+}
+
+
+/*=============TAB SETTINGS==========*/
+
+.gallery-admin {
+	width:70%;
+	margin:0 auto;
+}
+.gallery-admin img{
+	width:auto;
+	height:11em;
+}
+.gallery-admin tr>td{
+	padding:.5em .2em;
+}
+
+/*form button setting different*/
+.gallery-admin button[type="submit"]{
+
+}
+
+/*php generated message*/
+
+.form-reponse {
+	margin: 0 auto 1.3em auto;
+	transition: 0.4s;
+}
+
+.connected {
+	color: #5DDC6E;
+}
+
+.form-reponse .fail {
+	color: #CF4A4A;
+	transition: 0.4s;
+}
+
+
+/*.fail-appear{
+		max-height: 100%;
+		visibility: visible;
+		}*/
+
+		.disconnect {
+			padding: 0.2em 0;
+			display: block;
+			float: right;
+			transition: all 0.3s ease;
+		}
+
+		.disconnect:hover {
+			text-decoration: underline;
+			color: #CF302A;
+		}
+
+
+
+		/*connexion info admin*/
+
+		.connexion-info {
+			color: #34495E;
+			background: #fff;
+			box-shadow: 0 0 2px 2px rgba(100, 100, 100, 0.3);
+			position: fixed;
+			top: -1em;
+			height: 4em;
+			right: 0;
+			padding: 0.3em 1em;
+			border-radius: 0 0 0 10px;
+			z-index: 4;
+		}
+
+		.connexion-info span {
+			margin-top: 0.8em;
+			display: inline-block;
+			text-align: center;
+		}
+
+		.connexion-info i {
+			margin: 0.2em 0.1em 0 0.6em;
+			display: inline-block;
+		}
+
+		@media screen and (max-width: 1079px) {
+			.connexion-info {
+				font-size: 12pt;
+				padding: 0.3em 0.6em;
+				position: absolute;
+				width: 100%;
+				left: 0;
+				border-radius: 0 0 10px 10px;
+			}
+			.connexion-info i {
+				margin: 0.3em 0 0 0;
+				padding-left: 0.4em;
+			}
+			#main {
+				margin-top: 2.7em;
+			}
+		}

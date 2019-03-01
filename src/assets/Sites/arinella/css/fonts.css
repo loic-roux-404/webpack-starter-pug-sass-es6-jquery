@@ -1,0 +1,582 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700');
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600');
+
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600');
+
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600');
+
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Rubik:300,400,700|Source+Sans+Pro:300,400,600|Gugi');
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400|Nunito:300,400,600');
+
+@import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500|Basic|Hammersmith+One|IBM+Plex+Sans:300,400,600|Pontano+Sans');
+
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+
+
+/*fin imports*/
+/*classes parametre de font*/
+
+
+/*type de police (google)*/
+
+.lato {
+  font-family: 'Lato', 'Muli', 'Helvetica', sans-serif;;
+}
+
+.didact {
+  font-family: 'Didact Gothic', 'Muli', 'Helvetica', 'Calibri', 'Arial', sans-serif;
+}
+
+.montserrat {
+  font-family: 'Montserrat', 'Raleway', 'Helvetica', 'muli', 'Calibri', sans-serif;
+  'Arial';
+}
+
+.raleway {
+  font-family: 'Raleway', 'Montserrat', 'Helvetica', 'Calibri', 'Arial', sans-serif;
+}
+
+.poiret {
+  font-family: 'Poiret One', 'Montserrat', 'Helvetica', 'Calibri', sans-serif;
+}
+
+.opensans {
+  font-family: 'Open Sans', 'Helvetica', 'Calibri', sans-serif;
+}
+
+.roboto {
+  font-family: 'Roboto', 'Open Sans', 'Helvetica', 'Calibri', sans-serif;;
+}
+
+.muli {
+  font-family: 'Muli', 'Roboto', 'Helvetica', 'Calibri', sans-serif;
+}
+
+.oswald {
+  font-family: 'Oswald', 'Roboto', 'Helvetica', 'Calibri', 'Arial', sans-serif;
+}
+
+.source-sans {
+  font-family: 'Sources Sans Pro', 'Roboto', 'Helvetica', 'Calibri', sans-serif;
+  letter-spacing: 0.92px;
+}
+
+.rubik {
+  font-family: 'Rubik', 'Roboto', 'Helvetica', 'Calibri';
+}
+
+.comfortaa {
+  font-family: 'Comfortaa', 'Roboto', 'Helvetica', 'Calibri', sans-serif
+}
+
+.gugi {
+  font-family: 'Gugi', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.nunito {
+  font-family: 'Nunito', 'Roboto', 'Helvetica', 'Calibri', sans-serif
+}
+
+.nunito-sans {
+  font-family: 'Nunito Sans', 'Roboto', 'Helvetica', 'Calibri', sans-serif
+}
+
+.barlow {
+  font-family: 'Barlow', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.pontano-sans {
+  font-family: 'Pontano Sans', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.basic {
+  font-family: 'Basic', 'Helvetica', sans-serif;
+}
+
+.hammersmith-one {
+  font-family: 'Hammersmith One', 'Helvetica', 'Calibri', sans-serif
+}
+
+.ibm-plex-sans {
+  font-family: 'IBM Plex Sans', 'Helvetica', 'Calibri';
+}
+
+
+
+
+
+
+
+
+/*predefinal text alignment*/
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.left {
+  text-align: left;
+}
+
+.justify {
+  text-align: justify;
+}
+/*floats*/
+.float-left {
+  float: left;
+}
+.float-right{
+  float:right;
+}
+.float-none{
+  float:none;
+}
+/*-----CLEARFIX-------*/
+.clearfix{
+  clear:both;
+}
+/*display classes*/
+.display-none {
+  display: none;
+}
+.display-block{
+  display: block;
+}
+.display-inline-block{
+  display: inline-block;
+}
+
+/*margin resets*/
+.marg-0 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+
+/*----width----*/
+.w-100{
+  width:100%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-80 {
+  width: 80%
+}
+
+.w-70 {
+  width: 70%
+}
+
+.w-60 {
+  width: 60%
+}
+
+.w-50 {
+  width: 50%
+}
+
+/*end*/
+
+
+
+
+/*line-height settings*/
+
+.lh-xs {
+  line-height: 1.3;
+}
+
+.lh-sm {
+  line-height: 1.5;
+}
+
+.lh-md {
+  line-height: 1.75;
+}
+
+.lh-lg {
+  line-height: 2;
+}
+
+.lh-xl {
+  line-height: 2.5;
+}
+
+
+/*police petites et moyennes
+prefixe 'f' for text dedicated fonts*/
+
+.f10pt {
+  font-size: 10pt;
+}
+
+.f11pt {
+  font-size: 11pt;
+}
+
+.f12pt {
+  font-size: 12pt;
+}
+
+.f12pt-5 {
+  font-size: 12.5pt;
+}
+
+.f13pt {
+  font-size: 11pt;
+}
+
+.f14pt {
+  font-size: 14pt;
+}
+
+.f15pt {
+  font-size: 15pt;
+}
+
+.f16pt {
+  font-size: 16pt;
+}
+
+
+/*titles h1,h2,h3,h4
+  add classes to your html's elements
+  prefixe 'h' for titles dedicated fonts
+  */
+
+  .f10pt {
+    font-size: 10pt;
+  }
+
+  .f11pt {
+    font-size: 11pt;
+  }
+
+  .f12pt {
+    font-size: 12pt;
+  }
+
+  .f13pt {
+    font-size: 13pt;
+  }
+
+  .f14pt {
+    font-size: 14pt;
+  }
+
+  .f16pt {
+    font-size: 16pt;
+  }
+
+
+  /*titles*/
+
+  section *[class^="h-"]
+  {
+    margin: 1% 0 1% 0 !important;
+  }
+
+  .h-18pt,
+  {
+    font-size: 18pt;
+  }
+
+  .h-20pt,
+  {
+    font-size: 20pt;
+  }
+
+  .h-22pt,
+  {
+    font-size: 22pt;
+  }
+  .h-24pt,
+  {
+    font-size: 24pt;
+  }
+
+  .h-26pt,
+  {
+    font-size: 26pt;
+  }
+
+  .h-28pt {
+    font-size: 28pt;
+  }
+
+  .h-30pt,
+  {
+    font-size: 30pt;
+  }
+
+  .h-32pt {
+    font-size: 32pt;
+  }
+
+  .h-36pt {
+    font-size: 36pt;
+  }
+
+  .h-40pt {
+    font-size: 40pt;
+  }
+
+  .h-48pt {
+    font-size: 48pt;
+  }
+
+
+  /*padding title*/
+
+  .sm-title-1 {
+    padding: 0.4em 0;
+  }
+
+  .sm-title-2 {
+    padding: 0.8em 0;
+  }
+
+  .md-title-1 {
+    padding: 1.2em 0;
+  }
+
+  .md-title-2 {
+    padding: 1.8em 0;
+  }
+
+  .xl-title-1 {
+    padding: 2.4em 0;
+  }
+
+  .xl-title-2 {
+    padding: 3em 0;
+  }
+
+
+  /*vertical padding preset*/
+  .no-pad-top{
+    padding-top:0;
+  }
+  .no-pad-bottom{
+    padding-bottom: 0;
+  }
+  .xs-pad-top {
+    padding-top: 0.55em;
+  }
+
+  .xs-pad-bottom {
+    padding-bottom: 0.55em;
+  }
+  .sm-pad-top {
+    padding-top: 1.1em;
+  }
+
+  .sm-pad-bottom {
+    padding-bottom: 1.1em;
+  }
+
+  .md-pad-top {
+    padding-top: 1.5em;
+  }
+
+  .md-pad-bottom {
+    padding-bottom: 1.5em;
+  }
+
+  .xl-pad-top {
+    padding-top: 2.1em;
+  }
+
+  .xl-pad-bottom {
+    padding-bottom: 2.1em;
+  }
+
+
+/*weights of fonts
+  !!!TAKE CARE OF FONTS WITH ONLY ONE WEIGHT!!!
+  prefixe 'f' also for all dedicated fonts
+  */
+
+  .f300 {
+    font-weight: 300;
+  }
+
+  .f400 {
+    font-weight: 400;
+  }
+
+  .f500 {
+    font-weight: 500;
+  }
+
+  .f600 {
+    font-weight: 600;
+  }
+
+  .f700 {
+    font-weight: 700;
+  }
+
+
+  /*responsive fonts*/
+
+  @media screen and (max-width:780px) {
+    .f10pt {
+      font-size: 12pt;
+    }
+    .f11pt {
+      font-size: 12pt;
+    }
+    .f12pt {
+      font-size: 13pt;
+    }
+    .f13pt {
+      font-size: 13pt;
+    }
+    .f14pt {
+      font-size: 13pt;
+    }
+    .f16pt {
+      font-size: 14pt;
+    }
+    /*normal text*/
+    .h-18pt {
+      font-size: 20pt;
+    }
+    .h-20pt {
+      font-size: 22pt;
+    }
+    .h-22pt {
+      font-size: 23pt;
+    }
+    .h-26pt {
+      font-size: 27pt;
+    }
+    .h-30pt {
+      font-size: 32pt;
+    }
+    .h32pt {
+      font-size: 34pt;
+    }
+    .h-36pt {
+      font-size: 38pt;
+    }
+    .h-40pt {
+      font-size: 42pt;
+    }
+    .h-48pt {
+      font-size: 46pt;
+    }
+  }
+
+
+  /**/
+
+
+  /*google icons material*/
+
+
+  /*move*/
+
+
+  /*sizing*/
+
+  .material-icons.md-16 {
+    font-size: 16px;
+  }
+
+  .material-icons.md-18 {
+    font-size: 18px;
+  }
+
+  .material-icons.md-20 {
+    font-size: 20px;
+  }
+
+  .material-icons.md-22 {
+    font-size: 22px;
+  }
+
+  .material-icons.md-24 {
+    font-size: 24px;
+  }
+
+  .material-icons.md-26 {
+    font-size: 26px;
+  }
+
+  .material-icons.md-28 {
+    font-size: 28px;
+  }
+
+  .material-icons.md-30 {
+    font-size: 30px;
+  }
+
+  .material-icons.md-32 {
+    font-size: 32px;
+  }
+
+  .material-icons.md-36 {
+    font-size: 36px;
+  }
+
+  .material-icons.md-38 {
+    font-size: 38px;
+  }
+
+  .material-icons.md-42 {
+    font-size: 42px;
+  }
+
+  .material-icons.md-45 {
+    font-size: 45px;
+  }
+
+  .material-icons.md-48 {
+    font-size: 48px;
+  }
+
+
+
+  /*useful*/
+  .overflow-hidden{
+    overflow: hidden !important;
+  }
+  .overflow-visible{
+    overflow: visible;
+  }
+  .list-style {
+    list-style: disc;
+    padding-left: 3.5em
+  }
+  .display-none-important{
+    display: none !important;
+  }

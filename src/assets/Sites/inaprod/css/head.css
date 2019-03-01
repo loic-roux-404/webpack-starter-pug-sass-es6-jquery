@@ -1,0 +1,104 @@
+
+.ina-head{
+	height:31em;
+	position:absolute;
+	top:0;
+	right:0;
+	left:0;
+	bottom:0;
+	z-index:1;
+	/*box-shadow:2px 0 5px 2px RGBa(170,170,170,0.2);*/
+}
+.ina-head .title-head{
+	margin:5.6em 0 ;
+	color:#F3F3F3   ;
+	animation: animate-col 22s ease infinite;
+}
+
+.gradient{
+	background: linear-gradient(38deg,RGBa(255, 216, 94,0.95),RGBa(255, 179, 94,0.95) ,RGBa(238, 109, 222,0.75) );
+	background-size: 400% 400%;
+	animation: animate-grad 12s ease infinite;
+}
+
+
+
+@keyframes animate-grad {
+	0% {
+		background-position: 100% 50%
+	}
+	50% {
+		background-position: 0% 50%
+	}
+	100% {
+		background-position: 100% 100%
+	}
+}
+
+@-webkit-keyframes animate-col {
+	0% {
+		color:#fff
+	}
+	50% {
+		color:#C8CDFC
+	}
+	100% {
+		color:#DEE1FF
+	}
+	50%{
+		color:#B9FFE7
+	}
+	0%{
+		color:#fff
+	}
+}
+
+.camera-logo path:nth-child(2){
+	animation: rotate 15s linear infinite;
+}
+@-webkit-keyframes rotate{
+	0%{
+		transform:rotate(0deg);
+		transform-origin: 13px 17px;
+	}
+	100% {
+		transform:rotate(360deg);
+		transform-origin: 13px 17px;
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

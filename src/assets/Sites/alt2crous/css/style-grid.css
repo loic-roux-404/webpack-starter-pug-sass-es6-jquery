@@ -1,0 +1,375 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+
+.margin-auto {
+	margin: 0 auto;
+}
+
+/*reponsive*/
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*logos*/
+
+/*navigation*/
+
+.fixed {
+	position: fixed;
+	z-index: 50;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.main {
+	width: 100%;
+	transition: all 0.35s ease-in;
+}
+
+@media screen and (max-width:870px) {
+	.main>.nav-laptop {
+		position: static;
+		display: none;
+	}
+}
+
+.nav-height {
+	height: 3.15em;
+	background-color: white;
+}
+
+/**/
+
+.nav-laptop {
+	display: inline-block;
+}
+
+.text-place {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.block {
+	padding: 1% 0 0.1% 0;
+}
+
+.article-1 {
+	margin: 0 2.2% 2% 2.2%;
+}
+
+#content {
+	padding: 0 20% 0 20%;
+}
+
+@media screen and (max-width:1000px) {
+	#content {
+		padding: 0;
+	}
+	
+}
+
+.container1 {
+	display: flex;
+	flex-wrap: wrap;
+	clear: both;
+	padding: 1% 0 1% 2.5%;
+	margin: 0;
+	text-align: justify;
+}
+
+.container1:before,
+.container1:after {
+	content: "";
+	display: table;
+}
+
+.container1:after {
+	clear: both;
+}
+
+.container1 {
+	zoom: 1;
+	/* For IE 6/7 */
+}
+
+/*placement des bloc de grille*/
+
+*[class^="span-"] {
+	margin: 0.5%;
+	position: relative;
+}
+
+.span-form {
+	padding: 1%;
+}
+
+.span-10 {
+	width: 96.41%;
+}
+
+.span-9 {
+	width: 89.53%;
+}
+
+.span-8 {
+	width: 79.06%;
+}
+
+.span-7 {
+	width: 68.59%;
+}
+
+.span-6 {
+	width: 58.12%;
+}
+
+.span-5 {
+	width: 47.65%;
+}
+
+.span-4 {
+	width: 37.18%;
+}
+
+.span-3 {
+	width: 26.71%;
+}
+
+.span-2 {
+	width: 16.24%;
+}
+
+.span-1 {
+	width: 5.77%;
+}
+
+/*2-col system for responsives designs*/
+
+.two-col {
+	width: auto;
+}
+
+/*flexbox settings*/
+
+/*agit comme container mais effet sur le placement des grids*/
+
+.flex-b {
+	display: flex;
+	justify-content: space-between;
+}
+
+.flex-c {
+	display: flex;
+	justify-content: center;
+}
+
+/*gutters*/
+
+/*bottom*/
+
+.gutter {
+	margin-bottom: 2% !important;
+}
+
+/*right*/
+
+.gutter-r {
+	margin-right: 2% !important;
+}
+
+.gutter-l {
+	margin-left: 2% !important;
+}
+
+@media only screen and (max-width: 900px) {
+	*[class^="span-"] {
+		width: 100%;
+	}
+	.block {
+		margin: 0 15% 0 15%;
+	}
+	.img-in,
+	.col-in {
+		width: 100%;
+	}
+	.col-in {
+		padding-bottom: 1em;
+	}
+	.img-in {
+		order: 1;
+	}
+
+}
+
+@media only screen and (max-width: 690px) {
+	.gutter-r {
+		margin-right: 1% !important;
+	}
+	.gutter-l {
+		margin-left: 1% !important;
+	}
+
+	/*  GO FULL WIDTH AT LESS THAN 800 PIXELS */
+	*[class^="span-"] {
+		margin: 2% 0 5% 0;
+	}
+	.block {
+		margin: 0 2% 0 2%;
+	}
+	.span-10,
+	.span-9,
+	.span-8,
+	.span-7,
+	.span-6,
+	.span-5,
+	.span-4,
+	.span-3,
+	.span-2,
+	.span-1 {
+		width: 100%;
+	}
+	.nav-height {
+		height: 2.8em;
+	}
+}
+
+.no-pad {
+	padding: 0 !important;
+}
+
+/*responsive logo moving*/
+
+@media screen and (max-width:870px) {
+	.mobile-logo {
+		display: inline-block;
+		font-size: 23pt;
+		right: 42%;
+		top: 0.5em;
+		position: absolute;
+	}
+}
+
+@media screen and (max-width:650px) {
+	.mobile-logo {
+		display: inline-block;
+		font-size: 23pt;
+		right: 37%;
+		top: 0.5em;
+		position: absolute;
+	}
+}
+
+@media screen and (max-width:450px) {
+	.mobile-logo {
+		display: inline-block;
+		font-size: 23pt;
+		right: 32%;
+		top: 0.5em;
+		position: absolute;
+	}
+}
+
+/*sizing for blocks elements*/
+
+.w80 {
+	width: 80%;
+}
+
+.w60 {
+	width: 60%;
+}
+
+.w40 {
+	width: 40%
+}
+
+.w30 {
+	width: 30%;
+}
+
+.w20 {
+	width: 20%
+}
+
+.w15 {
+	width: 15%;
+}
+
+.w10 {
+	width: 10%
+}
+
+
+/*3 col footer responsive*/
+@media screen and (max-width:850px) {
+	footer .span-2 {
+		width: 50%;
+		margin-bottom: 5%;
+	}
+	.blank{
+		height:0;
+		margin:0;
+	}
+}
+@media screen and (max-width:850px) {
+	footer div:nth-child(1) {
+		width: 100% !important;
+	}
+    
+}
+
+
+
+/*php generated codes css*/
+
+.bloc-php h3:nth-child(1){
+	display: block !important;
+	padding:0.4em 0 0.4em 0; 
+}
+
+.bloc-php{
+	justify-content:space-between;
+	flex-wrap:wrap;
+}
+
+.bloc-php .span-10{
+	width:100% !important;
+}
+.bloc-php .span-5{
+	margin:2% auto;
+	padding:0.8em;
+	width:48.5%;
+	transition: 0.5s;
+}
+
+@media only screen and (max-width:900px){
+	.bloc-php .resto-gen{
+	width:97%;
+	display: block;
+	margin:0 auto;
+	text-align: center;
+}
+}
+
+
+
+
+/*============HOST FIX OVERLAY====================*/
+
+
+body > div:last-child img{
+	display:none;
+	opacity:0;
+	height:0;
+}

@@ -1,0 +1,69 @@
+{
+  "name": "normalize.css",
+  "version": "8.0.0",
+  "description": "A modern alternative to CSS resets",
+  "main": "normalize.css",
+  "style": "normalize.css",
+  "files": [
+    "LICENSE.md",
+    "normalize.css"
+  ],
+  "devDependencies": {
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0"
+  },
+  "scripts": {
+    "test": "stylelint normalize.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/necolas/normalize.css.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/necolas/normalize.css/issues"
+  },
+  "homepage": "https://necolas.github.io/normalize.css",
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "font-family-no-duplicate-names": [
+        true,
+        {
+          "ignoreFontFamilyNames": [
+            "monospace"
+          ]
+        }
+      ]
+    }
+  },
+  "gitHead": "4ab3de5bdd26b161c3c82a5a2f72df3e57a8e4bf",
+  "_id": "normalize.css@8.0.0",
+  "_npmVersion": "5.5.1",
+  "_nodeVersion": "8.9.1",
+  "_npmUser": {
+    "name": "necolas",
+    "email": "nicolasgallagher@gmail.com"
+  },
+  "maintainers": [
+    {
+      "email": "nicolasgallagher@gmail.com",
+      "name": "necolas"
+    }
+  ],
+  "dist": {
+    "integrity": "sha512-iXcbM3NWr0XkNyfiSBsoPezi+0V92P9nj84yVV1/UZxRUrGczgX/X91KMAGM0omWLY2+2Q1gKD/XRn4gQRDB2A==",
+    "shasum": "14ac5e461612538a4ce9be90a7da23f86e718493",
+    "tarball": "https://registry.npmjs.org/normalize.css/-/normalize.css-8.0.0.tgz",
+    "fileCount": 5,
+    "unpackedSize": 16646
+  },
+  "directories": {},
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/normalize.css_8.0.0_1518134426669_0.9000979508673246"
+  },
+  "_shasum": "14ac5e461612538a4ce9be90a7da23f86e718493",
+  "_resolved": "https://registry.npmjs.org/normalize.css/-/normalize.css-8.0.0.tgz",
+  "_from": "normalize.css@*"
+}

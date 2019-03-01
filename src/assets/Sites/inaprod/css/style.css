@@ -1,0 +1,451 @@
+body {
+	height: 100vh;
+	margin:0;
+	overflow-x:hidden;
+}
+/*definition du dedign du logo*/
+.logo{
+	font:normal 20pt "Champagne Limousines";
+	color:#1D0078;
+	transition: 0.2s;
+}
+.logo:hover{
+	text-shadow:0 0 1px #7777;
+	transform:scale(1.005);
+}
+/*parametre global des contenus dans les bloc*/
+.fix-height{
+	height:31.01em;
+}
+.bloc article{
+	height:34em;
+}
+
+/*couleur des blocs principaux*/
+#art-1 .art1{
+	background-color:#EF84E9;
+}
+
+#art-1 .art2{
+	background-color:#53A1F9;
+}
+
+/*bloc 1 */
+.bloc p{
+	padding:1em 2em 1em 0;
+	margin:4em auto 0 auto;
+	width:80%;
+}
+.bloc h2{
+	margin-top:2.3em;
+	padding-right:1em;
+}
+@media only screen and (max-width: 800px){
+	.bloc h2{
+		margin-top:1em;
+		padding-right:0.7em;
+	}
+	.bloc p{
+		padding:1.7em 2em 1.7em 0;
+		margin:1.7em auto 0 auto;
+		width:90%;
+		text-align:center !important;
+	}
+}
+#links{
+	margin:4em 0 0 ;
+}
+#art-1 a, .contact-decouvrir a{
+	display: block;
+	border:3px solid #7B8186;
+	padding:0.9em;
+	display: block;
+	width:80%;
+	border-radius:6px;
+	background:transparent;
+	color:#7B8186;
+	margin:0 2em 0 2em;
+	text-transform: uppercase;
+	transition: background 0.5s linear, color 0.2s ease;
+}
+#art-1 a:hover,.contact-decouvrir a:hover {
+	background:linear-gradient(#7B8186,#7B8186);
+	color:white;
+}
+@media only screen and (max-width: 1000px){
+	#links{
+		margin:1em 0 0;
+	}
+	#art-1 a{
+		width:90%;
+		margin:0 auto 1em auto;
+	}
+}
+
+
+.bloc:nth-child(1){
+	background: #E3E3E3;
+	color:#7B8186;
+}
+.bloc:nth-child(2){
+	color:#34404E;
+}
+.camera-logo{
+	position: relative;
+	top:16px;
+	width:520px;
+	fill:#53A1F9;
+}
+@media only screen and (max-width:1000px){
+	.camera-logo{
+		width:270px;
+		top:6.8em;
+	}
+	.bloc:nth-child(1) h2{
+		margin-top:2.2em;
+		padding:0;
+	}
+}
+@media only screen and (max-width:800px){
+	.camera-logo{
+		width:420px;
+		top:6.5em;
+	}
+}
+@media only screen and (max-width:480px){
+	.camera-logo{
+		width:290px;
+		top:5.6em;
+	}
+}
+#art-1{
+	height:auto;
+}
+/*fin du premier bloc de contenu*/
+
+.hover-panel h1{
+	padding-top: 14%;
+}
+
+
+
+.hover-panel p{
+	margin:0 auto;
+	padding:0;
+	width:90%;
+}
+.competences > article{
+	display:block;
+	height:15.7em;
+	cursor:pointer;
+}
+.competences > article:nth-child(1){
+	background:url('../image/svg/assembly.svg') 42% 60% no-repeat;
+	background-size:42%;
+}
+.competences > article:nth-child(2){
+	background:url('../image/svg/creative.svg') 42% 60% no-repeat;
+	background-size:42%;
+}
+.competences > article:nth-child(3){
+	background:url('../image/svg/peoplelink.svg') 42% 60% no-repeat;
+	background-size:42%;
+}
+.competences > article:nth-child(4){
+	background:url('../image/svg/customer.svg') 42% 60% no-repeat;
+	background-size:42%;
+}
+
+@media only screen and (max-width:776px){
+	#art-1 .art2 {
+		height: auto;
+	}
+	.competences > article>.comp-show{
+		opacity:1;
+		padding:10% 8%;
+		width:90%;
+		height:97%;
+		margin:0.8em auto 0.5em auto;
+	}
+}
+.competences .comp-show{
+	opacity:0;
+	margin: 1em auto 0.3em auto;
+	padding:19% 10%;
+	width:90%;
+	height:90%;
+	background: RGBa(255,255,255,0.86);
+	border-radius:8px;
+	box-shadow:0 0 1px 2px RGBa(0,0,0,0.08);
+	transition:all 0.2s linear;
+	color:#7B7A7E;
+	cursor:pointer;
+}
+.competences article:hover .comp-show{
+	opacity:1;
+	cursor:pointer;
+}
+.competences strong{
+	margin:8px 0;
+}
+.competences br{
+	height:1em;
+	display: block;
+}
+/*setting section*/
+
+/*services page css*/
+#cat-1{
+	background:#99EAEA;
+	height:34em;
+}
+@media only screen and (max-width:800px) {
+	#cat-1 p{
+		padding:3em;
+	}
+}
+#cat-2{
+	background: #D84B4B;
+}
+
+#cat-1 .services-logo{
+	text-align:center;
+}
+#cat-1 .fa-customer::before{
+	font-size:100pt;
+	color:#7B7A7E !important;
+	margin:0 auto;
+}
+
+
+/*bloc 2*/
+.flexslider{
+	height:100%;
+	background:none !important;
+	border:none !important;
+}
+.flex-control-nav{
+	bottom:20px !important;
+}
+.slides{
+	color:#dadada;
+}
+.slides h1{
+	padding-top:3em;
+}
+.slides p{
+	margin: 1.6em auto;
+	padding:0.4em 4%;
+	width:100%;
+}
+@media only screen and (max-width:1200px) {
+	.slides p{
+		margin:0em;
+		padding:1em !important;
+	}
+	.slides h1{
+		padding-top:1em;
+		margin:1em 0 1em 0;
+	}
+}
+@media only screen and (max-width:500px) {
+	#cat-1 .services-logo{
+		margin-bottom:8em; 
+	}
+	#cat-1 p{
+		width:100%;
+		padding:0;
+		margin:2em auto;
+	}
+}
+/*end*/
+
+/*tous les services*/
+.parallax { 
+	/* The image used */
+	background-image: url("../image/photos/camera-pic.jpg");
+
+	/* Set a specific height */
+	height: auto; 
+
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+} 
+
+.item, .isotope-button{
+	background: RGBa(255,255,255,0.8);
+	border-radius:9px;
+	margin:1.7em 0;
+	box-shadow: 0 0 4px 7px RGBa(10,10,10,0.04);
+}
+.isotope-button button{
+	padding:0.4em 0.5em;
+	margin:0 0.2em;
+	background:none ;
+	border-radius:10px;
+	border:2.5px solid #7B8186;
+	outline:none;
+	overflow: hidden;
+	cursor: pointer;
+	color:#7B8186;
+	transition:0.3s;
+}
+.isotope-button button:hover ,.isotope-button button:focus, .is-checked {
+	background:linear-gradient(#7B8186,#7B8186);
+	color:white;
+}
+.isotope-button p {
+	margin:0;
+	padding:2em 0;
+}
+.parallax p{
+	margin:1em auto;
+	width:80%;
+}
+
+.parallax h1{
+	padding-top: 1em;
+}
+/*unite galerry page projets*/
+/*equipe*/
+
+#equipe .bloc article{
+	height:auto;
+}
+#equipe .bloc:nth-child(1){
+	background: #EBEDEF;
+	height:auto !important;
+} 
+#art-equipe img{
+	max-width: 100%;
+	max-height: 160px;
+	border-radius: 50%;
+}
+#art-equipe h1{
+	color:#21618C;
+}
+#art-equipe span{
+	padding:12px 0 0 0;
+	display: block;
+	color:#B3B6B7;
+	
+}
+#art-equipe div{
+    background: #fafafa;
+    border-radius: 9px;
+    margin:1.3em 0;
+}
+#art-equipe ul{
+	list-style:circle;
+	padding:1.2em 2em;
+}
+#art-equipe ul li{
+	padding:11px 0;
+}
+
+/*projets*/
+#art-projets h2{
+	padding:2.3em 0;
+	margin:0;
+}
+
+
+/*footer*/
+footer .bloc{
+	background:linear-gradient(90deg,RGBa(255, 216, 94,0.95),RGBa(255, 179, 94,0.95) )!important;
+}
+.footer-logo img{
+	margin-top:4em;
+}
+.social-logo>li{
+	display: inline-block;
+	margin:2em auto;
+	padding:0 2em;
+}
+
+.fa-youtube::before,.fa-facebook::before,.fa-instagram::before,.fa-email:before{
+	font-size:38pt;
+	color:#383838;
+	transition:all 0.2s linear;
+}
+.fa-facebook:hover::before{
+	color:#345FF0;
+}
+.fa-youtube:hover::before{
+	color:#DC2A2A;
+}
+.fa-instagram:hover::before{
+	color:#AB34F0;
+}
+.fa-email:hover::before{
+	color:#26C894;
+}
+
+footer span{
+	display: block;
+	padding:1em 0;
+	margin:0 auto;
+	transition: 0.2s;
+}
+footer span a:hover{
+	color:#4E8BCD;
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/*custom flexsider size*/
+.flex-control-paging li a {
+	width: 15px !important;
+	height: 15px !important;
+	display: block;
+	transition: 0.3s;
+}
+
+
+
+
+/*custom tooltip jquery ui css*/
+
+.ui-tooltip, .arrow:after {
+	position:absolute;
+	background: RGBa(255,255,255,0.9);
+}
+.ui-tooltip {
+	position:absolute;
+	top:-25px;
+	right:0;
+	margin-right:10px;
+	padding: 8px;
+	width:17%;
+	border:none !important;
+	color: #99A1A8 !important;
+	border-radius: 5px !important;
+	font:normal 13pt 'Nunito Sans' !important;
+	font-weight:300;
+	box-shadow: 0 0 1px 2px RGBa(177,177,177,0.21) !important;
+	z-index:4;
+}
+footer .ui-tooltip{
+	margin-bottom:4em;
+}
+@media only screen and (max-width: 800px){
+	.ui-tooltip{
+		width:70%;
+		margin:0 auto;
+	}
+}
+@media only screen and (max-width: 600px){
+	.ui-tooltip{
+		width:90%;
+		margin:0 auto;
+	}
+}

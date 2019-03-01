@@ -1,11 +1,11 @@
 exports.pages = function (env, folder = '') {
-  const rootPagesFolderName = 'pages'
-  const HtmlWebpackPlugin = require('html-webpack-plugin')
-  const fs = require('fs')
-  const path = require('path')
-  const viewsFolder = path.resolve(__dirname, `../src/views/${rootPagesFolderName}/${folder}`)
+  const rootPagesFolderName = 'pages';
+  const HtmlWebpackPlugin = require('html-webpack-plugin');
+  const fs = require('fs');
+  const path = require('path');
+  const viewsFolder = path.resolve(__dirname, `../src/views/${rootPagesFolderName}/${folder}`);
 
-  var pages = []
+  var pages = [];
 
   fs.readdirSync(viewsFolder).forEach(view => {
     if (view.split('.')[1] === undefined)
@@ -28,7 +28,7 @@ exports.pages = function (env, folder = '') {
     }
 
     pages.push(new HtmlWebpackPlugin(options));
-  })
+  });
 
   return pages;
 }

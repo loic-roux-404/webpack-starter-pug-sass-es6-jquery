@@ -1,0 +1,184 @@
+/* The widget adds some styling that needs to be computed at run-time (min-height of scroller
+ * content so that pull-up will be hidden, and scroller margin transferred from wrapper padding.)
+ * All styles that are added staticly are added through this stylesheet, for maximum flexibility
+ *
+ * The widget adds these styles to page elements when it is constructed, and removes them when
+ * it is destroyed. The styling itself is added by this style sheet. So, any styles added here
+ * will be removed when the widget is destroyed. (For example, if you call "destroy" on the widget.)
+ */
+
+/* The iscroll-page style is added to the page when the first iscrollview widget is created
+ * on the page, and removed when the last iscrollview widget on the page is destroyed.
+ */
+.iscroll-page {
+  /* Add any styles that you want on pages that use iScroll */
+}
+
+/* The wrapper is the element that contains the scroller. In the most typical usage, this
+ * is .ui-content, but could be any element. */
+.iscroll-wrapper {
+    min-height:    0;  /* Override any min-height, for example, in case a background image is
+                          used on ui-content div used as wrapper. */
+    
+    /* The wrapper needs to be positioned relative or absolute for proper positioning of the 
+       scrollbar with iscroll4 default styling of the scrollbar. Either relative or absolute on the 
+       wrapper will cause the absolute positioning  of the scrollbar in iScroll to be relative to 
+       the wrapper. */ 
+    position: relative;   
+  
+    /* iScroll examples all show the z-index of the wrapper raised to 1 (default is 0). There may
+       be an issue related to touch/click that this solves on specific platforms or depending on 
+       the ordering of elements in the HTML source if elements are fixed positioned. 
+       This would make sure that the wrapper sees click before underlying content. '
+       
+       Howver, raising the wrapper Z-index creates a serious problem on page transitions on
+       iPhone, so I don't use it here. */ 
+                    
+}
+
+/* The scroller is the element that contains the elements that are scrolled. The height of this
+ * element is typically longer than the wrapper. (It's the stuff that we scroll.) The widget
+ * creates this element for you. It wraps all of the children of the wrapper.
+ */
+.iscroll-scroller {
+  /* Add any styles that you want to add to scrollers */
+}
+
+/* The "fixed" elements are the elements that are outside of the wrapper. The widget will
+ * set headers and footers to this style, as well as any element that has a data-iscroll-fixed
+ * attribute. The widget adds-up the height of these elements when it sizes the wrapper.
+ */
+.iscroll-fixed {
+  /* One often sees headers/footers/etc. raised to a z-index of 1000 in iScroll examples. This
+     is probably because the scroll bar has been mis-placed, and raising the z-index of the
+     header/footer masks the problem. I don't do it here. */
+     
+  /* Add any styles that you want to add to fixed elements */
+}
+
+/* iscroll-content is the content that is scrolled - NOT including any pull-down and pull-up
+ * element, and also not including a special placeholder element used when there is a pull-up.
+ */
+.iscroll-content {
+  /* Add any styles that you want to add to iscroll content */
+}
+
+
+/* Note on scrollbar styles: iscroll4 adds inline CSS to the scrollbar when it creates it.
+   It sets the z-index to 100 and positions it relative to the wrapper, at the right edge of
+   the wrapper. If you want to override this behaviour, set the scrollBarClass option, and then
+   style that class as you please */
+
+/* See jquery.mobile.iscroll-pulldown.css for styling of pull-down and pull-up elements */
+
+/*******************************************
+ Default Pull-up and Pull-down styling 
+ Replace/modify/override to your preferences  
+*******************************************/
+.iscroll-pullup {
+    /* The wrapper is position:relative or position:absolute, so the pullUp is positioned here 
+       relative to the scroller, not the page. If we don't do this, the pullUp will initially 
+       appear briefly at the bottom of content if content is shorter than the wrapper. 
+    */
+    position: absolute;    /* relative to the scroller */
+    bottom:   0;           /* at the bottom of the scroller */
+    width:    100%;
+}
+
+.iscroll-pulldown,
+.iscroll-pullup {
+  background: #fff;
+  height: 40px;
+  line-height: 40px;    /* Center text vertically */
+  font-weight: bold;
+  font-size: 14px;
+  color: #888;
+}
+
+
+/* MSIE not supported by iScroll, so not MSIE transitions or animation  */
+.iscroll-pulldown .iscroll-pull-icon,
+.iscroll-pullup .iscroll-pull-icon  {
+  margin-left: 0.5em;
+  display: block; 
+  float: left;
+  width: 40px; 
+  height: 40px;
+  background: url(iscroll-pull-icon@2x.png) 0 0 no-repeat;
+  -webkit-background-size: 40px 80px;
+  -moz-background-size: 40px 80px;
+  -o-background-size: 40px 80px; 
+  background-size: 40px 80px;
+  -webkit-transition: -webkit-transform 250ms linear;
+  -moz-transition: -moz-transform 250ms linear;  
+  -o-transition: -o-transform 250ms linear;   
+  transition: transform 250ms linear;   
+}
+
+/* Note that translateZ(0) triggers hardware acceleration on WebKit browsers 
+   Acceleration is automatic on Mozilla */
+
+.iscroll-pulldown .iscroll-pull-icon {
+  -webkit-transform: rotate(0deg) translateZ(0);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);  
+  transform: rotate(0deg) translateZ(0);      
+}
+
+.iscroll-pullup .iscroll-pull-icon  {
+  -webkit-transform: rotate(-180deg) translateZ(0);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);  
+  transform: rotate(-180deg) translateZ(0);  
+}
+
+.iscroll-pulldown.iscroll-pull-pulled .iscroll-pull-icon {
+  -webkit-transform: rotate(-180deg) translateZ(0);
+  -moz-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);  
+  transform: rotate(-180deg) translateZ(0);  
+}
+
+.iscroll-pullup.iscroll-pull-pulled .iscroll-pull-icon {
+  -webkit-transform: rotate(0deg) translateZ(0);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg); 
+  transform: rotate(0deg) translateZ(0);  
+}
+
+.iscroll-pulldown.iscroll-pull-loading .iscroll-pull-icon,
+.iscroll-pullup.iscroll-pull-loading .iscroll-pull-icon {
+  background-position: 0 100%;
+  -webkit-transform: rotate(0deg) translateZ(0);
+  -webkit-transition-duration: 0ms;
+  -webkit-animation: iscroll-pull-loading 2s infinite linear;  
+  -moz-transform: rotate(0deg);
+  -moz-transition-duration: 0ms;
+  -moz-animation: iscroll-pull-loading 2s infinite linear;
+  -o-transform: rotate(0deg);
+  -o-transition-duration: 0ms;
+  -o-animation: iscroll-pull-loading 2s infinite linear;   /* Opera 12+ only */
+  transform: rotate(0deg) translateZ(0);
+  transition: transform 0ms linear;
+  animation: iscroll-pull-loading 2s infinite linear;        
+  }
+  
+@-webkit-keyframes iscroll-pull-loading {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes iscroll-pull-loading {
+  from { -moz-transform: rotate(0deg); }
+  to { -moz-transform: rotate(360deg); }
+}
+
+@-o-keyframes iscroll-pull-loading {
+  from { -o-transform: rotate(0deg); }
+  to { -o-transform: rotate(360deg); }
+}
+
+@-keyframes iscroll-pull-loading {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} 

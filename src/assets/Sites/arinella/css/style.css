@@ -1,0 +1,507 @@
+/*background design*/
+#main{
+	position:relative;
+	top:0;
+}
+body{
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.main-background{
+	background:url('../image/main-pics/background.png') !important;
+	background-attachment: fixed !important;
+	transition: all 0.5s linear;
+	overflow: visible;
+}
+/*========================*/
+/*=======MOBILE MENU========*/
+/*========================*/
+
+@media screen and (max-width:768px) {
+	
+
+	/*--------MOBILE FIRST-------*/
+	/*======BUTTON========*/
+
+	#header nav .menu{
+		display: none;
+	}
+	#header #mob{
+		background:transparent;
+		width:46px;
+		height:42px;
+		display: inline-block;
+		border:2px solid #8888;
+		float:right;
+		padding:.432em .37em .3em;
+		margin:0.55em 1.2em !important;
+		cursor:pointer;
+		outline:none;
+		transition:all 0.5s ease;
+	}
+	#header #mob span{
+		height: 2px;
+		width: 27.5px;
+		display:block;
+		background:#8888;
+		margin-bottom:0.37em;
+		transition:all 0.2s ease;
+	}
+
+	#header #mob.active-menu {
+		padding:.38em .37em .3em;
+	}
+	#header #mob:hover,
+	#header #mob.active-menu{
+		border:2px solid #2a2a2A;
+	}
+	#header #mob:hover span,
+	#header #mob.active-menu span{
+		background:#2a2a2A;
+	}
+	#header #mob.active-menu span:nth-child(1){
+		display: none;
+	}
+	#header #mob.active-menu span:nth-child(2){
+		transform:rotate(135deg);
+		transform-origin:12px 5px ; 
+
+	}
+	#header #mob.active-menu span:nth-child(3){
+		transform:rotate(45deg);
+		transform-origin:15.7px -0.3px ; 
+	}
+
+	#header #mob.active-menu:hover{
+		border:2px solid #8888;
+	}
+	#header #mob.active-menu:hover span{
+		background:#8888;
+	}
+	/*===logo caption==*/
+	#mob-text{
+		display:block;
+		width:5em;
+		float:left;
+		line-height: 1.9;
+		padding-left:3%;
+		color:#2a2a2A;
+		text-transform: uppercase;
+	}
+
+	/*======MENU========*/
+	.menu{
+		position:fixed;
+		top:0;
+		left:0;
+		width:100%;
+		z-index:99;
+		background: RGba(255,255,255,0.94);
+	}
+	.menu a:nth-child(1){
+		margin-top:-0.1em;
+	}
+	.menu a{
+		float:none !important;
+		display: block;
+		padding:1.15em 0 1.15em 1em !important;
+		width:100%;
+		text-align:justify;
+		font-weight:600;
+		font-family: "IBM Plex Sans";
+		font-size:2.59rem;
+		text-transform:uppercase;
+		border-width: 0;
+		/*effect links*/
+		-webkit-transform: translateX(-150px);
+		transform: translateX(-150px);
+		-webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+		transition: color 0.4s ,transform 0.4s, opacity 0.4s;
+		position: static;
+	}
+	/*-----links transition delay---*/
+	.menu a:nth-child(1){
+		-webkit-transition-delay: 0.12s;
+		transition-delay: 0.12s;
+	}
+	.menu a:nth-child(2){
+		-webkit-transition-delay: 0.08s;
+		transition-delay: 0.08s;
+	}
+	.menu a:nth-child(3){
+		-webkit-transition-delay: 0.04s;
+		transition-delay: 0.04s;
+	}
+	.menu a:nth-child(4){
+		-webkit-transition-delay: 0.02s;
+		transition-delay: 0.02s;
+	}
+	.menu a:nth-child(5){
+		-webkit-transition-delay: 0.01s;
+		transition-delay: 0.01s ;
+	}
+
+	/*class added in js to animate*/
+	.animate-link{
+		-webkit-transform: translateX(0px) !important;
+		transform: translateX(0px) !important;
+	}
+
+	/*background when menu active*/
+	.menu a:hover{
+		background:RGba(255,255,255,0.98);;
+		box-shadow: 0 0 2px 2px rgba(170,170,170,0.04)
+	}
+
+	.active-menu{
+		position: fixed;
+		z-index:100;
+		right:2.7%;
+	}
+	/*active reserver menu link a*/
+	.home-hided{
+		display: block;
+	}
+	.toggle-overflow{
+		overflow: hidden;
+	}
+}
+/*-----laptop tablet mode----*/
+
+@media screen and (min-width:768px){
+	.menu{
+		display: block !important;
+	}
+	#header #mob{
+		display: none;
+	}
+	#mob-text{
+		display: none;
+	}
+}
+
+
+/*========================*/
+/*=======body setting of main index page========*/
+/*========================*/
+.index{
+	overflow: hidden !important;
+}
+@media screen and (min-width:768px){
+	.index .flexslider .flex-prev,
+	.index .flexslider .flex-next,
+	#reservation-button{
+		display: initial !important;
+	}
+}
+/*index.php*/
+.index #header{
+	position:absolute;
+	width:95%;
+	background:RGBa(255,255,255,0.82);
+	box-shadow: 0 2px 7px 0.8px RGBa(0,0,0,0.05);
+	z-index:1;
+	padding:0.3em 0;
+}
+.logo-spacing{
+	width:80px;
+	display: block;
+	float:left;
+}
+#header nav{
+	position: relative;
+}
+#header a, .logo{
+	float:left;
+}
+
+/*hover effect*/
+#header .logo{
+	margin:0.1em 1.2em 0 1em;
+	padding:0;
+	background:none !important;
+	height:55px;
+	width:75px;
+}
+#header a{
+	padding:0.95em 0.7em;
+	display: block;
+}
+#header::after{
+	clear:both;
+}
+/*content*/
+/*background slideshow*/
+
+/*main theme classes*/
+#container{
+	width:95%;
+	padding:3.4em 0;
+	margin:0 auto;
+}
+
+/*--------------------*/
+/*----------a propos*----------*/
+/*--------------------*/
+
+#header{
+	position: relative;
+	margin:0 auto;
+	top:1.2em;
+	left:0;
+	right:0;
+	height:3.7em;
+	background:#fff;
+	width:95%;
+	box-shadow: 0 2px 7px 0.8px RGBa(0,0,0,0.05);
+	padding:0.3em 0;
+}
+/*preset for content bloc*/
+.bloc{
+	background:#fff; 
+	box-shadow: 0 2px 7px 0.8px RGBa(0,0,0,0.05);
+}
+.gutter-2em{
+	margin-right:2em;
+}
+.gutter-top{
+	margin-top:2em;
+}
+@media screen and (max-width: 991px) {
+	.gutter-2em{
+		margin-right:0;
+		margin-bottom:2em;
+	}
+}
+/*presentation bloc*/
+/*titre setting*/
+#section-1 [class^="col-lg"]{
+	padding: 0;
+	margin:0;
+}
+#little-description #a-propos-background{
+	background:url('../image/index-slider/villa-0.png');
+	background-position:-10% 50% ;
+	box-shadow: 0 -5px 10px 3px rgba(100,100,100,0.08) inset;
+	padding:16%;
+	background-repeat: no-repeat;
+	background-size:100%;
+}
+@media (max-width:768px){
+	#little-description #a-propos-background{
+		background-size:130%;
+		background-position:10% 30% ;
+	}
+}
+@media (max-width:576px){
+	#little-description #a-propos-background{
+		background-size:130%;
+		background-attachment: scroll;
+		background-position:10% 42% ;
+	}
+}
+/*little description*/
+#little-description h2{
+	display: block;
+	text-shadow: 0 0 7px RGBa(120,120,120,0.56);
+	color:#F99E48;
+	padding:4% 0 0;
+}
+#little-description p{
+	padding:1% 7% 6% 7%;
+	color:#566573;
+}
+#little-description p>span{
+	color:#1C2833;
+}
+/*description lists with buttons settings*/
+#lists h2{
+	padding:2em 0 0.5em 0;
+}
+#lists{
+	padding:0 0 3em 0;
+}
+
+
+
+/*---a propos aside map fix---*/
+iframe{
+	appearance:none;
+	moz-appearance:none;
+	overflow: hidden;
+	border:none;
+}
+#map-bloc {
+	position: relative;
+	width:100%;
+	height: 24em;
+	max-height: 24.1em;
+}
+#map-bloc iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+/*end iframe fix*/
+/*--aside bloc info--*/
+#aside-links{
+	color:#616161;
+}
+#aside-links h2{
+	color:#1C2833;
+}
+#aside-links .sm-title-2{
+	width:70%;
+	margin:0 auto !important;
+}
+#aside-links .sm-title-2:last-child{
+	padding:1.1em 0 2.3em 0;
+}
+#aside-links a .fa-next::before{
+	color:#616161;
+	font-size:10pt;
+	margin-left:7px;
+}
+/*-----------------------*/
+/*----------photos page-------------*/
+/*-----------------------*/
+#exterieur,#interieur{
+	padding:3% 0;
+}
+
+.photos .buttons button{
+	padding:1.9% 12%;
+	margin:1em auto;
+	display: flex;
+	flex-wrap: nowrap;
+}
+.photos .buttons span{
+	display: inline-block;
+	font-size: 15pt;
+}
+.photos .buttons button::before{
+	display: inline-block;
+	font-size:1.5rem;
+	line-height: 0 !important;
+	padding-top: 10%;
+}
+@media screen and (max-width: 600px) {
+	.photos .buttons span{
+		font-size: 12pt;
+		display: inline-block;
+	}
+	.photos .buttons button::before{
+		display: none;
+	}
+	.photos .buttons button{
+
+		padding:0.89em 2.7em;
+		margin:1em auto;
+	}
+}
+/*-----------------------*/
+/*----------photos.php------------*/
+/*-----------------------*/
+/*-- UNite gallery personnalisation--*/
+
+.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom {
+	background:none !important;
+
+}
+.ug-thumb-wrapper.ug-tile .ug-tile-icon.ug-icon-zoom::before{
+	font-family: 'arinella';
+	content: '\e988';
+	font-size:2rem;
+	color:#fff;
+}
+
+@media screen and (max-width: 768px) {
+	#gallery-int img,
+	#gallery-ext img
+	{
+		width:100% !important;
+		display: block;
+	}
+}
+
+
+/*-----------------------*/
+/*----------footer-------------*/
+/*-----------------------*/
+
+footer{
+	margin-top:2em;
+}
+/*contact section*/
+footer .contact-icon{
+	padding-top:0.8em;
+}
+footer .fa-contact{
+	font-size:3.2em;
+	
+}
+@media screen and (max-width:798px ) {
+	#rights{
+		padding:1.4em 0 0.9em;
+	}
+	#contact .contact-icon{
+		display: block;
+		float:right;
+		padding:1em  0 !important;
+	}
+	#contact .contact-infos{
+		display: block;
+		float:right;
+		padding:1em 0 !important;
+		text-align:center;
+	}
+}
+
+@media screen and (max-width:576px ) {
+	#contact .contact-icon{
+		
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 10%;
+		flex: 0 0 10%;
+		max-width: 10%;
+	}
+	#contact .contact-infos{
+		
+		-webkit-box-flex: 0;
+		-ms-flex: 0 0 60%;
+		flex: 0 0 60%;
+		max-width: 60%;
+	}
+
+}
+
+
+/*php generated code css*/
+
+/*style balises*/
+/*responsoves img*/
+img {
+	height: auto;
+	width: 100%;
+}
+
+
+
+/*---lightbox setting used with js for php answer---*/
+
+
+#lightbox,
+#lightbox-rep{
+	display: none;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right:0;
+	z-index: 11;
+	width: 100%;
+	height: 100%;
+	background: RGBa(170,170,170,0.7);
+}

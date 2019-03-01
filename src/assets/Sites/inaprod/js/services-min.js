@@ -1,0 +1,1 @@
+$(document).ready(function(){var t=$("#container").isotope({filter:"*",getSortData:{price:".prix parseInt"},sortBy:[".prix",".name",".ranking"]});$("#filters").on("click","button",function(){var r=$(this).attr("data-filter");t.isotope({filter:r})}),$("#sorts").on("click","button",function(){var r=$(this).attr("data-sort-value");r=r.split(","),t.isotope({sortBy:r})})});

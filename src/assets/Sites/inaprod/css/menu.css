@@ -1,0 +1,240 @@
+/*initialisate menu navigation*/
+
+#main-nav {
+    position: relative;
+    width: 100%;
+    box-shadow: 0 0 2px -2px #000;
+    color: #fff;
+}
+
+
+/*fixed menu added in jquery*/
+
+.fixed {
+    z-index: 9999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: 0.5s;
+}
+
+.white-menu {
+    background: #fff;
+    box-shadow: 0 0 2px 2px RGBa(120, 120, 120, 0.2);
+}
+
+
+/*end of fixed menu css*/
+
+
+/*logo accueil*/
+
+@media only screen and (max-width:520px) {
+    a#home-logo {
+        visibility: visible;
+        font-size:18pt !important;
+    }
+}
+
+#home-logo {
+    visibility: hidden;
+    padding: 16px 0;
+    float: right;
+    transition: color 0.2s ease-in-out;
+}
+
+#home-logo:hover {
+    color: #4E8BCD;
+}
+
+.color-logo {
+    color: #686868;
+}
+
+
+/*fin des liens effets*/
+
+header nav {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+}
+
+#nav-margin {
+    margin: 0 1.2em 0 1.2em;
+}
+
+#main-nav nav li {
+    float: left;
+    position: relative;
+}
+
+#main-nav nav li a,
+.contact {
+    padding: 0 0.7em 0 0.7em;
+    display: block;
+    line-height: 2.99em;
+}
+
+
+/*link effect*/
+
+
+/* Effect 17: move up fade out, push border */
+
+.cl-effect-17 a,
+.active a {
+    text-shadow: none;
+    color: #4E8BCD;
+}
+
+.cl-effect-17 a::before,
+.active a::before {
+    color: #fff;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+}
+
+.cl-effect-17 a::after,
+.active a::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    bottom: 9px;
+    width: 76%;
+    height: 2px;
+    background: #4E8BCD;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: transform 0.35s, opacity 0.5s;
+    pointer-events: none;
+}
+
+.cl-effect-17 .equipe::after {
+    left: 14px !important;
+}
+
+
+.cl-effect-change a {
+    text-shadow: none;
+    color: #4E8BCD;
+    cursor: pointer;
+}
+
+.cl-effect-change a::before {
+    color: #686868;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    content: attr(data-hover);
+    position: absolute;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    pointer-events: none;
+}
+
+.cl-effect-change a::after {
+    content: '';
+    position: absolute;
+    left: 13px;
+    bottom: 9px;
+    width: 76%;
+    height: 2px;
+    background: #4E8BCD;
+    opacity: 0;
+    transform: translateY(5px);
+    transition: transform 0.35s, opacity 0.5s;
+}
+
+.cl-effect-17 a:hover::before,
+.cl-effect-17 a:focus::before,
+.cl-effect-change a:hover::after,
+.cl-effect-change a:focus::before {
+    opacity: 0;
+    -webkit-transform: translateY(-2px);
+    -moz-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.cl-effect-17 a:hover::after,
+.cl-effect-17 a:focus::after,
+.cl-effect-change a:hover::after,
+.cl-effect-change a:focus::after {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    transform: translateY(0px);
+}
+
+
+/*end effect*/
+
+#main-nav nav .logo {
+    float: left;
+    line-height: 2.1em;
+    margin: 0 2% 0 2%;
+}
+
+.contact {
+    float: right;
+    background: #0D80E1;
+    border-radius: 7px;
+    height: 1.92em;
+    line-height: 1.95em;
+    margin-top: 9.5px;
+    box-shadow: 0.5px 0 1px 1px RGBa(100, 100, 100, 0.2);
+    transition: box-shadow 0.5s linear, background 0.2s linear, border 0.2s linear;
+}
+
+.contact:hover {
+    background: #0E69DD;
+    box-shadow: 0.5px 0 2px 1px #5555;
+}
+
+.contact:focus {
+    border: 2px solid #3095F4;
+    line-height: 1.7em
+}
+
+
+/*mobile-menu admin*/
+
+@media only screen and (max-width:520px) {
+    nav a{
+        font-size:13pt !important;
+    }
+    .logo {
+        display: none;
+    }
+    .contact {
+        float: left;
+    }
+    #main-nav nav li a{
+        padding-top:0.17em !important;
+    }
+    #main-nav nav li a,
+    .contact {
+        padding: 0em 0.55em 0 0.55em;
+    }
+}
+
+
+
+
+
+/*jquery modded title box on hover*/
+
+.highlight {
+    transition: all 0.2s;
+    border-bottom: 2px solid #fff8a3;
+    position: absolute;
+    top: 0;
+    background: #fff8a3;
+    left: 0;
+    z-index: -1;
+    display: block;
+}

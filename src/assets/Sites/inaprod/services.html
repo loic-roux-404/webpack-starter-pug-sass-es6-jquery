@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Inaprod</title>
+	<link rel="favico" href="./image/favico.png">
+	<link rel="shortcut icon" href="./image/favico.png">
+	<link rel="stylesheet" href="./css/fonts.css">
+	<link rel="stylesheet" href="./css/menu.css">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/head.css">
+	<!--link normalize and bootstrap-->
+	<link rel="stylesheet" href="./res/normalize/normalize.css">
+	<link rel="stylesheet" href="./res/bootstrap/css/bootstrap-grid.css">
+	<!--plugin css-->
+	<link rel="stylesheet" href="./res/flexslider/flexslider.css">
+	<link rel="stylesheet" href="./res/aos/aos.css">
+	<!--  material icons add-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- Add jquery's library -->
+	<script src="./res/jquery-res/jquery/jquery-3.3.1.js"></script>
+	<script src="./res/jquery-res/jquery-ui/jquery-ui.js"></script>
+	<script src="./res/jquery-res/jquery-easing/jquery-easing.js"></script>
+	<!-- plugins with jquery -->
+	<script src="./res/isotope/isotope.js"></script>
+	<script src="./res/flexslider/jquery.flexslider.js"></script>
+	<script src="./res/aos/aos.js"></script>
+
+	<!--  my scripts-->
+	<script src="js/jquery.js"></script>
+	<script src="js/services.js"></script>
+</head>
+
+<body>
+	<header id="main-nav">
+		<nav>
+			<div id="nav-margin">
+				<a href="index.html" class="logo">INAPROD</a>
+				<ul class="comfortaa f15pt f300">
+					<li class="cl-effect-17"><a href="./services.html" data-hover="Services">Services</a></li>
+					<li class="cl-effect-17"><a href="./equipe.html" class="equipe" data-hover="L'équipe">L'équipe</a></li>
+				</ul>
+				<a href="./contact.html" class="contact nunito f16pt f300" title="Chercher le service pour lequel vous êtes intéressé et contactez nous">Contacter</a>
+				<a href="./index.html" class="material-icons md-26" id="home-logo">home</a>
+			</div>
+		</nav>
+		<article class="gradient ina-head">
+			<div class="title-head center poiret h-28pt">
+				<h1 class="champagne h-28pt">INAPROD</h1>
+				<p>Nos services</p>
+			</div>
+		</article>
+	</header>
+	<div class="fix-height"></div>
+	<section>
+		<article>
+			<div class="row">
+				<div class="col-sm-6 bloc" id="cat-1">
+					<div>
+						<p class="nunito h-26pt f300">Nos services les plus populaires</p>
+						<div class="services-logo center"><i class="fa-customer"></i></div>
+					</div>
+				</div>
+				<div class="col-sm-6 bloc">
+					<article class="row">
+						<div class="col-sm" id="cat-2">
+							<div class="flexslider" id="diapo">
+								<ul class="slides">
+									<li>
+										<h1 class="h-26pt comfortaa f300 center">Film d’entreprise</h1>
+										<p class="nunito f16pt">
+											Pour votre communication audiovisuelle, notre société de production vous accompagne sur toute la création graphique,
+											<br> le tournage vidéo, le montage vidéo, l’artistique et la diffusion en vue de toucher votre audience pour votre film d’entreprise.
+											<br>
+											<br> Nous présenterons toutes nos réalisations récentes sur le site.
+										</p>
+									</li>
+									<li>
+										<h1 class="h-26pt comfortaa f300 center">Captation d'événements</h1>
+										<p class=" nunito f16pt">
+											Le film événementiel est un film d’entreprise qui va accompagner
+											<br>la vie « événementielle » de l’entreprise, que ce soit sur des événements réguliers et programmés, ou des événements exceptionnels que vous vous devez de mémoriser.
+											<br>
+											<br> Notre agence audiovisuelle est à même de vous fournir tous les techniciens issus des métiers de l’audiovisuel pour la production de votre clip vidéo.
+										</p>
+									</li>
+									<li>
+										<h1 class="h-26pt comfortaa f300 center">Clips vidéo</h1>
+										<p class=" nunito f16pt">
+											Pour vos projets musicaux jusqu'a une bande annonce pour un projet divers. Vous ne voulez pas engager un gros projet comme une captation ou un film d'entreprise vous pouvez pour opter pour l'option du clip.
+											<br>
+											<br> Son prix etant accessible, vous pouvez beneficier de notre expertise pour une video courte permettant de transmettre le message selon vos exigences. le clip peut accompagner une bande annonce, une musique, des souvenirs de famille...
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+			<div class="col-12 bloc parallax">
+				<div class="row justify-content-around">
+					<div class="col-11 isotope-button">
+						<h2 class="rubik h-32pt f300 center">Tous nos services</h2>
+						<div id="filters" class="button-group" data-aos="fade-right">
+							<p class="center montserrat f300 f12pt">
+								<span class="nunito f16pt">Filtre : </span>
+								<button data-filter="*">Afficher tout</button>
+								<button data-filter=".divertissement">Divertissement</button>
+								<button data-filter=".famille">Famille</button>
+								<button data-filter=".entreprise">Entreprise</button>
+								<button data-filter=".musique">Musique</button>
+								<button data-filter=".pub">Publicité</button>
+								<button data-filter=".web">Vidéo web</button>
+							</p>
+						</div>
+						<div id="sorts" class="button-group left" data-aos="fade-right">
+							<p class="center montserrat f300 f12pt ">
+								<span class="nunito f16pt">Tri : </span>
+								<button class="button is-checked" data-sort-value="ranking">Par popularité</button>
+								<button class="button is-checked" data-sort-value="price">Par Prix</button>
+								<button class="button is-checked" data-sort-value="name">Par Nom</button>
+							</p>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="row justify-content-around" id="container">
+							<div class="item col-sm-5 famille divertissement pub web ranking1" data-aos="fade-right">
+								<h1 class="h-26pt comfortaa f300 center name">Captation d'événements</h1>
+								<p class="nunito f16pt">
+									Le film événementiel est un film d’entreprise qui va accompagner
+									<br>la vie « événementielle » de l’entreprise, que ce soit sur des événements réguliers et programmés, ou des événements exceptionnels que vous vous devez de mémoriser.
+									<br>
+									<br> Notre agence audiovisuelle est à même de vous fournir tous les techniciens issus des métiers de l’audiovisuel pour la production de votre clip vidéo.
+								</p>
+								<p><span class="prix">300</span>€</p>
+
+							</div>
+							<div class="item col-sm-5 publicité entreprise ranking2" data-aos="fade-left">
+								<h1 class="h-26pt comfortaa f300 center name"> Film d’entreprise</h1>
+								<p class="nunito f16pt">
+									Pour votre communication audiovisuelle, notre société de production vous accompagne sur toute la création graphique,
+									<br> le tournage vidéo, le montage vidéo, l’artistique et la diffusion en vue de toucher votre audience pour votre film d’entreprise.
+									<br>
+									<br> Nous présenterons toutes nos réalisations récentes sur le site.
+								</p>
+								<p><span class="prix">600</span>€</p>
+							</div>
+							<div class="item col-sm-5 pub famille entreprise musique ranking1" data-aos="fade-right">
+								<h1 class="h-26pt comfortaa f300 center name">Clips vidéo</h1>
+								<p class=" nunito f16pt">
+									Pour vos projets musicaux jusqu'a une bande annonce pour un projet divers. Vous ne voulez pas engager un gros projet comme une captation ou un film d'entreprise vous pouvez pour opter pour l'option du clip.
+									<br>
+									<br> Son prix etant accessible, vous pouvez beneficier de notre expertise pour une video courte permettant de transmettre le message selon vos exigences. le clip peut accompagner une bande annonce, une musique, des souvenirs de famille...
+								</p>
+								<p><span class="prix">170</span>€</p>
+							</div>
+							<div class="item col-sm-5 entreprise divertissement ranking3" data-aos="fade-left">
+								<h1 class="h-26pt comfortaa f300 center name">Mapping 3D</h1>
+								<p class="nunito f16pt">
+									Le mapping vidéo est une forme moderne de représentation créative, et certainement l’une des plus impactantes en terme de communication événementielle et publicitaire.
+									<br>
+									<br> La publicité avec des objets en relief étant interdite en France, le vidéo mapping est un atout incontournable pour la communication événementielle digitale.
+								</p>
+								<p><span class="prix">900</span>€</p>
+							</div>
+							<div class="item col-sm-5 entreprise pub ranking2" data-aos="fade-right">
+								<h1 class="h-26pt comfortaa f300 center name">Billboard</h1>
+								<p class="nunito f16pt">
+									Afin d’avoir une visibilité plus large, notre société vous propose de mettre en place des solutions publicitaires avec des affiches grand
+									<br> format pour votre entreprise.
+									<br>
+									<br> Nous accompagnons les entreprises, marques et institutions souhaitant concevoir et déployer leur identité visuelle.
+								</p>
+								<p><span class="prix">800</span>€</p>
+							</div>
+							<div class="item col-sm-5 famille divertissement ranking2" data-aos="fade-left">
+								<h1 class="h-26pt comfortaa f300 center name">Motion Design</h1>
+								<p class="nunito f16pt">
+									Le motion design est est une forme d’art visuel consistant à créer des œuvres animées à base d’éléments graphique
+									<br> (motion graphics) afin de délivrer un message.
+									<br>
+									<br> Il peut s’agir de photos, de pictogrammes, de personnages créés de toute pièces façon cartoon,
+									<br>
+									<br>de typographie ou encore d’éléments en 3D qui vont ensuite être mis en mouvement.
+								</p>
+								<p><span class="prix">200</span>€</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+	<footer>
+		<div class="bloc col-sm-12">
+			<article class="row center ">
+				<div class="col-sm-12 ">
+					<a href="index.html " class="col-sm-12 footer-logo">
+						<img src="./image/logo.png " height="62 " width="169"/>
+					</a>
+				</div>
+				<ul class="center social-logo col-sm-12 ">
+					<li title="Rester au courant de nos activités avec Facebook">
+						<a href="#" class="social">
+							<i class="fa-facebook" ></i>
+						</a>
+					</li>
+					<li title="Les coulisses de l'entreprise">
+						<a href="#" class="social">
+							<i class="fa-instagram"></i>
+						</a>
+					</li>
+					<li title="Voir nos projets video sur youtube">
+						<a href="#" class="social">
+							<i class="fa-youtube" id="youtube" ></i>
+						</a>
+					</li>
+					<li title="Abonnez vous à notre Newsletter">
+						<a href="# " class="social">
+							<i class="fa-email" id="email"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="col-sm-12 lato f13pt">
+					<span class="center"><a href="#">Mentions légales</a></span>
+					<span class="center">Tout Droits résevés - 2018 </span>
+				</div>
+			</article>
+		</div>
+	</footer>
+</body>
+<script type="text/javascript">
+	AOS.init({
+		offset: 110,
+		duration: 300,
+		easing: 'ease-in-sine'
+	});
+</script>
+
+</html>

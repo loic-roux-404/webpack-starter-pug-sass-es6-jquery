@@ -1,0 +1,184 @@
+/*clearfix bloc style*/
+.clearfix {
+	box-shadow: 0 1px 1px 1px RGBa(21, 21, 21, 0.1);
+	padding: 0 5% 0 5%;
+	margin: 0;
+}
+.container{
+	background:#29294F;;
+}
+
+.main {
+	background: #3D4D6C;
+}
+/*nav elements main*/
+a, span {
+	text-decoration: none;
+	color: #EDEDED;
+	outline: none;
+}
+
+a:hover, a:focus, .nav-laptop i:hover {
+	outline: none;
+	color: #91E6DF;
+}
+/*nav liens personnalisation*/
+.nav-laptop a:not(:first-child) {
+	background-image: linear-gradient(#91E6DF, #97E6E0);
+	background-repeat: no-repeat;
+	background-size: 0 0;
+	background-position: bottom;
+	transition: background-size 0.25s ease-in;
+	-webkit-transition: background-size 0.25s ease-in;
+}
+/*au survol souris et lien actif*/
+.main a:hover,.active, .nav-laptop a:active {
+	background-size: 80% 0.09em !important;
+	color: #91E6DF !important;
+}
+/*fin */
+.nav-laptop a {
+	padding: 1em;
+	display: inline-block;
+}
+
+.nav-laptop .fix-left {
+	padding-left: 0;
+}
+
+@media screen and (max-width:950px) {
+	.nav-laptop a {
+		font-size: 12pt;
+	}
+	.nav-laptop i {
+		font-size: 18px;
+	}
+}
+
+a, .main i {
+	transition: 0.3s;
+}
+/*menu mobile logo*/
+#showMenu {
+	background-color: RGBa(151, 230, 224, 0.7);
+	transition: all 0.2s linear;
+}
+
+#showMenu:hover, #showMenu:active {
+	background: #82C7C2;
+}
+
+/*logo*/
+.md-logo {
+	font: normal 14pt 'Gugi';
+	color: #EDEDED;
+	transition: all 0.4s linear;
+}
+.md-logo:hover,.md-active-logo {
+	text-shadow: 0 1px 3px RGBa(255, 255, 255, 0.85);
+	transform: scale(1.04);
+	color: #64FFFD;
+}
+/*menu perspective background personalisation*/
+.perspective {
+	background: linear-gradient(50deg,#123B63, #C4FFFA);
+	position: relative;
+}
+
+.global {
+	background-color: #29294F;
+}
+/*grid styles bloc*/
+.style-col {
+	background-color: RGBa(80, 80, 80, 0.43);
+	margin: 0 0.7% 0 0.7%;
+	border-radius: 3px;
+}
+/*img in grid*/
+.style-col>img {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+
+/*outer nav personnalisation*/
+	.effect-airbnb.animate .outer-nav a:hover , .active-mob{
+	    color:#91E6DF;
+	}
+/*personnalisation spéciale du footer avec positionnement et responsive*/
+/*footer sizing and elements + responsive queries*/
+footer {
+	/*padding:1em 4.9% 1em 4.9% !important;*/
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.47) inset;
+	background-color: #3D4D6C;
+	position: relative;
+	bottom: 0;
+}
+
+footer span {
+	padding: 5px;
+	display: block;
+}
+
+footer a {
+	cursor: pointer;
+	transition: all 0.2s linear;
+	padding: 10px 5px 10px 5px ;
+	background-image: linear-gradient(0deg, RGBa(225, 225, 225, 0.16),
+		RGBa(225, 225, 225, 0.14));
+	background-repeat: no-repeat;
+	background-size: 100% 0;
+	background-position: left;
+	border-radius: 3px 3px 3px 3px;
+}
+
+footer .cat-footer a:hover {
+	background-size: 100% 100%;
+	background-position: -30% 0;
+}
+/*footer a no padding fix*/
+footer .no-pad {
+	padding: 0;
+}
+
+footer>div {
+	padding: 2% 0 0 0;
+}
+
+footer>div:nth-child(2) {
+	padding: 2% 0 2% 0;
+	margin: 1% 18% 0 18%;
+	border-top: 0.5px solid #fafafa;
+}
+.logo{
+	margin-left:7em;
+	width:7.6em;
+	height:7.6em;
+	border:none;
+}
+
+
+@media screen and (max-width:900px) {
+	.container1 {
+		text-align: left !important;
+	}
+	.style-col {
+		background: none;
+	}
+}
+
+@media screen and (max-width:690px) {
+	footer .span-2 {
+		background-image: linear-gradiant(45deg, RGB(20, 20, 20, 0.9),
+			RGB(20, 20, 20, 0.7));
+	}
+
+	footer>div:nth-child(2) {
+		padding: 2% 0 2% 0;
+		font-size: 9.6pt;
+	}
+	.cat-top {
+		height: 10px;
+	}
+}

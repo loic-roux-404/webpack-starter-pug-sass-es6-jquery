@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+@import
+url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500');
+
+@import
+url('https://fonts.googleapis.com/css?family=Raleway:400,500,600');
+
+@import url('https://fonts.googleapis.com/css?family=Poiret+One');
+
+@import
+url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600')
+;
+
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+@import
+url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600');
+
+@import url('https://fonts.googleapis.com/css?family=Muli');
+
+@import
+url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
+
+@import
+url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600')
+;
+
+@import
+url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Rubik:300,400,700|Source+Sans+Pro:300,400,600|Gugi')
+;
+
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400|Nunito:300,400,600');
+
+@font-face{
+	src: url('../font/champagne_limousines/champ_regular.ttf') format('truetype');
+	font-family:Champagne Limousines;
+	font-weight: normal;
+}
+@font-face{
+	src: url('../font/champagne_limousines/champ_bold.ttf') format('truetype');
+	font-family:Champagne Limousines;
+	font-weight: 500;
+
+}
+/*fin imports*/
+/*import icon*/
+
+@font-face {
+  font-family: 'inaprod';
+  src:  url('../image/icons/ina-logos/inaprod.eot?4qtdg6');
+  src:  url('../image/icons/ina-logos/inaprod.eot?4qtdg6#iefix') format('embedded-opentype'),
+  url('../image/icons/ina-logos/inaprod.ttf?4qtdg6') format('truetype'),
+  url('../image/icons/ina-logos/inaprod.woff?4qtdg6') format('woff'),
+  url('../image/icons/ina-logos/inaprod.svg?4qtdg6#inaprod') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="fa-"], [class*=" fa-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'inaprod' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-assembly:before {
+  content: "\e900";
+  color: #fff;
+}
+.fa-communication:before {
+  content: "\e901";
+}
+.fa-creative:before {
+  content: "\e902";
+  color: #fff;
+}
+.fa-customer:before {
+  content: "\e903";
+  color: #fff;
+}
+.fa-email:before {
+  content: "\e904";
+}
+.fa-next-page:before {
+  content: "\e905";
+  color: #00ad97;
+}
+.fa-peoplelink:before {
+  content: "\e906";
+  color: #fff;
+}
+.fa-prev-page:before {
+  content: "\e907";
+  color: #00ad97;
+}
+.fa-rec:before {
+  content: "\e908";
+}
+.fa-record-button:before {
+  content: "\e909";
+}
+.fa-telephone:before {
+  content: "\e90a";
+}
+.fa-video-camera:before {
+  content: "\e90b";
+}
+.fa-facebook:before {
+  content: "\e90c";
+  color: #1275e6;
+}
+.fa-instagram:before {
+  content: "\e90d";
+}
+.fa-youtube:before {
+  content: "\e90e";
+}
+
+
+/*predefinal text alignment*/
+.center{
+	text-align:center;
+}
+.right{
+	text-align:right;
+}
+.left{
+	text-align:left;
+}
+.justify{
+	text-align:justify;
+}
+.float-left{
+  float:left;
+}
+.display-none{
+  display: none;
+}
+
+.vertical-middle{
+	vertical-align:middle;
+}
+.marg-0{
+	margin:0 !important;
+	padding:0 !important;
+}
+.margin-auto{
+  margin:0 auto;
+}
+/*width*/
+.w-80{width:80%}
+.w-70{width:70%}
+.w-60{width:60%}
+.w-50{width:50%}
+
+
+/*end*/
+
+
+/*classes parametre de font*/
+/*type de police (google)*/
+.lato {
+	font-family: 'Lato', 'Muli', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.didact {
+	font-family: 'Didact Gothic', 'Muli', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.montserrat {
+	font-family: 'Montserrat', 'Raleway', 'Helvetica', 'muli', 'Calibri',
+	'Arial';
+}
+
+.raleway {
+	font-family: 'Raleway', 'Montserrat', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.poiret {
+	font-family: 'Poiret One', 'Montserrat', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.opensans {
+	font-family: 'Open Sans', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.roboto {
+	font-family: 'Roboto', 'Open Sans', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.muli {
+	font-family: 'Muli', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.oswald {
+	font-family: 'Oswald', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.source-sans {
+	font-family: 'Sources Sans Pro', 'Roboto', 'Helvetica', 'Calibri',
+	'Arial';
+	letter-spacing: 0.92px;
+}
+
+.rubik {
+	font-family: 'Rubik', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.comfortaa {
+	font-family: 'Comfortaa', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.gugi{
+	font-family: 'Gugi', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+.nunito{
+	font-family: 'Nunito', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+
+.nunito-sans{
+	font-family: 'Nunito Sans', 'Roboto', 'Helvetica', 'Calibri', 'Arial';
+}
+}
+/*police petites et moyennes
+prefixe 'f' for text dedicated fonts*/
+.f10pt {
+	font-size: 10pt;
+}
+
+.f11pt {
+	font-size: 11pt;
+}
+
+.f12pt {
+	font-size: 12pt;
+}
+
+.f13pt {
+	font-size: 11pt;
+}
+
+.f14pt {
+	font-size: 14pt;
+}
+.f15pt {
+	font-size: 15pt;
+}
+.f16pt {
+	font-size: 16pt;
+}
+
+/*titles h1,h2,h3,h4
+  add classes to your html's elements
+  prefixe 'h' for titles dedicated fonts
+  */
+  .f10pt {
+  	font-size: 10pt;
+  }
+
+  .f11pt {
+  	font-size: 11pt;
+  }
+
+  .f12pt {
+  	font-size: 12pt;
+  }
+
+  .f13pt {
+  	font-size: 13pt;
+  }
+
+  .f14pt {
+  	font-size: 14pt;
+  }
+
+  .f16pt {
+  	font-size: 16pt;
+  }
+  /*titles*/
+  section *[class^="h-"], section *[class^="sm-"], section *[class^="md-"],
+  section *[class^="xl-"] {
+  	margin: 1% 0 1% 0 !important;
+  }
+
+  .h-18pt, .sm-title-1 {
+  	font-size: 18pt;
+  }
+
+  .h-20pt, .sm-title-2 {
+  	font-size: 20pt;
+  }
+
+  .h-22pt, .sm-title-3 {
+  	font-size: 22pt;
+  }
+
+  .h-26pt, .md-title-1 {
+  	font-size: 26pt;
+  }
+  .h-28pt, .md-title-1 {
+  	font-size: 28pt;
+  }
+
+  .h-30pt, .md-title-2 {
+  	font-size: 30pt;
+  }
+
+  .h-32pt, .md-title-3 {
+  	font-size: 32pt;
+  }
+
+  .h-36pt, .xl-title-1 {
+  	font-size: 36pt;
+  }
+
+  .h-40pt, .xl-title-2 {
+  	font-size: 40pt;
+  }
+
+  .h-48pt, .xl-title-3 {
+  	font-size: 48pt;
+  }
+
+/*weights of fonts
+  !!!TAKE CARE OF FONTS WITH ONLY ONE WEIGHT!!!
+  prefixe 'f' also for all dedicated fonts
+  */
+  .f300 {
+  	font-weight: 300;
+  }
+
+  .f400 {
+  	font-weight: 400;
+  }
+
+  .f500 {
+  	font-weight: 500;
+  }
+
+  .f600 {
+  	font-weight: 600;
+  }
+
+  .f700 {
+  	font-weight: 700;
+  }
+  /*align text*/
+  .center {
+  	text-align: center;
+  }
+  /*responsive fonts*/
+  @media screen and (max-width:780px) {
+  	.f10pt {
+  		font-size: 12pt;
+  	}
+  	.f11pt {
+  		font-size: 12pt;
+  	}
+  	.f12pt {
+  		font-size: 13pt;
+  	}
+  	.f13pt {
+  		font-size: 13pt;
+  	}
+  	.f14pt {
+  		font-size: 13pt;
+  	}
+  	.f16pt {
+  		font-size: 14pt;
+  	}
+  	/*normal text*/
+  	.h-18pt, .sm-title-1 {
+  		font-size: 20pt;
+  	}
+  	.h-20pt, .sm-title-2 {
+  		font-size: 22pt;
+  	}
+  	.h-22pt, .sm-title-3 {
+  		font-size: 23pt;
+  	}
+  	.h-26pt, .md-title-1 {
+  		font-size: 27pt;
+  	}
+  	.h-30pt, .md-title-2 {
+  		font-size: 32pt;
+  	}
+  	.h32pt, .md-title-3 {
+  		font-size: 34pt;
+  	}
+  	.h-36pt, .xl-title-1 {
+  		font-size: 38pt;
+  	}
+  	.h-40pt, .xl-title-2 {
+  		font-size: 42pt;
+  	}
+  	.h-48pt, .xl-title-3 {
+  		font-size: 46pt;
+  	}
+  }
+  /**/
+  /*google icons material*/
+  /*move*/
+
+  /*sizing*/
+  .material-icons.md-16 {
+  	font-size: 16px;
+  }
+
+  .material-icons.md-18 {
+  	font-size: 18px;
+  }
+
+  .material-icons.md-20 {
+  	font-size: 20px;
+  }
+
+  .material-icons.md-22 {
+  	font-size: 22px;
+  }
+
+  .material-icons.md-24 {
+  	font-size: 24px;
+  }
+
+  .material-icons.md-26 {
+  	font-size: 26px;
+  }
+
+  .material-icons.md-28 {
+  	font-size: 28px;
+  }
+
+  .material-icons.md-30 {
+  	font-size: 30px;
+  }
+
+  .material-icons.md-32 {
+  	font-size: 32px;
+  }
+
+  .material-icons.md-36 {
+  	font-size: 36px;
+  }
+
+  .material-icons.md-38 {
+  	font-size: 38px;
+  }
+
+  .material-icons.md-42 {
+  	font-size: 42px;
+  }
+
+  .material-icons.md-45 {
+  	font-size: 45px;
+  }
+
+  .material-icons.md-48 {
+  	font-size: 48px;
+  }
+

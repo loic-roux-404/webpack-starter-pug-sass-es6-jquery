@@ -1,0 +1,42 @@
+// Custom.scss
+// Option B: Include parts of Bootstrap
+@-ms-viewport {
+     width:100%;
+     max-zoom:100%;
+     user-zoom:fixed;
+}
+@-o-viewport {
+     width:100%;
+     max-zoom:100%;
+     user-zoom:fixed;
+}
+@viewport {
+     width:100%;
+     max-zoom:100%;
+     user-zoom:fixed;
+}
+//
+
+
+
+
+
+
+
+// Bootstrap and its default variables
+
+// Your variable overrides
+//$body-color: #fafafa !important;
+
+$info : #3C6382;
+$light : #f0f5f5;
+
+
+// //add breakpoints spacing
+//  $grid-breakpoints:7 !important;
+
+
+
+
+
+ @import 'scss/bootstrap';

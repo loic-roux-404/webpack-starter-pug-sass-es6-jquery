@@ -1,0 +1,180 @@
+@import "mixins/breakpoints";
+@import "mixins/reset";
+/* Effect 2: 3D rolling links, idea from http://hakim.se/thoughts/rolling-links */
+.cl-effect-2 a {
+	line-height: 44px;
+	-webkit-perspective: 1000px;
+	-moz-perspective: 1000px;
+	perspective: 1000px;
+}
+
+.cl-effect-2 a span {
+	position: relative;
+	display: inline-block;
+	-webkit-transition: -webkit-transform 0.4s;
+	-moz-transition: -moz-transform 0.4s;
+	transition: transform 0.4s;
+	-webkit-transform-origin: 50% 0;
+	-moz-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	cursor: pointer !important;
+}
+
+.cl-effect-2 a span::before {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height:0;
+	content: attr(data-hover);
+	-webkit-transition: background 0.3s;
+	-moz-transition: background 0.3s;
+	transition: background 0.3s;
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-webkit-transform-origin: 50% 0;
+	-moz-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	z-index:-1;
+	cursor: pointer;
+}
+
+.cl-effect-2 a:hover span, .active span,
+.cl-effect-2 a:focus span {
+	-webkit-transform: rotateX(90deg) translateY(-22px);
+	-moz-transform: rotateX(90deg) translateY(-22px);
+	transform: rotateX(90deg) translateY(-22px);
+	cursor: pointer;
+}
+
+.cl-effect-2 a:hover span::before,
+.cl-effect-2 a:focus span::before {
+	background:#8a8a8a;
+	cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/*REA BUT*/
+
+
+	.btn-6 span {
+		position: absolute;
+		display: block;
+		opacity:0;
+		width: 28em;
+		height: 28em;
+		border-radius: 50%;
+		background: Rgba(41, 41, 41,0.4);
+		transition: width 0.3s ease-in-out, height 0.3s ease-in-out,opacity 0.5s ease-in-out ;
+		-webkit-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		z-index: -1;
+	}
+	.btn-6:hover {
+		color: #cfd5d6;
+	}
+	.btn-6:hover span {
+		width: 250%;
+		height: 250%;
+		opacity: 1;
+	}
+	.btn-6:active {
+		background-color: Rgba(41, 41, 41,0.87);
+	}
+
+	@media (max-width:768px){
+		.btn-6 span {
+			width: 280%;
+			height: 280%;
+			opacity: 1;
+		}
+	}
+
+
+
+
+
+
+/*=========ARROWS==========*/
+
+
+
+
+
+.round-arrow {
+    position: absolute;
+    border: 2px solid #fff;
+    width: 40px !important;
+    height: 40px !important;
+	right:4%;
+	top:34%;
+	transform: translate(-2%,-34%);
+	display: none;
+	cursor: pointer; 
+	z-index:2;
+}
+@media (min-width:768px){
+	.round-arrow{
+	top:23.5%;
+    right:4%;
+    transform: translate(-4%,-23.5%);
+    display: block;
+	}
+}
+
+
+#cta .arrow{left: 30%;}
+.arrow {position: absolute; bottom: 0;  margin-left:0px; width: 12px; height: 12px; background-size: contain; top:12.7px;}
+.segunda{margin-left: 8px;}
+.next {
+	background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
+}
+
+@keyframes bounceAlpha {
+  0% {opacity: 1; transform: translateX(0px) scale(1);}
+  25%{opacity: 0; transform:translateX(10px) scale(0.9);}
+  26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
+  55% {opacity: 1; transform: translateX(0px) scale(1);}
+}
+@-webkit-keyframes bounceAlpha {
+	0% {opacity: 1; transform: translateX(0px) scale(1);}
+	25%{opacity: 0; transform:translateX(10px) scale(0.9);}
+	26%{opacity: 0; transform:translateX(-10px) scale(0.9);}
+	55% {opacity: 1; transform: translateX(0px) scale(1);}
+  }
+.bounceAlpha {
+    animation-name: bounceAlpha;
+    animation-duration:2.3s;
+    animation-iteration-count:infinite;
+    animation-timing-function:ease-in;
+}
+
+.arrow.primera.bounceAlpha {
+    animation-name: bounceAlpha;
+    animation-duration:2.3s;
+    animation-delay:0.2s;
+    animation-iteration-count:infinite;
+    animation-timing-function:linear;
+}
+
+
+
+
+
+
+
+
+
+
