@@ -1,42 +1,67 @@
 // Custom.scss
 // Option B: Include parts of Bootstrap
 @-ms-viewport {
-     width:100%;
-     max-zoom:100%;
-     user-zoom:fixed;
+  width: 100%;
+  max-zoom: 100%;
+  user-zoom: fixed;
 }
+
 @-o-viewport {
-     width:100%;
-     max-zoom:100%;
-     user-zoom:fixed;
+  width: 100%;
+  max-zoom: 100%;
+  user-zoom: fixed;
 }
+
 @viewport {
-     width:100%;
-     max-zoom:100%;
-     user-zoom:fixed;
+  width: 100%;
+  max-zoom: 100%;
+  user-zoom: fixed;
 }
-//
-
-
-
-
-
-
-
-// Bootstrap and its default variables
 
 // Your variable overrides
-//$body-color: #fafafa !important;
+
 
 $info : #3C6382;
 $light : #f0f5f5;
+$grey : #353535;
 
+$sizes : ();
+$sizes: map-merge((25: 25%,
+50: 50%,
+60: 60%,
+75: 75%,
+80: 80%,
+100: 100%,
+auto: auto),
+$sizes);
 
-// //add breakpoints spacing
-//  $grid-breakpoints:7 !important;
+.navbar-toggler-icon {
+  background-image: none;
+}
 
+.navbar-toggler span {
+  display: block;
+  height: 3px;
+  border-radius:18px;
+  border:none;
+  width: 35px;
+  background: $grey;
+  margin: 0.34em 0;
+}
 
+.navbar-light .navbar-toggler {
+  border: none;
+  outline: none;
 
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
 
+$link-color: none;
+$link-decoration: none;
+$link-hover-color: none;
+$link-hover-decoration: none;
 
- @import 'scss/bootstrap';
+@import 'scss/bootstrap';

@@ -1,0 +1,124 @@
+//easy mixin transform
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin translate($unit, $x: 0, $y: 0) {
+  @if $y !=0 and $x==0 {
+    @include transform(translateY(#{$y}#{$unit}));
+  }
+
+  @else if $x !=0 and $y==0 {
+    @include transform(translateX(#{$x}#{$unit}));
+  }
+
+  @else {
+    @include transform(translate(#{$x}#{$unit}, #{$y}#{$unit}));
+  }
+}
+
+//responsive function for absolute elements use right/left
+@mixin resPos($unit, $t: 0, $l: 0) {
+  position: absolute;
+
+  @if $t {
+    top: $t#{$unit};
+    @include translate($unit, 0, -$t);
+
+    @if $l {
+      left: $l#{$unit};
+      @include translate($unit, -$l, -$t);
+    }
+  }
+
+  @else if $l {
+    left: $l#{$unit};
+    @include translate($unit, -$l, 0);
+
+    @if $t {
+      top: $t#{$unit};
+      @include translate($unit, -$l, -$t);
+    }
+  }
+}
+
+@mixin Pos($unit, $t: 0, $l: 0) {
+  position: absolute;
+
+  @if $t {
+    top: $t#{$unit};
+
+    @if $l {
+      left: $l#{$unit};
+    }
+  }
+
+  @else if $l {
+    left: $l#{$unit};
+
+    @if $t {
+      top: $t#{$unit};
+    }
+  }
+}
+
+
+
+
+
+
+
+
+//auto create media queries 
+@mixin mediaQ($property, $unit: 0, $decale: 0, $map: 0, $muliplicator:0) {
+  @if $decale and $unit {
+    $desc-decale: $decale;
+
+    @each $bp,
+    $val in $breakpoints {
+      @media (min-width: $val) {
+
+        @if $muliplicator and $decale > 0 {
+          $desc-decale: #{$desc-decale} * #{$muliplicator} + $unit;
+        }
+
+        @if $decale < 0 {
+          $desc-decale: - ($desc-decale + $unit);
+        }
+
+        @if $decale < 0 and $muliplicator {
+          $desc-decale: - (($desc-decale * $muliplicator) + $unit);
+        }
+      }
+    }
+  }
+
+  @else if $map != 0{
+
+    @each $bp,
+    $val in $breakpoints {
+
+      @each $id,
+      $val in $map {
+        @media (min-width: $bp) {
+          $property: $val;
+        }
+      }
+    }
+  }
+}
+
+@mixin calcMediaQ($property, $operator, $iterate, $calcv1, $calcv2, $calcv3:0, $iterate3:0) {
+
+  $k: $iterate;
+
+  @each $bp,
+  $val in $breakpoints {
+    @media (min-width: $val) {
+      $property:calc(#{$calcv1}#{$operator}(#{calcv2}*#{$iterate}));
+    }
+
+    $k:$k+$k;
+  }
+}

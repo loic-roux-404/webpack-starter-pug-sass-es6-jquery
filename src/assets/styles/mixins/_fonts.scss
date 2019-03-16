@@ -1,3 +1,306 @@
-@mixin OpenSans{
-    font-family:'Open Sans';
+// @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900');
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600');
+
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
+
+//@import url('https://fonts.googleapis.com/css?family=Roboto:700,900');
+
+@import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,700,800,900,900i');
+
+// @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,700,800,900');
+
+//@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+
+// @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Rubik:300,400,700');
+
+// @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400|Nunito:300,400,600');
+
+// @import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500|IBM+Plex+Sans:300,400,600|Pontano+Sans');
+
+// @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+
+@import url('https://fonts.googleapis.com/css?family=Heebo:300,500,700,800,900');
+
+// @import url('https://fonts.googleapis.com/css?family=Kanit:100,400');
+
+/*fin imports*/
+/*classes parametre de font*/
+
+
+/*type de police (google)*/
+
+@mixin heebo {
+  font-family: 'Heebo', sans-serif;
 }
+
+.heebo {
+  @include heebo;
+}
+
+@mixin lato {
+  font-family: 'Lato', 'Muli', 'Helvetica', sans-serif;
+}
+
+.lato {
+  @include lato;
+}
+
+@mixin didact {
+  font-family: 'Didact Gothic', 'Muli', 'Helvetica', 'Calibri', 'Arial', sans-serif;
+}
+
+.didact {
+  @include didact;
+}
+
+@mixin calibri{
+  font-family:'Calibri', 'Helvetica', sans-serif;
+}
+
+.calibri {
+  @include calibri;
+}
+
+// .opensans {
+//   font-family: 'Open Sans', 'Helvetica', 'Calibri', sans-serif;
+// }
+
+// .roboto {
+//   font-family: 'Roboto', 'Open Sans', 'Helvetica', 'Calibri', sans-serif;;
+// }
+@mixin muli {
+  font-family: 'Muli', 'Helvetica', 'Calibri', sans-serif;
+}
+
+.muli {
+  @include muli;
+}
+
+// .oswald {
+//   font-family: 'Oswald', 'Roboto', 'Helvetica', 'Calibri', 'Arial', sans-serif;
+// }
+
+// .source-sans {
+//   font-family: 'Sources Sans Pro', 'Roboto', 'Helvetica', 'Calibri', sans-serif;
+//   letter-spacing: 1px;
+// }
+
+// .rubik {
+//   font-family: 'Rubik', 'Roboto', 'Helvetica', 'Calibri';
+// }
+
+// .comfortaa {
+//   font-family: 'Comfortaa', 'Roboto', 'Helvetica', 'Calibri', sans-serif
+// }
+
+// .nunito {
+//   font-family: 'Nunito', 'Roboto', 'Helvetica', 'Calibri', sans-serif
+// }
+
+// .nunito-sans {
+//   font-family: 'Nunito Sans', 'Roboto', 'Helvetica', 'Calibri', sans-serif
+// }
+
+// .barlow {
+//   font-family: 'Barlow', 'Helvetica', 'Calibri', 'Arial';
+// }
+
+// .pontano-sans {
+//   font-family: 'Pontano Sans', 'Helvetica', 'Calibri', 'Arial';
+// }
+
+// .ibm-plex-sans {
+//   font-family: 'IBM Plex Sans', 'Helvetica', 'Calibri';
+// }
+// .kanit {
+//   font-family: 'Kanit', 'Helvetica', 'Calibri';
+// }
+
+
+/*line-height settings*/
+
+.lh-xs {
+  line-height: 1.3;
+}
+
+.lh-sm {
+  line-height: 1.5;
+}
+
+.lh-md {
+  line-height: 1.75;
+}
+
+.lh-lg {
+  line-height: 2;
+}
+
+.lh-xl {
+  line-height: 2.5;
+}
+
+
+
+/*weights of fonts
+  !!!TAKE CARE OF FONTS WITH ONLY ONE WEIGHT!!!
+  prefixe 'f' also for all dedicated fonts
+  */
+.f100 {
+  font-weight: 100;
+}
+
+.f200 {
+  font-weight: 200;
+}
+
+.f300 {
+  font-weight: 300;
+}
+
+.f400 {
+  font-weight: 400;
+}
+
+.f500 {
+  font-weight: 500;
+}
+
+.f600 {
+  font-weight: 600;
+}
+
+.f700 {
+  font-weight: 700;
+}
+
+.f900 {
+  font-weight: 900;
+}
+
+
+
+$icomoon-font-family: "portfolio" !default;
+$icomoon-font-path: "../fonts" !default;
+
+$fa-align-justify: "\ea72";
+$fa-at-sign: "\ea83";
+$fa-chevron-up: "\ea9c";
+$fa-code1: "\eaab";
+$fa-github: "\eadb";
+$fa-globe: "\eadd";
+$fa-linkedin1: "\eaef";
+$fa-terminal: "\eb48";
+$fa-twitter1: "\eb55";
+$fa-user: "\eb5c";
+$fa-x: "\eb6d";
+$fa-database: "\eb75";
+$fa-spinner3: "\eb76";
+$fa-star-empty: "\eb77";
+$fa-plus-circle:"\eb1d";
+
+
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?53yo6m');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?53yo6m#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?53yo6m') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?53yo6m') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="fa-"], [class*=" fa-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-align-justify {
+  &:before {
+    content: $fa-align-justify; 
+  }
+}
+.fa-at-sign {
+  &:before {
+    content: $fa-at-sign; 
+  }
+}
+.fa-chevron-up {
+  &:before {
+    content: $fa-chevron-up; 
+  }
+}
+.fa-code1 {
+  &:before {
+    content: $fa-code1; 
+  }
+}
+.fa-github {
+  &:before {
+    content: $fa-github; 
+  }
+}
+.fa-globe {
+  &:before {
+    content: $fa-globe; 
+  }
+}
+.fa-linkedin1 {
+  &:before {
+    content: $fa-linkedin1; 
+  }
+}
+.fa-plus-circle {
+  &:before {
+    content: $fa-plus-circle; 
+  }
+}
+.fa-terminal {
+  &:before {
+    content: $fa-terminal; 
+  }
+}
+.fa-twitter1 {
+  &:before {
+    content: $fa-twitter1; 
+  }
+}
+.fa-user {
+  &:before {
+    content: $fa-user; 
+  }
+}
+.fa-x {
+  &:before {
+    content: $fa-x; 
+  }
+}
+.fa-database {
+  &:before {
+    content: $fa-database; 
+  }
+}
+.fa-spinner3 {
+  &:before {
+    content: $fa-spinner3; 
+  }
+}
+.fa-star-empty {
+  &:before {
+    content: $fa-star-empty; 
+  }
+}
+

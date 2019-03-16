@@ -1,19 +1,17 @@
-.bg-light.position-relative.w-100.h-100
-    .bg-light.porfolio.rounded.text-center.mh-100.mw-100(data-scroll-speed='9')
-    //- .parralax-wrapper
-    //-     .img-container
-    //-         img(src='./image/word-cloud/w-1.png', alt='image soft skills : création, passioné, autonome, assertif, organisation, ouvert', title='Soft skills : création, passioné, autonome, assertif, organisation, ouvert')
-    //-         img(src='./image/word-cloud/w-2.png', alt='developpeur,création artistique adobe font svg material')
-    //-         img(src='./image/word-cloud/w-3.png', alt='flat svg material')
-    //-         img(src='./image/word-cloud/w-4.png', alt='it skills')
-    //-         img(src='./image/word-cloud/w-5.png', alt='graphic websites')
+
+- const pres = htmlWebpackPlugin.options.global.pres;
+
+
+.bg-light.position-relative.w-100.h-80
+    .bg-light.porfolio.lazy.rounded.text-center.mh-100.mw-100
+
     span.display-block.filter.position-absolute.mh-100.mw-100.w-100.h-100.shadow-md
     .caption.px-2
         p.text-center.mb-4.text-uppercase.roboto.f900.px-2.bg-white.text-dark(title='Loic Roux') Loïc Roux
         span.text-center.text-uppercase.roboto.f900.px-1.bg-dark.text-white.text0
-            | Etudiant en Multimédia et
-            | internet
-    a.arrow-pres(href='#wrapper', title='développement sites internet')
+            | Etudiant en DUT métiers du Multimédia et internet
+
+    a.arrow-pres.arrow-wrapper(href='#wrapper', title='développement sites internet')
         #cta
             span.arrow.primera.next.bounceAlpha
             span.arrow.segunda.next.bounceAlpha

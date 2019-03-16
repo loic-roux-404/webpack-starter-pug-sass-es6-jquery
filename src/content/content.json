@@ -1,6 +1,24 @@
 {
   "cv": {
-    "main":"Actuellement à la recherche d'un stage"
+    "title":"à propos",
+    "main": "Actuellement à la recherche d'un stage dans le développement web ",
+    "tools": {
+      "title": "MES OUTILS",
+      "skills": [
+        "HTML5",
+        "CSS3",
+        "Js",
+        "jQuery",
+        "Php",
+        "Wordpress",
+        "Prestashop",
+        "MySql",
+        "Sass",
+        "Bootstrap",
+        "Webpack",
+        "Typescript"
+      ]
+    }
   },
   "realisations": {
     "rea1": [{
@@ -16,21 +34,37 @@
           "5": "Un système d'emailing (rubrique contact) basé sur PHPMailer et le SMTP de google."
 
         },
-        "link": "http://www.arinella.loicroux.fr"
+        "link": "http://www.arinella.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
       },
       {
         "title": "projet site bd MySQL et PHP",
         "subtitle": "Alt2crous",
         "date": "Mars 2018 - Avril 2018",
         "intro": "Projet de site dynamique visant à trouver des restaurants autour des lieux d'études de Grenoble.",
-        "content": "Site web avec interface d'administration permettant de supprimer, ajouter et modifier des restaurants. br Ensuite les restaurants sont affichés en photo avec une description. En sélectionnant le lieu d'étude proche on trouve grâce à un algorithme les restaurants proches avec également un critère de prix.",
-        "link": "http://alt2crous.loicroux.fr"
+        "content": "Site web avec interface d'administration permettant de supprimer, ajouter et modifier des restaurants. Ensuite les restaurants sont affichés en photo avec une description. En sélectionnant le lieu d'étude proche on trouve grâce à un algorithme les restaurants proches avec également un critère de prix.",
+        "link": "http://alt2crous.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
       },
       {
         "title": "projet développement sur le CMS wordpress (php)",
         "subtitle": "Les plantes urbaines",
         "date": "Novembre 2018 - Janvier 2019",
-        "intro": "Selon le cahier des charges d'une autre équipe nous avons dû créer un thème Wordpress adapté à leurs demandes. br Les options que nous avons pu ajouter sont :",
+        "intro": "Selon le cahier des charges d'une autre équipe nous avons dû créer un thème Wordpress adapté à leurs demandes. Les options que nous avons pu ajouter sont :",
         "list": {
           "1": "Custom type, taxonomies et metaboxes",
           "2": "Pages d'archives selon les taxonomies",
@@ -38,26 +72,66 @@
           "4": "Slider 3D turtable js paramétrable depuis CMB2",
           "5": "Création de modules pour afficher des éléments spécifiques"
         },
-        "link": "http://www.plantes-urbaines.loicroux.fr"
+        "link": "http://www.plantes-urbaines.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
       },
       {
         "title": "javascript projet inaprod",
         "subtitle": "Inaprod",
         "date": "Mai 2018 - Juin 2018",
         "intro": "Projet universitaire en groupe consistant à la création d'une agence de communication fictive. Le site vitrine s'inspire du design flat, il est basé sur des contenus fait pendant le dossier du projet.",
-        "content": "De nombreux plugin JS et jQuery sont utilisés afin de donner un aspect plus dynamique au site et de vérifier les formulaires de contact. On peut également noter l'utilisation de SVG et de création de pack d'icon pour apporter des éléments de design supplémentaires au site.",
-        "link": "http://inaprod.loicroux.fr"
+        "content": "De nombreux plugin JS et jQuery sont utilisés afin de donner un aspect plus dynamique au site et de vérifier les formulaires de contact. On peut également noter l'utilisation de SVG et de création d'un pack d'icônes personnalisé.",
+        "link": "http://loicroux.site/Sites/inaprod/projets.html",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+
       },
       {
         "title": "projet tutoré sur le CMS wordpress (php)",
         "subtitle": "Projet tutoré",
-        "intro": "Création de la communication à 360° du challenge GCCD au cours d'une semaine de projet intensive. Le projet comporte : définition d'une charte graphique, création du logo et son animation, site web événementiel intégral (Wordpress), contenus écrits et un kakémono. br",
-        "content": "Le cachier des charges concernait le challenge construction durable organisé par le DUT génie civil de Grenoble en 2019. br Le site comporte un back office avec des page-template personnalisés et des contenus dynamiques (actualité et vidéos).",
-        "link": "http://www.projet-tut.loicroux.fr"
+        "intro": "Création de la communication à 360° du challenge GCCD au cours d'une semaine de projet intensive. Le projet comporte la définition d'une charte graphique, la création du logo et son animation, réalisation d'un site web événementiel intégral avec back-office Wordpress. Ensuite nous avons pu intégrer des contenus rédactionnels et un kakémono graphique.",
+        "content": "Le cahier des charges concernait le challenge construction durable organisé par le DUT génie civil de Grenoble en 2019. Le site comporte un back office avec des page-template personnalisés et des contenus dynamiques (actualité et vidéos).",
+        "link": "http://www.projet-tut.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      },
+      {
+        "title": "(En cours) English Stories...",
+        "subtitle": "English Stories",
+        "intro": "(Projet en cours) Blog sur le CMS Bludit",
+        "content": "Rédaction multilinéaire basés sur une histoire originale de Paul Auster.",
+        "link": "http://www.english-stories.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
       }
     ],
     "rea2": [
-      1, 2, 3, 4, 5,
+      1, 2, 3, 4, 5, 6,
       {
         "title": "jeu codé en typescript (classes et objets)",
         "subtitle": "Jeu Typescript",
@@ -71,7 +145,16 @@
         "subtitle": "Livret d‘illustration",
         "date": "Novembre 2019 - Décembre",
         "content": "Fait à partir de mots ces dessins ont étés retravailler avec Photoshop et Camera raw. Les typographies sont personnalisées avec illustrator et le tout est mis en page sur Indesign.",
-        "link": "https://www.behance.net/gallery/75580385/Livret-dillustration?"
+        "link": "https://www.behance.net/gallery/75580385/Livret-dillustration?",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+
       }
     ]
   }

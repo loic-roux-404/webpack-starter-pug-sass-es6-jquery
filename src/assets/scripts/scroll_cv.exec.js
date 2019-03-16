@@ -1,61 +1,47 @@
-$(document).ready(function () {
+import IScroll from 'iscroll/build/iscroll-probe';
+//import bodymovin from 'bodymovin/build/player/bodymovin.min';
 
-  //scroll reveal load svg anim
-  var bm = document.getElementById('bm');
+//scroll reveal load svg anim
+//var bm = document.getElementById('bm');
 
-  function svg1() {
+// Set up our animation 
 
-    // Set up our animation 
-
-    var animData = {
-      container: bm,
-      renderer: 'svg',
-      autoplay: true,
-      loop: true,
-      path: 'json/ae/data.json'
-    };
-    var anim = bodymovin.loadAnimation(animData);
-
-  }
-
-  //touch iscroll
-  //
-  var myScroll;
-
-  function loaded() {
-
-    myScroll = new IScroll('#wrapper', {
-      scrollX: true,
-      scrollY: true,
-      click: true,
-      momentum: false,
-      snap: true,
-      snapSpeed: 400,
-      eventPassthrough: true,
-      probeType: 3,
-      scrollbars: 'custom',
-      interactiveScrollbars: true,
-      bounceEasing: {
-        style: 'quadratic',
-        fn: function (k) {
-          return k;
-        }
-      }
-    });
-    $('.round-arrow').on('click', function () {
-      //alert(pos);
-      myScroll.scrollToElement(document.querySelector('#section-2'));
-      $('.arrow').removeClass('bounceAlpha');
+// const animData = {
+//   container: bm,
+//   renderer: 'svg',
+//   autoplay: true,
+//   loop: true,
+//   animationData: require('../json/ae/data.json')
+// };
 
 
-    });
-
-    /*get width and divide it to get a more earlier event*/
-
-    /*ANIMATIONS CV*/
-    /* animation logos*/
-
-    var anime0 = anime({
+/*get width and divide it to get a more earlier event*/
+/*ANIMATIONS CV*/
+/* animation logos*/
+let cvWrapper = {
+  iscroll: new IScroll('#wrapper', {
+    scrollX: true,
+    scrollY: true,
+    click: true,
+    momentum: false,
+    snap: true,
+    snapSpeed: 200,
+    eventPassthrough: true,
+    probeType: 3,
+    scrollbars: 'custom',
+    interactiveScrollbars: true,
+    disablePointer: true, // important to disable the pointer events that causes the issues
+    disableTouch: false, // false if you want the slider to be usable with touch devices
+    disableMouse: false,
+    // bounceEasing: {
+    //   style: 'quadratic',
+    //   fn: function (k) {
+    //     return k * 0.7;
+    //   }
+    // }
+  }),
+  animes: {
+    anime0: anime({
       targets: '.bg-cv .col-6',
       scale: [1, 1.2, 1],
       rotate: [0, '-20deg', '20deg', 0],
@@ -65,16 +51,14 @@ $(document).ready(function () {
         return 200 + (i * 300);
       },
       autoplay: false
-    });
-
-
+    }),
 
     /*====animation 1 section 2 coming from top*/
-    var anime1 = anime.timeline({
-      autoplay: false,
-      delay: 800
-    });
-    anime1.add({
+    anime1: anime.timeline({
+        autoplay: false,
+        delay: 400,
+        loop: 1
+      }).add({
         targets: '#section-2 .animate.animate-1',
         translateY: {
           value: [50, 0],
@@ -98,17 +82,14 @@ $(document).ready(function () {
           value: [0, 1],
           duration: 600
         },
-        delay: 0
-      });
-
+        delay: 0,
+      }),
     /*==========animation2 section 3======*/
-    var anime2 = anime.timeline({
-      autoplay: false,
-      delay: 500
-    });
-
-    anime2
-      .add({
+    anime2: anime.timeline({
+        autoplay: false,
+        delay: 500,
+        loop: false
+      }).add({
         targets: '#section-3 .title',
         scale: [0, 1],
         translateY: ['-90%', '-50%'],
@@ -145,20 +126,17 @@ $(document).ready(function () {
         delay: function (_, i) {
           return (i * 90);
         },
-      });
+        loop: false
+      }),
     /*==========animation 3 section 4======*/
-    var anime3 = anime.timeline({
-      autoplay: false,
-      delay: 300
-    });
-
-    anime3
-      .add({
+    anime3: anime.timeline({
+        autoplay: false,
+        delay: 300,
+        loop: 1
+      }).add({
         targets: '.animate.timeline2-1',
         scale: [0, 1],
-      })
-
-      .add({
+      }).add({
         targets: '.animate.timeline2-2',
         scale: {
           value: [0, 1],
@@ -196,81 +174,125 @@ $(document).ready(function () {
         delay: function (_, i) {
           return i * 50;
         },
-      });
-
-
+        loop: 1
+      }),
+    /*animation 4*/
+    anime4: anime.timeline({
+        autoplay: false,
+        delay: 300,
+        loop: 1
+      }).add({
+        targets: '.tools li div',
+        rotate: {
+          value: ['30deg', 0]
+        },
+        scale: {
+          value: [0.9, 0.8]
+        },
+        duration: 500,
+        delay: function (_, i) {
+          return i * 30;
+        },
+        easing: "easeInExpo"
+      })
+      .add({
+        targets: '.tools',
+        opacity: {
+          value: [0.7, 1],
+          easing: "easeInExpo"
+        },
+        duration: 800
+      })
+  },
+  //methods
+  activeP: function () {
+    var iObj = this;
+    var activePage = iObj.iscroll.currentPage.pageX;
+    return activePage;
+  },
+  myscroll: function () {
     /*events*/
     var windowWidth = window.innerWidth;
     //console.log(windowWidth);
+    var pageVisible = this.activeP();
+    var Ipage = () => {
+      pageVisible = this.activeP();
+    };
 
-    var pageVisible = myScroll.currentPage.pageX;
 
+
+    const anm = this.animes;
+    //console.log(this.iscroll);
     /*section 1*/
-    myScroll.on('scroll', function () {
-      pageVisible = myScroll.currentPage.pageX;
+    let it = 0;
+    this.iscroll.on('scroll', () => {
+      Ipage();
       //get object pageX element with page number start to 0
       //console.log(pageVisible);
-      if (pageVisible == 0) {
+      if (pageVisible == 0 && it < 1) {
         //anime1.play();
-        pageVisible = myScroll.currentPage.pageX;
-      }
-      if (pageVisible == 1) {
-        anime0.play();
-        anime1.play();
-        //anime1.play();
-        pageVisible = myScroll.currentPage.pageX;
-      }
-      if (pageVisible == 2) {
-        anime2.play();
-        //anime2.play();
-        pageVisible = myScroll.currentPage.pageX;
-      }
-      if (pageVisible == 3) {
-        anime3.play();
-        //anime2.play();
-        pageVisible = myScroll.currentPage.pageX;
+        it = 1;
+        Ipage();
+      } else if (pageVisible == 1 && it < 2) {
+        anm.anime0.play();
+        anm.anime1.play();
+        it = 2;
+        Ipage();
+      } else if (pageVisible == 2 && it < 3) {
+
+        anm.anime2.play();
+        it = 3;
+        Ipage();
+      } else if (pageVisible == 3 && it < 4) {
+        anm.anime3.play();
+        it = 4;
+        Ipage();
+      } else if (pageVisible == 4 && it < 5) {
+        anm.anime4.play();
+        it = 5;
+        Ipage();
+      } else {
+        return false;
       }
     });
+  },
 
-    // /*section 2*/
-    // myScroll.on('scrollEnd', function () {
-    // 	if ( this.x > -windowWidth*1.9) {
-    // 		console.log(this.x);
-    // 		anime2.play();
-    // 	}
-    // }); 
+  arrow: function () {
+    //console.log(this);
+    const anm = this.animes;
+    const iscroll = this.iscroll;
 
-    $('.round-arrow').click(function () {
+    var Ipage = () => {
+      var pageVisible = this.activeP();
+    };
+
+    document.querySelector('.round-arrow').onclick = function () {
       setTimeout(function () {
-        anime1.play();
-        anime0.play();
-        pageVisible++;
+        anm.anime1.play();
+        anm.anime0.play();
+        iscroll.scrollToElement(document.querySelector('#section-2'));
+
+        Ipage();
       }, 200);
+    };
+  },
+};
 
+// export const svg1 = () => {
+//   var anim = bodymovin.loadAnimation(animData);
+// };
 
-    });
-    $('.iScrollIndicator').on('click', function (e) {
+export const loaded = () => {
+  //call methods
+  cvWrapper.myscroll();
+  //click methods
+  cvWrapper.arrow();
+  //cvWrapper.indicators();
+};
 
-      e.preventDefault();
-      setTimeout(function () {
-        anime2.play();
-        anime3.play();
-      }, 400);
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
-    });
-
-  }
-
-
-  //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-  window.onload = function () {
-    loaded();
-    svg1();
-  };
-
-
-
-
-
-});
+window.onload = function () {
+  loaded();
+  //svg1();
+};

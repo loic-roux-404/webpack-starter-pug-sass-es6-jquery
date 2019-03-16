@@ -1,180 +1,111 @@
-
-$.validator.setDefaults({
-	highlight: function(input) {
-		$(input).addClass("error-highlight");
-		$('textarea:eq(0)').addClass("error-highlight");
-		$(input).parent().addClass("error");
-	},
-	unhighlight: function(input) {
-		$(input).removeClass("error-highlight");
-		$('textarea:eq(0)').removeClass("error-highlight");
-		$(input).parent().removeClass("error");
-
-	}
-});
-
-// $.fn.clearForm = function() {
-//   return this.each(function() {
-//     var type = this.type, tag = this.tagName.toLowerCase();
-//     if (tag == 'form')
-//       return $(':input',this).clearForm();
-//   if (type == 'text' || type == 'password' || tag == 'textarea')
-//       this.value = '';
-//   else if (type == 'checkbox' || type == 'radio')
-//       this.checked = false;
-//   else if (tag == 'select')
-//       this.selectedIndex = -1;
-// });
-// };
-
-$(document).ready(function() {
+//const mailPhp = require('./php/mail.php');
 
 
+var name = null;
+const formObj = {
+  form: document.querySelector('#contact-form'),
+  data: function (data) {
+    //for (name in data) {
+    const FD = this.form.elements;
+    //console.log(FD);
+    var serialized = [];
 
-    // step form functions
-    var form1 = $("#contact-form");
+    // Loop through each field in the form
+    for (var i = 0; i < FD.length; i++) {
 
-    var formValidate = form1.validate({
+      var field = FD[i];
 
-        ignore: ".ignore",
-        debug: true,
-        rules: {
+      // Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
+      if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') continue;
 
-            email: {
-             required: true,
-             email: true
-         },
-         nom: {
-             required: true,
-             minlength: 2
-         },
-         societe: {
-             required: true,
-             minlength: 1
-         },
-         prenom: {
-             required: true,
-             minlength: 2
-         },
-         message: {
-             required: true,
-             minlength: 15,
-             maxlength: 700
-         }
-
-     },
-     messages: {
-      email: {
-         required: "Entrez votre email",
-         email: "Entrez un email valide"
-     },
-     nom: {
-         required: "Entrez votre nom",
-         minlength: "Votre nom doit dépasser 2 lettres"
-     },
-     societe: {
-         required: "Entrez un nom de société",
-         minlength: "Votre société doit dépasser une lettre"
-     },
-     prenom: {
-         required: "Choisissez une catégorie",
-         minlength: "Votre prénom doit dépasser 2 lettres"
-
-     },
-     message: {
-         required: "Entrez un message...",
-         minlength: "Au moins 15 caractères",
-         maxlength: "Maximum 700 caractères"
-     }
- },
- errorPlacement: function(error, element) {
-  element.parent('div').append(error);
- //  $('input:eq(0),input:eq(1),#form-contact input,textarea').css({
- //     'margin-bottom': '1em'
- // });
-
-
-},
-success: function(label) {
-  label.html("<i class=\"material-icons md-28 checked\">done</i>");
-},
-submitHandler: function(form) {
-
-    var dataparam = form1.serialize();
-
-    $.ajax({
-        type: 'POST',
-        async: true,
-        url: 'php/mail.php',
-        data: dataparam,
-        datatype: 'json',
-        cache: true,
-        global: false,
-        beforeSend: function() {
-            $('#contact-form input, #contact-form textarea').animate({
-                opacity: 0
-            }, { 
-                duration: 1000,
-                specialEasing: {
-                  opacity: "easeOutBounce"
-              }
-
-          });
-            $('#loader').animate({
-                opacity: 1
-            }, {
-                duration: 500,
-                specialEasing: {
-                  opacity: "easeOutBounce"
-              }
-          });
-        },
-        success: function(data) {
-            if(data == 'success'){
-                console.log(data);
-            } else {
-                console.log(data);
-            }
-
-        },
-        complete: function(data) {
-            $('#loader').fadeToggle(400);
-
-            setTimeout(function(){
-
-                $('#contact-form .btn').toggleClass('success-ajax');
-                $('#contact-form .btn').html('Message Envoyé');},300);
-
-
-            setTimeout(function(){
-
-                location.reload();
-
-            },3500);
+      // If a multi-select, get all selections
+      if (field.type === 'select-multiple') {
+        for (var n = 0; n < field.options.length; n++) {
+          if (!field.options[n].selected) continue;
+          serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.options[n].value));
         }
+      }
+
+      // Convert field data to a query string
+      else if ((field.type !== 'checkbox' && field.type !== 'radio') || field.checked) {
+        serialized.push(encodeURIComponent(field.name) + "=" + encodeURIComponent(field.value));
+      }
+    }
+
+    return serialized.join('&');
+    //}
+  },
+  sendForm: function () {
+
+    const form = this.form;
+    var XHR = new XMLHttpRequest();
+    var formData = this.data();
+    console.log(formData);
+    var url = this.form.action;
+    console.log(url);
+
+    XHR.onerror = function () {
+      console.log('error no server joined');
+    };
+
+    XHR.onreadystatechange = function () {
+      document.querySelector('#loader').style.display = "block";
+      document.querySelector('#contact-form .btn').classList.add('success-ajax');
+      document.querySelector('#contact-form .btn').innerText = 'Envoi...';
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        
+        console.log("sended");
+
+        setTimeout(function () {document.querySelector('#contact-form .btn').innerText = 'Envoyé !';}, 700);
+        setTimeout(function () {
+          form.reset();
+        }, 1200);
+      }
+    };
+    XHR.open('GET', url + "?" + formData, true);
+    console.log(XHR.open('GET', url + "?" + formData, true));
+    XHR.send();
+
+    //return false;
+  }
+
+  //return false;
 
 
-    });
-}
+};
+
+formObj.form.onsubmit = (e) => {
+  e.preventDefault();
+
+  console.log('=======');
+  formObj.sendForm();
+
+};
+
+
+
+
+/*autosize textarea*/
+$(document).ready(function () {
+  $('textarea').focus(function () {
+    $(this).animate({
+      "height": "130px",
+    }, "fast");
+    //$('#variable-bloc').animate({"height":"53em",},"fast")
+  });
+  $('textarea').blur(function () {
+    $(this).animate({
+      "height": "40px",
+    }, "fast");
+    //$('#variable-bloc').animate({"height":"42em",},"fast")
+  });
 });
 
-    /*autosize textarea*/
-    $(document).ready(function(){  
-        $('textarea').focus(function(){  
-           $(this).animate({"height":"130px",}, "fast");  
-       //$('#variable-bloc').animate({"height":"53em",},"fast")
-   });  
-        $('textarea').blur(function(){  
-           $(this).animate({"height": "40px",}, "fast" );  
-       //$('#variable-bloc').animate({"height":"42em",},"fast")
-   });
-    });
 
 
 
-});
-
-
+//console.log(serialized);
 
 // document.addEventListener("change", function(event) {
 //   var element = event.target;
@@ -182,9 +113,3 @@ submitHandler: function(form) {
 //     element.classList[element.value ? "add" : "remove"]("-hasvalue");
 // }
 // });
-
-
-
-
-
-

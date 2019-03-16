@@ -1,0 +1,16 @@
+@import "mixins/breakpoints";
+@import "mixins/reset";
+@import "mixins/background";
+@import "mixins/fonts";
+@import "mixins/colors";
+@import "mixins/utils";
+@import "mixins/functions";
+
+//merge css
+
+@import "load.scss";
+@import "link-effect.scss";
+@import "scroll.scss";
+@import "realisations.scss";
+@import "style.scss";
+@import "contact.scss"

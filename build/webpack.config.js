@@ -1,24 +1,32 @@
 const path = require('path');
+const merge = require('webpack-merge');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+//const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const multi = require('multi-loader');
 const TerserPlugin = require('terser-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
+const ImageminWebP = require("imagemin-webp");
+const ManifestPlugin = require('webpack-manifest-plugin');
+
 // Files
 const utils = require('./utils');
 const plugins = require('../postcss.config');
 
 var env = null,
-  publicPath = '';
+  publicPath = '',
+  assetPath = '',
+  devMap;
 
 const config = {
 
   context: path.resolve(__dirname, '../src'),
   entry: {
-    app: './app.js',
+    app: "./app.js",
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -27,24 +35,17 @@ const config = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, '../src'),
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    }
   },
+  devtool: devMap,
   resolve: {
     extensions: ['.js'],
     alias: {
       source: path.resolve(__dirname, '../src'), // Relative path of src
       images: path.resolve(__dirname, '../src/assets/images'), // Relative path of images
       fonts: path.resolve(__dirname, '../src/assets/fonts'), // Relative path of fonts
-      "anime": path.relative(__dirname, '../node_modules/','animejs/lib/anime.js'),
-      //"TweenLite": path.resolve(__dirname, '../node_modules', 'gsap/src/minified/TweenLite.min.js'),
-      "TweenMax": path.resolve(__dirname, '../node_modules', 'gsap/src/minified/TweenMax.min.js'),
-      //"TimelineLite": path.resolve(__dirname, '../node_modules', 'gsap/src/minified/TimelineLite.min.js'),
-      "scrollTo": path.resolve(__dirname, '../node_modules/','gsap/src/minified/plugins/ScrollToPlugin.min.js'),
-      //"TimelineMax": path.resolve(__dirname, '../node_modules', 'gsap/src/minified/TimelineMax.min.js'),
-      "ScrollMagic": path.resolve(__dirname, '../node_modules/scrollmagic/scrollmagic/minified/ScrollMagic.min.js'),
-      "animation.gsap": path.resolve(__dirname, '../node_modules/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js'),
-      "jquery.ScrollMagic": path.resolve(__dirname, '../node_modules', 'scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js'),
-      "IScroll": path.resolve(__dirname, '../node_modules/iscroll/build/iscroll-probe.js'),
-      //"jquery.easings": path.resolve(__dirname, '../node_modules/jquery.easing/jquery.easing.js'),
     }
   },
 
@@ -58,13 +59,16 @@ const config = {
         test: /\.js$/,
         exclude: [/node_modules/],
         use: [{
-          loader: 'babel-loader',
+          loader: 'babel-loader?optional=runtime',
           options: {
             presets: ['es2015']
           }
         }]
       },
-
+      // {
+      //   test:require.resolve('../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
+      //   use: ['imports?this=>window', 'exports?animation.gsap']
+      // },
 
       {
         test: /\.css$/,
@@ -74,9 +78,9 @@ const config = {
             loader: 'css-loader',
             options: {
               importLoaders: 1,
-              sourceMap: true,
               minimize: true,
               colormin: false,
+              sourceMap: true
             },
           },
         ],
@@ -90,8 +94,8 @@ const config = {
             options: {
               importLoaders: 1,
               minimize: true,
-              sourceMap: true,
-              colormin: false
+              colormin: false,
+              sourceMap: true
             }
           }, // translates CSS into CommonJS
           'postcss-loader',
@@ -105,7 +109,7 @@ const config = {
         }]
       },
       {
-        test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,
+        test: /\.(jpe?g|png|gif|svg|ico)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           publicPath: '../../',
@@ -126,7 +130,8 @@ const config = {
         test: /\.(mp4)(\?.*)?$/,
         loader: 'url-loader',
         options: {
-          limit: 10000,
+          publicPath: './',
+          limit: 1000,
           name: 'assets/videos/[name].[hash:7].[ext]'
         }
       }
@@ -138,9 +143,13 @@ const config = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        terserOptions: {
+          compress: {
+            drop_console: true,
+          },
+        },
       }),
     ],
-
 
     splitChunks: {
       cacheGroups: {
@@ -159,53 +168,24 @@ const config = {
   },
 
   plugins: [
-    new CopyWebpackPlugin([{
-        from: '../src/assets/files/*pdf',
-        to: '../dist'
-      },
-      {
-        from: '../src/assets/php/*.php',
-        to: '../dist/'
-      },
-      {
-        from: '../src/assets/*.json',
-        to: '../dist/'
-      },
-      {
-        from: '../src/assets/Sites/*',
-        to: '../dist/'
-      },
-      {
-        from: '../src/assets/jeu/*',
-        to: '../dist/'
-      },
-
-    ]),
-    new ImageminPlugin({
-      disable: process.env.NODE_ENV !== 'production',
-      pngquant: ({
-        quality: '80-85'
-      }),
-      plugins: [imageminMozjpeg({
-        quality: 60
-      })]
-    }),
-
+    ///////\\\\\\\\\\
     new MiniCssExtractPlugin({
       filename: 'assets/css/[name].[hash:7].bundle.css',
-      allChunks: true
+      allChunks: true,
+      sourceMap: true
     }),
 
     /*
       Pages
     */
 
-    // // Desktop page
+    ////////// Desktop page\\\\\\\\\\
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'views/index.pug',
       inject: true,
       title: require('../src/content/global.json').title,
+      global: require('../src/content/global.json'),
       content: require('../src/content/content.json'),
       //chunks:['fonts','images','TweenMax','iscroll']
     }),
@@ -215,19 +195,12 @@ const config = {
 
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery',
+      //jQuery: 'jquery',
       'window.$': 'jquery',
-      'window.jQuery': 'jquery',
+      //'window.jQuery': 'jquery',
       'anime': 'animejs/lib/anime.js',
-      'TweenMax':'gsap',
-      'TimelineMax':'gsap',
-      'ScrollMagic':'scrollmagic',
-      'window.ScrollMagic':'scrollmagic',
-      'TweenMax.set':'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js',
-      'jquery.ScrollMagic':'scrollmagic/scrollmagic/uncompressed/plugins/jquery.ScrollMagic.js',
-      '$.ScrollMagic':'scrollmagic/scrollmagic/uncompressed/plugins/jquery.ScrollMagic.js',
-      'scrollTo':'gsap/ScrollToPlugin.js',
-      'window.scrollTo':'gsap/ScrollToPlugin.js',
+      'scrollTo': 'gsap/ScrollToPlugin.js',
+      'window.scrollTo': 'gsap/ScrollToPlugin.js',
     }),
     new WebpackNotifierPlugin({
       title: 'Portfolio'
@@ -235,23 +208,10 @@ const config = {
   ]
 };
 
-
-
 const prod = {
 
-
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-      }),
-    ],
-
-  },
-
   plugins: [
+
     new CopyWebpackPlugin([{
         from: '../src/assets/files/*pdf',
         to: '../dist'
@@ -265,36 +225,63 @@ const prod = {
         to: '../dist/'
       },
       {
-        from: '../src/assets/Sites/*',
+        from: '../src/assets/Sites/**',
         to: '../dist/'
+      },
+      {
+        from: '../src/sitemap.xml',
+        to: '../dist/sitemap.xml'
       },
       {
         from: '../src/assets/jeu/*',
         to: '../dist/'
       },
+      {
+        from: '../src/assets/images/**',
+        to: '../dist/assets/images/[name].[hash:7].webp'
+      }
 
     ]),
     new ImageminPlugin({
       pngquant: ({
         quality: '80-85'
       }),
-      plugins: [imageminMozjpeg({
-        quality: 60
-      })]
+      plugins: [
+        imageminMozjpeg({
+          quality: 55,
+          progressive: true
+        }),
+        ImageminWebP({
+          quality: 75
+        })
+      ],
+      overrideExtension: true,
+      detailedLogs: false,
+      strict: true
     }),
+    new ManifestPlugin(),
+
+    new webpack.DefinePlugin({ // <-- key to reducing React's size
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks 
 
   ]
 };
 
-
-
 // Configuration
+
 module.exports = env => {
+  assetPath = '../../';
+  publicPath = '/';
+  devmap="source-map";
   if (env.NODE_ENV === 'development') {
-    publicPath = '/';
+
     return config;
   } else if (env.NODE_ENV === 'production') {
-    publicPath = './';
-    return config;
+
+    return merge(config, prod);
   }
 };

@@ -6,19 +6,15 @@
 // 	die($conn->connect_error);
 // }
 
-//var_dump($_POST);
+//var_dump($_GET);
 
-if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['societe']) && isset($_POST['email']) && isset($_POST['message'])) {
+if (isset($_GET['nom']) && isset($_GET['email']) && isset($_GET['message'])) {
 
-	$prenom = $_POST['prenom'];
-	$nom = $_POST['nom'];
-	$societe = $_POST['societe'];
-	$email = $_POST['email'];
-	$message = nl2br($_POST['message']);
+	$nom = $_GET['nom'];
+	$email = $_GET['email'];
+	$message = nl2br($_GET['message']);
 
 //----------------------SEND EMAIL-------------------\\
-
-	//echo $row . "<br>";
 
 	//============= mail settings PHP MAILER==============
 	require './php-mailer.php';
@@ -53,7 +49,7 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['societe']) 
 //Set who the message is to be sent from
 	$mail->SetFrom('andregope999@gmail.com');
 //Set an alternative reply-to address
-	$mail->AddReplyTo($email, $prenom . $nom);
+	$mail->AddReplyTo($email, $nom);
 	//----------Set who the message is to be sent to-----------\\
 
 	//---search all admin mail in BD--\\
@@ -143,10 +139,7 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['societe']) 
 				<p></p>
 
 				<div class=\"content\">
-				<br> Identité: " . $nom . "&nbsp;" . $prenom . "<br>Mail:&nbsp;" . $email . "
-				</div>
-				<div class=\"content\">
-					Société : " . $societe . "
+				<br> Identité: " . $nom . "&nbsp;<br>Mail:&nbsp;" . $email . "
 				</div>
 
 				<h1>Message</h1>
@@ -166,7 +159,7 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['societe']) 
 		$reponse = "<div class='error-message nunito f13pt f500 center'>
 				<i class='fa-x'></i>
 				Erreur avec la soumission de la demande </div> ";
-		echo $reponse;
+		return $reponse;
 
 	} else {
 		$reponse = "Votre demande de réservation a bien été envoyée";

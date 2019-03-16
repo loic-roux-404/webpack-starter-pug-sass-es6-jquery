@@ -1,3 +1,5 @@
+- const favico =require('../../assets/images/favicon.png');
+
 meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
 meta(charset='utf-8')
 //- Referencement
@@ -6,13 +8,6 @@ meta(name='robots', content='noodp,noydir')
 meta(name='google', content='nositelinkssearchbox')
 title #{htmlWebpackPlugin.options.title}
     //- favico and shortcut
-link(rel='icon', href='./assets/images/favicon.png', type='image/png')
-link(rel='favicon', href='./assets/images/favicon.png')
-    //- material icons add
-    //- CSS PLUGINS
-//- link(rel='stylesheet', type='text/css', href='./css/load.css')
-//-link(rel='stylesheet', type='text/css', href='./res/bootstrap/css/bootstrap.css')
-//-     //- font icons
-//- link(rel='stylesheet', type='text/css', href='./font/fonts/style.css')
-//-     //- css user
-//- link(rel='stylesheet', type='text/css', href='./css/main.css')
+link(rel='icon', href=favico, type='image/png')
+link(rel='favicon', href=favico)
+ 

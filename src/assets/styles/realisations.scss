@@ -1,0 +1,371 @@
+/*==========REALISATIONS*/
+
+/*===============BACKGROUND POSTER===========*/
+
+/*========================*/
+/*===realisation toggle button description===*/
+/*========================*/
+
+/*DESC AND BACKGROUND*/
+.desc {
+  z-index: 99;
+  display: none;
+  overflow-y: scroll;
+}
+
+.back-desc {
+  padding-top: 2vh;
+  position: absolute;
+  border-radius: 1%;
+  width: 0;
+  height: 0;
+  z-index: 10;
+  background: #eee;
+  display: none;
+
+}
+
+$desc-decale: 1.6vh;
+
+@each $bp,
+$val in $breakpoints {
+  @media (min-width: $val) {
+    .back-desc {
+      padding-top: $desc-decale;
+    }
+
+    $desc-decale: ($desc-decale * 1.9)+0.5vh;
+  }
+}
+
+.close-wrapper {
+  height: auto;
+  overflow: hidden;
+  outline: none !important;
+  border: none;
+}
+
+.close {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  -webkit-transition: background 0.2s ease-in;
+  transition: background 0.2s ease-in;
+}
+
+.close:hover::before,
+.close:hover::after {
+  background: #1ebcc5;
+}
+
+.close::before,
+.close::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  background: #000;
+}
+
+.close::before,
+.croix {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.close::after,
+.croix {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.close.hairline::before,
+.close.hairline::after {
+  height: 1px;
+}
+
+/*title rea desc*/
+
+/* .desc{
+  /*	font-size: calc(9px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+  }*/
+.desc h4 {
+  color: #393939;
+  letter-spacing: 1.2px;
+  font-family: "Muli";
+  font-weight: 900;
+  font-size: 1.65em;
+}
+
+.desc p {
+  margin: 0;
+}
+
+.desc p,
+.desc ul {
+  color: #545454;
+}
+
+.desc p.d-inline {
+  letter-spacing: 2px;
+  font-weight: 200;
+}
+
+.desc .main-content,
+.desc p {
+  @include didact;
+  letter-spacing: 1.04px;
+  line-height: 24px;
+  font-size: 1.07em;
+  word-wrap: break-all;
+  text-align-last: left;
+  text-align: left;
+}
+
+@media (min-width: $break-md) {
+  .desc h4 {
+    font-size: 2em;
+  }
+
+  .desc .main-content,
+  .desc p {
+    letter-spacing: 1.05px;
+    font-size: 1.2em;
+    line-height: 28px;
+    text-align: justify;
+  }
+}
+
+.desc ul {
+  padding-left: 0.9em;
+  line-height: 16px;
+  text-align: left !important;
+}
+
+.desc ul li {
+  padding-top: 0.27em;
+}
+
+@media (min-width: $break-sm) {
+  .desc ul {
+    padding-left: 1.1em;
+    line-height: 18px;
+  }
+
+  .desc ul li {
+    padding-top: 0.54em;
+  }
+}
+
+.desc a {
+  text-decoration: none;
+  @include muli;
+  font-weight:400;
+  font-size: 1.35em;
+  position: relative;
+  display: inline-block;
+  color: #0984e3;
+}
+
+.desc a:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  bottom: 0.1px;
+  right: 0;
+  background: #0984e3;
+  transition: width 0.2s ease;
+  -webkit-transition: width 0.2s ease;
+}
+
+.desc a:hover:after {
+  width: 100%;
+  left: 0;
+  background: #0984e3;
+}
+
+/*isotope toggle with jquery*/
+.buttons-rea {
+  position: absolute;
+  z-index: 8;
+  width: 100%;
+  top: 3.67em;
+  left: 0;
+  text-align: center;
+
+  @media (min-width: $break-sm) {
+    @include Pos($px, 100);
+  }
+
+  @media (min-width: $break-lg) {
+    text-align: left;
+    @include Pos($px, 37, 1);
+  }
+
+  @media (min-width: $break-xl) {
+    width: auto;
+    left: 7%;
+    @include Pos($px, 35, 1);
+
+  }
+
+  button {
+    position: relative;
+    margin: 0 0.8em;
+    background-color: #797979;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    @include button;
+    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+
+    &:hover,
+    &:focus {
+      -webkit-box-shadow: 0 -6px 10px 3.5px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 -6px 10px 3.5px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  i {
+    font-size: 1.3rem;
+    position: absolute;
+    z-index: 5;
+    color: #ffffff;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+.row.game-wrap {
+  display: none;
+}
+
+/*======toggle transition 3D=========*/
+.site-wrap,
+.game-wrap {
+  position: relative;
+  margin-top: 16.5%;
+  width:102vw;
+
+  @media (min-width: $break-sm) {
+    margin-top: 7%;
+    top:0;
+  }
+
+  @media (min-width: $break-lg) {
+    margin-top: -1%;
+  }
+
+}
+
+//map color realisations
+$map-rea-color: (0: #ff9f43,
+1: #39628b,
+2: #78e08f,
+3: #d980fa,
+4: #0984e3,
+5: #e45063);
+
+$map-rea-color-2: (0: #273c75,
+1: #777777de);
+
+$cube-decale: 9em;
+$i: 1;
+
+#realisations {
+  position: relative;
+  min-height: 100vh;
+
+  .video-bloc-1 {
+    position: relative;
+    //display: block;
+    overflow: hidden;
+    transition: all 0.8s ease-in-out;
+    z-index: 3;
+    height: $cube-decale * 1.5;
+    width:100%;
+  
+    @each $bp,
+    $val in $breakpoints {
+      @media (min-width:#{$val}) {
+        height: $cube-decale * $i;
+      }
+  
+      $i: $i+1;
+    }
+
+    @each $i,
+    $val in $map-rea-color {
+      &:nth-child(#{$i + 1}) {
+        background-color: $val;
+      }
+    }
+
+    p {
+      transition: all 0.4s ease-in-out;
+    }
+
+    $font-size-p-1: 1.1em;
+
+    @each $bp,
+    $val in $breakpoints {
+      @media (min-width:#{$val}) {
+        p {
+          $font-size-p-1: $font-size-p-1 + 0.2em;
+          font-size: $font-size-p-1;
+
+          &:hover {
+            font-size: $font-size-p-1 + 0.5em;
+          }
+        }
+      }
+    }
+  }
+
+  .fig-game {
+
+    @each $i,
+    $val in $map-rea-color-2 {
+      &:nth-child(#{$i + 1}) {
+        background-color: $val !important;
+      }
+    }
+  }
+
+  &:hover .img {
+    filter: brightness(100%);
+  }
+}
+
+
+
+.figure-rea {
+  @include posAll;
+  @include background-cover;
+  z-index: -1;
+
+  div.img {
+    margin: auto;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transform: scale(1.1);
+    transition: filter 0.4s ease;
+  }
+}
+

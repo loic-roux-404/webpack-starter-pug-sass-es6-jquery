@@ -1,0 +1,14 @@
+
+@mixin background-contain {
+	background-size: contain;
+	background-position: center;
+	background-clip: border-box;
+	background-repeat: no-repeat;
+  }
+
+@mixin background-cover {
+	background-size: contain;
+	background-position: center;
+	background-clip: border-box;
+	background-repeat: no-repeat;
+  }

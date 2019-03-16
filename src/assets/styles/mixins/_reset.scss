@@ -1,24 +1,50 @@
-@mixin button {
-	outline: inherit;
-	border:none;
-	padding:0;
-	cursor: pointer;
-	&:focus,&:hover{
-		outline: none;
-		border: none;
-	}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-@mixin background-contain {
-	background-size: contain;
-	background-position: center;
-	background-clip: border-box;
-	background-repeat: no-repeat;
-  }
+/*====js intervention ?=====*/
+.no-js {
+  overflow-x: scroll;
+}
 
-@mixin background-cover {
-	background-size: contain;
-	background-position: center;
-	background-clip: border-box;
-	background-repeat: no-repeat;
+.js {
+  overflow-x: hidden;
+  overflow-y: scroll
+    /*hidden*/
+  ;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+body {
+  margin: 0;
+  -webkit-perspective: 100px;
+  perspective: 100px;
+  font-family: sans-serif;
+}
+
+html {
+  line-height: 1.15;
+}
+
+
+@mixin button {
+  outline: inherit;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    border: none;
   }
+}
+

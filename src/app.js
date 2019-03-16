@@ -1,14 +1,32 @@
-//import 'imports-loader?this=>window&define=>false';
+/*===============Detect Device===========*/
+export function detectmob() { 
+  if( navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)
+  ){
+     return true;
+   }
+  else {
+     return false;
+   }
+ }
+
+
+
+/*====================*/
+
+//useful function
 function importAll(r) {
   r.keys().forEach(r);
 }
-// Styles
-require.context("./assets/styles",true,/\.main\.scss$/);
-require('./assets/styles/bootstrap/custom.scss');
-//custom scripts
-require.context("./assets/fonts", true, /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/);
-importAll(require.context("./assets/images", true, /\.(png|jpg|gif)$/));
+//var mime = require('mime-types');
 
+/*====================*/
+//============= Styles import
+import "./assets/styles/main.scss";
+import './assets/styles/bootstrap/custom.scss';
+//======= Assets files (image,fonts)
+require.context("./assets/fonts", true, /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/);
+
+/*====================*/
 /*scrollToTop essential function*/
 document.querySelector('.toTopButton').addEventListener("click", scrollToTop, false);
 
@@ -17,46 +35,47 @@ export function scrollToTop() {
     scrollTop: 0
   }, 700);
 }
-var loadTiming = 1000;
-/*smooth scroll settings*/
-var s = 1 / 2,
-  d = 85;
-/*no scoll*/
-var ns = 0,
-  nd = 0;
-export{
+//loading time    || speed / val || scroll distance || no scroll
+var loadTiming = 678, s = 1 / 3.7, d = 145,         ns = 0,  nd = 0;
+
+//document offset for lightbox,loader
+
+export {
   s,
   d,
   ns,
   nd,
   loadTiming
 };
-
-
-//import './assets/scripts/scroll_cv.exec';
-import * as smoothScroll from './assets/scripts/smooth-scroll.exec.js';
+//===========End document essentials functions==========
+//================================
+//===============Personnal scripts
 import * as load from './assets/scripts/load.exec.js';
-import * as button from './assets/scripts/button.exec.js';
+import * as smoothScroll from './assets/scripts/smooth-scroll.exec.js';
 import * as scroll from './assets/scripts/scroll.exec.js';
+import * as validate from './assets/scripts/validate.exec.js';
+import * as button from './assets/scripts/button.exec.js';
+import * as video from './assets/scripts/video.exec.js';
+//import { deepStrictEqual } from "assert";
 
 
-
-
+//================================
+//============Set some content when page loaded
 document.addEventListener("DOMContentLoaded", function () {
-  require.context('./assets/video/', true, /\.(mp4)(\?.*)?$/);
-  console.log('video imported');
+
+  //load html*/
+  [].slice.call(document.getElementsByClassName('wrappers')).forEach(function(elem){elem.classList.remove('d-none');});
+
+  require('./assets/scripts/scroll_cv.exec.js');
+  //=============================
+  /*Load video after document ready*/
+  importAll(require.context("./assets/images", true, /\.(png)$/));
+  //importAll(require.context('./assets/video/', true, /\.(mp4)(\?.*)?$/));
+  require('./assets/scripts/script.exec.js');
 
 }, false);
 
-$(document).ready(function () {
-  console.log('bon app');
-});
 
 
 
 
-
-
-
-
-/*button lightbox realisation*/

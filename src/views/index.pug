@@ -1,11 +1,11 @@
 doctype html
-html.no-js
+html.no-js(lang="fr")
   head
     include includes/head
   body.bg-info
-    header#header
+    header#header.wrappers.d-none
       include includes/header
-    section#main
+    section#main.wrappers.d-none
       article#presentation.shadow-md.bg-info
         include includes/presentation
 
@@ -18,11 +18,11 @@ html.no-js
       include includes/realisations
       article#contact
         include includes/contact
-      footer#footer
-        include includes/footer
+
+
       //- </section main
-      article.preloader-wrap
-        include includes/loader
 
-    include includes/scripts
-
+    footer.wrappers.d-none
+      include includes/footer
+    article.preloader-wrap
+      include includes/loader

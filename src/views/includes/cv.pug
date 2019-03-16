@@ -1,16 +1,23 @@
+- const cv = htmlWebpackPlugin.options.content.cv;
+
+
+
 #cv-title.pb-3.d-table.m-auto(style='height:40vh;')
-    h1.text-uppercase.heebo.f900.px-2.text-light.d-table-cell.align-middle(title='stage developpeur fullstack web integration web design communication') Portfolio
+    h1.text-uppercase.heebo.f900.px-2.text-light.d-table-cell.align-middle(title='CV developpeur fullstack web integration web design communication')= cv.title
 #viewport
     #wrapper
         ul#frise.frise(style='height:100vh;padding-top:10vh;')
             li#section-1.cv-text
                 .m-auto.row.w-100.justify-content-around.align-content-end
                     .heebo.f900.text-uppercase.text-white.w-lg-80.w-xl-60
-                        span(title='stage développeur')  Actuellement à la recherche d'un stage dans le développement web
+                        span(title=cv.main)=  cv.main
                         form.my-3.my-md-5.pt-3.pt-md-5(action='./assets/files/cv.pdf', method='get', accept-charset='utf-8')
-                            button.btn.btn-outline-light.montserrat.f700.px-5.py-3.rounded-0(type='submit') CV PDF
-                    #bm.text-center
-                    .round-arrow
+                            button.btn.btn-outline-light.muli.f700.px-5.py-3.rounded-0(type='submit') CV PDF
+                    h5#bm.text-center.muli(title="Touch wrapper iscroll")
+                        | Glisser en touchant 
+                        br
+                        | pour aller aux sections suivantes
+                    .round-arrow.arrow-wrapper
                         #cta
                             span.arrow.primera.next.bounceAlpha
                             span.arrow.segunda.next.bounceAlpha
@@ -19,22 +26,21 @@
                     #text-sec1.float-right.float-md-none.align-items-end.text-left
                         .d-inline-flex.heebo.f900.title.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm.animate.animate-1
                             | Présentation
-                        .f700.montserrat.w-100.w-sm-80.w-md-60.w-xl-50.text-left.text-dark.pt-2.pt-md-5
+                        .didact.w-100.w-sm-80.w-md-60.w-xl-50.text-left.text-white.pt-2.pt-md-5(style="font-size:1.15em")
                             p.animate.animate-1
-                                span.bg-white
+                                span
                                     | Je suis un polyvalent et créatif de la conception web.
                             p.animate.animate-1
-                                span.bg-white
+                                span
                                     | Je peux réaliser des sites ergonomiques et modernes en utilisant les procédés de communication, en
                                     | intégrant des élements graphiques et des animations.
                             p.animate.animate-1
-                                span.bg-white
+                                span
                                     | J'applique ces connaissances pour créer des sites dynamiques comportant des
                                     | back-offices adaptés aux demandes des clients.
                         .animate.animate-1_1.white-container.animate.float-sm-none.float-md-right
                             .row.bg-cv.px-2
                                 .col-6.cv-bg1
-                                //-icons
                                 .col-6.cv-bg2
                                 .col-6.cv-bg3
                                 .col-6.cv-bg4
@@ -45,7 +51,7 @@
                 .row.flex-wrap.flex-md-nowrap.justify-content-md-start.justify-content-around.ml-md-0(style='height:400px;')
                     .timeline-anchor.order-md-1.order-4.w-100
                         .animate.timeline1-1.text.border.border-light.lato.f100.text-uppercase.p-2.text-light.mt-md-0.my-3.py-2.animate.timeline1-1
-                            span BAC ES - Spécialité Maths (mention)
+                            span BAC ES - Spécialité Maths (mention assez bien)
                             br
                         span.kanit.f100.font-year.align-top.animate.timeline1-2 2017
                     .timeline-anchor.order-md-3.order-2.w-100
@@ -65,7 +71,7 @@
                             br
                             span IUT1 de Grenoble
                         span.kanit.f100.font-year.animate.timeline1-2 2019
-            // END SECTION 3
+            //- END SECTION 3
             li#section-4
                 .d-inline-flex.text-center.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm
                     span.align-self-center Compétences
@@ -79,7 +85,7 @@
                                             .text-uppercase.text-center.effect-title.d-table
                                                 h4.text-center.muli.f300.text-white.d-table-cell.align-middle Développement web
                                             .figcaption.text-dark
-                                                h3.montserrat.f700.text-uppercase Développement PHP/CMS
+                                                h3.muli.f700.text-uppercase Développement PHP/CMS
                                                 p.didact
                                                     | Application de mes compétences en intégration web dans les CMS Wordpress et
                                                     | Prestashop. Connaissance du combo PHP MySql avec l'ajout d'asynchrone (AJAX).
@@ -91,7 +97,7 @@
                                             .text-uppercase.text-center.effect-title.d-table
                                                 h4.text-center.muli.f300.text-white.d-table-cell.align-middle Intégration web
                                             .figcaption.text-dark
-                                                h3.montserrat.f700.text-uppercase Intégration et design web
+                                                h3.muli.f700.text-uppercase Intégration et design web
                                                 p.didact
                                                     | Maïtrise du trio HTML5/CSS3/JS avec l'utilisation des librairies Jquery et de
                                                     | frameworks comme bootstrap.
@@ -103,7 +109,7 @@
                                             .text-uppercase.text-center.effect-title.d-table
                                                 h4.text-center.muli.f300.text-white.d-table-cell.align-middle Design graphique
                                             .figcaption.text-dark
-                                                h3.montserrat.f700.text-uppercase Graphisme et motion design
+                                                h3.muli.f700.text-uppercase Graphisme et motion design
                                                 p.didact.f300
                                                     | J'utilise des logiciels d'Adobe comme Photoshop, Illustrator et InDesign.
                                                     | After effect me permet de créer des SVG animés.
@@ -115,38 +121,41 @@
                                             .text-uppercase.text-center.effect-title.d-table
                                                 h4.text-center.muli.f300.text-white.d-table-cell.align-middle Communication
                                             .figcaption.text-dark
-                                                h3.montserrat.f700.text-uppercase Procédés de communication
+                                                h3.muli.f700.text-uppercase Procédés de communication
                                                 p.didact
                                                     | Comment diffuser son storytelling, amorçage d'un utilisateur, planification...
                                                     br
-                                                    |  Application aux
-                                                    | 																réseaux sociaux et à la rédaction web.
+                                                    | Application aux réseaux sociaux et à la rédaction web.
             li#section-5
                 .m-auto.row.w-100.d-flex.justify-content-around.align-content-center
                     .col-md-6.px-2
                         .text-center
                             h1.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.shadow-sm.d-inline-flex.px-2(title='Outils de développement')
                                 span Mes outils
-                    .w-100
-                        // -icons
-                        ul.tools.px-2.row.justify-content-around
-                            while i<12
-                            li.col-6.col-md-4.col-lg-3 
-                                div 
+                    .w-100.h-100
+                        //-icons
+                        ul.tools.px-2.d-flex.justify-content-around
+                            each val in cv.tools.skills
+                                li.round-comp.rounded-circle
+                                    span= val
+                            
 
             li#section-6
-                h1.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.shadow-sm(title='stage référence clients euronews')
+                h1.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.shadow-sm.d-inline-flex.px-2(title='stage référence clients euronews')
                     | Références
-                .col-12
+                .col-12.text-light.heebo.f300
+                    | Cette section risque de bien se remplir...
+                    br
+                    | à suivre...
                 .col-12.mx-2.bg-light.d-none
                     .container.container-fluid.py-2
                         span.muli.f300 Euronews
                         .montserrat Lyon, 2014
                         br
-                        .montserrat.text-left
+                        p.montserrat.text-left(title="expériences professionelles")
                             | Stage de découverte en entreprise.
                             | J'ai pu découvrir de nombreuses professions au cours de ce stage, j'ai pu accompagner des techniciens comme
                             | des monteurs vidéo, des ingénieurs du son mais également de nombreux métiers du journalisme comme rédacteur
-                            | web et youtube rédacteur.
+                            | web (Youtube).
                     .bg-euronews
             li#section-7

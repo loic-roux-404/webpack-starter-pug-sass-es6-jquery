@@ -1,0 +1,22 @@
+//pos units
+$px: px;
+$percent:"%";
+$em: em;
+$rem: rem;
+
+
+@mixin posAll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+@mixin fadein {
+  opacity: 1;
+}
+
+@mixin fadeout {
+  opacity: 0;
+}

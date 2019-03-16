@@ -9,36 +9,36 @@ article#realisations.hero3
     button.rounded-circle.site(data-state='1', title='Réalisations web')
       i.fa-globe
     button.rounded-circle.game(data-state='0', title='Plus de projets : infographie, jeux...')
-      i.fa-more-horizontal
+      i.fa-plus-circle
   .text-center.py-3
     h1.text-center.text-uppercase.heebo.f900.px-2.text-dark.d-inline.text2(title='réalisation javascript php cms html5 et css3')
       | Réalisations
-  #bloc-vid
-    #videos1.container-fluid-sm.py-5.p-0
+  #bloc-vid.py-2.py-md-5
+    #videos1.py-sm-0.py-md-5
       .back-desc
         //- lightbox background
         .text-center
           button.close-wrapper.bg-transparent.align-center.text-center.pt-md-3.pt-2(title='fermer expériences developpeur')
             span.close.hairline
-        - for (var j = 0;j < 5;j++){
+        - for (var j = 0;j < 6;j++){
         - var item = rea1[j];
         div(class="desc desc-"+j+" px-2")
           .container.container-fluid.w-xl-60
             h4.pt-2.m-0= item.subtitle
             p.d-inline= item.date
             p.pt-2.m-0= item.intro
-            span.d-block(style='height:8px;')
+            span.d-block(style='height:4px;')
             if item.content
               p.main-content.py-2.text-md-left !{item.content}
             else if item.list
-              ul.main-content.py-1.py-sm-2.text-md-left
+              ul.main-content.text-md-left
                 each val in item.list
                   li= val
             else
               | No Project description
             a(href=item.link, title=item.title) Voir le projet
         - }//-END FOR
-        - for (var i = 5;i < 7;i++){
+        - for (var i = 6;i < 8;i++){
         - var item = rea2[i];
         div(class="desc desc-"+i+" px-2")
           .container.container-fluid.w-xl-60
@@ -59,26 +59,28 @@ article#realisations.hero3
             a(href=item.link, title=item.title) Voir le projet
         - }//-END FOR
 
-      .site-wrap.row.justify-content-center.container-vid-1
-        - for (var l = 0;l < 5;l++){
-          a.video-bloc-1.col-5.btn-6(href='')
+      .site-wrap.row.container-vid-1.mx-0
+        - for (var l = 0;l < 6;l++){
+          a.video-bloc-1.col-6.btn-6(href='')
             - var item = rea1[l];
-              .vid-wrapper
-                video(autoplay='', loop='', muted='', poster='./assets/images/'+l+'.png')
-                  source(src='./assets/video/'+l+'.mp4', type='video/mp4', title=item.title)
-                p.text-white-50.heebo.p-2.p-sm-3.p-xl-5.text-center.text-uppercase= item.subtitle
-
-                span
+              .figure-rea
+                div.img(title=item.title)
+              .d-table.w-100.h-100
+                p.text-white-50.heebo.d-table-cell.align-middle.text-center.text-uppercase(title=item.subtitle)= item.subtitle 
+              span
         - }
 
-      .game-wrap.row.justify-content-center.container-vid-2
-        - for (var k =5;k < 7;k++){
-          a.video-bloc-1.col-5.btn-6(href='')
+      .game-wrap.row.container-vid-2.pt-2
+        - for (var k =6;k < 8;k++){
+          a.video-bloc-1.col-6.btn-6.fig-game(href='')
             - var item = rea2[k];
-              .vid-wrapper
-                video(autoplay='', loop='', muted='', poster='./assets/images/'+k+'.png')
-                  source(src='./assets/video/'+k+'.mp4', type='video/mp4', title=item.title)
-                p.text-white-50.heebo.p-2.p-sm-3.p-xl-5.text-center.text-uppercase= item.subtitle
+              .figure-rea
+                div.img(title=item.title)
 
-                span
+              .d-table.w-100.h-100.h-100
+                p.text-white-50.heebo.d-table-cell.align-middle.text-center.text-uppercase(title=item.subtitle)= item.subtitle
+
+              span
         - }
+
+
