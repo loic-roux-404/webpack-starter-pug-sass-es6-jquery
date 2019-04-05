@@ -1,7 +1,5 @@
 - const cv = htmlWebpackPlugin.options.content.cv;
 
-
-
 #cv-title.pb-3.d-table.m-auto(style='height:40vh;')
     h1.text-uppercase.heebo.f900.px-2.text-light.d-table-cell.align-middle(title='CV developpeur fullstack web integration web design communication')= cv.title
 #viewport
@@ -9,16 +7,16 @@
         ul#frise.frise(style='height:100vh;padding-top:10vh;')
             li#section-1.cv-text
                 .m-auto.row.w-100.justify-content-around.align-content-end
-                    .heebo.f900.text-uppercase.text-white.w-lg-80.w-xl-60
+                    .heebo.f900.text-uppercase.text-white.w-lg-80
                         span(title=cv.main)=  cv.main
                         form.my-3.my-md-5.pt-3.pt-md-5(action='./assets/files/cv.pdf', method='get', accept-charset='utf-8')
                             button.btn.btn-outline-light.muli.f700.px-5.py-3.rounded-0(type='submit') CV PDF
                     h5#bm.text-center.muli(title="Touch wrapper iscroll")
-                        | Glisser en touchant 
+                        | SCROLL HORIZONTAL
                         br
-                        | pour aller aux sections suivantes
+                        | toucher et glisser
                     .round-arrow.arrow-wrapper
-                        #cta
+                        .cta
                             span.arrow.primera.next.bounceAlpha
                             span.arrow.segunda.next.bounceAlpha
             li#section-2.clearfix.mt-md-2.mt-2
@@ -40,10 +38,9 @@
                                     | back-offices adaptés aux demandes des clients.
                         .animate.animate-1_1.white-container.animate.float-sm-none.float-md-right
                             .row.bg-cv.px-2
-                                .col-6.cv-bg1
-                                .col-6.cv-bg2
-                                .col-6.cv-bg3
-                                .col-6.cv-bg4
+                                each val,i in cv.mainTools
+                                    div(class="cv-bg"+i alt=val.alt title=val.seo)
+
             //- END SECTION 2
             li#section-3
                 .d-inline-flex.text-left.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm
@@ -157,5 +154,7 @@
                             | J'ai pu découvrir de nombreuses professions au cours de ce stage, j'ai pu accompagner des techniciens comme
                             | des monteurs vidéo, des ingénieurs du son mais également de nombreux métiers du journalisme comme rédacteur
                             | web (Youtube).
+                            |Loic Roux
+                           
                     .bg-euronews
             li#section-7

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /assets/php
+Disallow: /assets/json/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Sitemap: http://www.loicroux.fr/sitemap.xml
+

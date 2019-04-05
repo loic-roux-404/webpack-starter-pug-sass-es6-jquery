@@ -13,14 +13,6 @@ import {
 //import assign from 'core-js/modules/es6.object.assign';
 
 
-
-
-
-
-
-
-
-
 // Wrap every letter in a span
 const loadText = document.querySelectorAll('.load-text');
 
@@ -44,14 +36,14 @@ function loader() {
 }
 
 
-$(window).on('load', function () {
+$(window).on('load',function(){
 
   loader();
 
   //scrollToTop();
   var loadtext = $('.load-text');
 
-  loadtext.fadeToggle(200, "easeOutQuart");
+  loadtext.fadeIn(500, "easeOutQuart");
 
   setTimeout(
     function () {
@@ -64,10 +56,6 @@ $(window).on('load', function () {
     perfData = window.performance.timing, // The PerformanceTiming interface represents timing-related performance information for the given page.
     EstimatedTime = -(perfData.loadEventEnd - perfData.navigationStart),
     time = loadTiming;
-
-
-
-
 
   var ID = document.getElementsByClassName("percentage"),
     start = 0,
@@ -112,8 +100,6 @@ $(window).on('load', function () {
     ml10.classList.add('d-block');
     //letters.each(function(){
     [...letters].forEach(function (el) {
-      //$(this).html($(this).text().replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>"));
-
       el.innerHTML = el.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
     });
 
@@ -125,7 +111,7 @@ $(window).on('load', function () {
         rotateY: [-90, 0],
         duration: 3700,
         delay: function (el, i) {
-          return 70 * i;
+          return 120 * i;
         }
       }).add({
         targets: '.ml10',

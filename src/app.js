@@ -10,14 +10,12 @@ export function detectmob() {
  }
 
 
-
 /*====================*/
 
 //useful function
 function importAll(r) {
   r.keys().forEach(r);
 }
-//var mime = require('mime-types');
 
 /*====================*/
 //============= Styles import
@@ -28,7 +26,7 @@ require.context("./assets/fonts", true, /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/);
 
 /*====================*/
 /*scrollToTop essential function*/
-document.querySelector('.toTopButton').addEventListener("click", scrollToTop, false);
+document.querySelector('.toTopButton').addEventListener("click", scrollToTop, true);
 
 export function scrollToTop() {
   $("html, body").animate({
@@ -36,7 +34,7 @@ export function scrollToTop() {
   }, 700);
 }
 //loading time    || speed / val || scroll distance || no scroll
-var loadTiming = 678, s = 1 / 3.7, d = 145,         ns = 0,  nd = 0;
+var loadTiming = 678, s = 1 / 5, d = 210,         ns = 0,  nd = 0;
 
 //document offset for lightbox,loader
 
@@ -53,9 +51,10 @@ export {
 import * as load from './assets/scripts/load.exec.js';
 import * as smoothScroll from './assets/scripts/smooth-scroll.exec.js';
 import * as scroll from './assets/scripts/scroll.exec.js';
-import * as validate from './assets/scripts/validate.exec.js';
 import * as button from './assets/scripts/button.exec.js';
 import * as video from './assets/scripts/video.exec.js';
+import * as scroll_cv from './assets/scripts/scroll_cv.exec.js';
+
 //import { deepStrictEqual } from "assert";
 
 
@@ -64,14 +63,17 @@ import * as video from './assets/scripts/video.exec.js';
 document.addEventListener("DOMContentLoaded", function () {
 
   //load html*/
-  [].slice.call(document.getElementsByClassName('wrappers')).forEach(function(elem){elem.classList.remove('d-none');});
+  setTimeout(function(){
+    [].slice.call(document.getElementsByClassName('wrappers')).forEach(function(elem){elem.classList.remove('invisible');});
+  },loadTiming*0.9);
 
-  require('./assets/scripts/scroll_cv.exec.js');
   //=============================
   /*Load video after document ready*/
-  importAll(require.context("./assets/images", true, /\.(png)$/));
+  //importAll(require.context("./assets/images", true, /\.(png)$/));
   //importAll(require.context('./assets/video/', true, /\.(mp4)(\?.*)?$/));
   require('./assets/scripts/script.exec.js');
+  require('./assets/scripts/validate.exec.js');
+
 
 }, false);
 

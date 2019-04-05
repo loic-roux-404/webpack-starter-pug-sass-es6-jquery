@@ -3,9 +3,9 @@ html.no-js(lang="fr")
   head
     include includes/head
   body.bg-info
-    header#header.wrappers.d-none
+    header#header.wrappers.invisible
       include includes/header
-    section#main.wrappers.d-none
+    section#main.wrappers.invisible
       article#presentation.shadow-md.bg-info
         include includes/presentation
 
@@ -22,7 +22,7 @@ html.no-js(lang="fr")
 
       //- </section main
 
-    footer.wrappers.d-none
+    footer.wrappers.invisible
       include includes/footer
     article.preloader-wrap
       include includes/loader

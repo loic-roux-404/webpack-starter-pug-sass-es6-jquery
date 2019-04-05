@@ -1,7 +1,7 @@
 {
   "cv": {
     "title":"à propos",
-    "main": "Actuellement à la recherche d'un stage dans le développement web ",
+    "main": "Découvrez mes compétences en développement web fullstack. Actuellement en stage.",
     "tools": {
       "title": "MES OUTILS",
       "skills": [
@@ -18,6 +18,28 @@
         "Webpack",
         "Typescript"
       ]
+    },
+    "mainTools":{
+      "1":{
+        "res":"cv-bg1",
+        "alt":"Css logo",
+        "seo":"Compétences création de site web en design CSS3"
+      },
+      "2":{
+        "res":"cv-bg2",
+        "alt":"PHP logo",
+        "seo":"Développement web Back End PHP 7 orienté objet et CMS"
+      },
+      "3":{
+        "res":"cv-bg3",
+        "alt":"Javascript logo",
+        "seo":"Compétences web application Javascript"
+      },
+      "4":{
+        "res":"cv-bg4",
+        "alt":"CSS logo",
+        "seo":"compétences CMS PHP Wordpress"
+      }
     }
   },
   "realisations": {
@@ -34,7 +56,7 @@
           "5": "Un système d'emailing (rubrique contact) basé sur PHPMailer et le SMTP de google."
 
         },
-        "link": "http://www.arinella.loicroux.fr",
+        "link": "http://loicroux.fr/Sites/arinella/index.php",
         "seo": {
           "title": "null",
           "subtile": "null",
@@ -50,7 +72,7 @@
         "date": "Mars 2018 - Avril 2018",
         "intro": "Projet de site dynamique visant à trouver des restaurants autour des lieux d'études de Grenoble.",
         "content": "Site web avec interface d'administration permettant de supprimer, ajouter et modifier des restaurants. Ensuite les restaurants sont affichés en photo avec une description. En sélectionnant le lieu d'étude proche on trouve grâce à un algorithme les restaurants proches avec également un critère de prix.",
-        "link": "http://alt2crous.loicroux.fr",
+        "link": "http://loicroux.fr/Sites/alt2crous/index.php",
         "seo": {
           "title": "null",
           "subtile": "null",

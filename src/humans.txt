@@ -1,0 +1,26 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+/* TEAM */
+
+   Web developer: Loic Roux
+   Site: https://www.loicroux.fr
+   From: Lyon, France
+
+/* THANKS */
+
+   Scrollmagic: http://scrollmagic.io/
+   Gsap : https://greensock.com/gsap
+   JQuery : https://jquery.com/
+   Webpack : https://webpack.js.org/
+   npm : https://www.npmjs.com/
+   bootstrap : https://getbootstrap.com/
+   loic : http://www.loicroux.site/
+
+/* SITE */
+
+   Last update: 2019/04/25
+   Language: French
+   Standards: HTML5, CSS3, JS
+   Doctype: HTML5
+   Software: VS CODE

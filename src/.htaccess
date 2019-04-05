@@ -1,0 +1,4 @@
+#Options +FollowSymLinks -Indexes
+RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://www.loicroux.fr/$1 [R,L]

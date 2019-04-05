@@ -11,23 +11,23 @@ div
         .row.justify-content-around
             .col-md-7.mb-sm-3.mb-2.mx-sm-2
                 .form-element.form-input.p-md-0.px-3
-                    input#nom.form-element-field(placeholder=' ', name='nom' required)
+                    input#nom.form-element-field(type="text" placeholder=' ', name='nom' required)
                     .form-element-bar
-                    label.form-element-label(for='nom')
+                    label.form-element-label(for='nom', id="nom", title='nom')
                         span.fa-user.pr-2
                         | Nom
             .col-md-7.mb-sm-3.mb-2.mx-sm-2
                 .form-element.form-input.p-md-0.px-3
-                    input#email.form-element-field(placeholder=' ', name='email' required)
+                    input#email.form-element-field(type="email" placeholder=' ', name='email', title="label email", required)
                     .form-element-bar
-                    label.form-element-label(for='email')
+                    label.form-element-label(for='email' id="email" title="email")
                         span.fa-at-sign.pr-2
                         | Email
             .col-md-7.mb-sm-3.mb-2.mx-sm-2
                 .form-element.form-textarea.p-md-0.px-3
-                    textarea#message.form-element-field(name='message', placeholder=' ' required)
+                    textarea#message.form-element-field(name='message', title="message", placeholder='', required)
                     .form-element-bar
-                    label.form-element-label(for='message')
+                    label.form-element-label(for='message' id="message" title="message loic roux")
                         span.fa-align-justify.pr-2
                         | Votre message
         .row.justify-content-around

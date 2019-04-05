@@ -15,6 +15,8 @@ import IScroll from 'iscroll/build/iscroll-probe';
 // };
 
 
+
+
 /*get width and divide it to get a more earlier event*/
 /*ANIMATIONS CV*/
 /* animation logos*/
@@ -23,20 +25,18 @@ let cvWrapper = {
     scrollX: true,
     scrollY: true,
     click: true,
+    snap:true,
     momentum: false,
-    snap: true,
     snapSpeed: 200,
     eventPassthrough: true,
     probeType: 3,
     scrollbars: 'custom',
     interactiveScrollbars: true,
-    disablePointer: true, // important to disable the pointer events that causes the issues
-    disableTouch: false, // false if you want the slider to be usable with touch devices
-    disableMouse: false,
+    //preventDefault: false
     // bounceEasing: {
     //   style: 'quadratic',
     //   fn: function (k) {
-    //     return k * 0.7;
+    //     return k;
     //   }
     // }
   }),
@@ -214,8 +214,8 @@ let cvWrapper = {
     /*events*/
     var windowWidth = window.innerWidth;
     //console.log(windowWidth);
-    var pageVisible = this.activeP();
-    var Ipage = () => {
+    let pageVisible = this.activeP();
+    let Ipage = () => {
       pageVisible = this.activeP();
     };
 
@@ -282,7 +282,7 @@ let cvWrapper = {
 //   var anim = bodymovin.loadAnimation(animData);
 // };
 
-export const loaded = () => {
+const loaded = () => {
   //call methods
   cvWrapper.myscroll();
   //click methods
@@ -290,7 +290,27 @@ export const loaded = () => {
   //cvWrapper.indicators();
 };
 
-//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+// function isPassive() {
+//   var supportsPassiveOption = false;
+//   try {
+//       addEventListener("test", null, Object.defineProperty({}, 'passive', {
+//           get: function () {
+//               supportsPassiveOption = true;
+//           }
+//       }));
+//   } catch(e) {}
+//   return supportsPassiveOption;
+// }
+      
+
+// document.querySelector('#wrapper').addEventListener('touchstart touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+// 	capture: false,
+// 	passive: false
+// } : false);
+ //document.querySelector('#wrapper').addEventListener("touchstart touchmove",function (e) { e.preventDefault(); }, false);
+
+
 
 window.onload = function () {
   loaded();

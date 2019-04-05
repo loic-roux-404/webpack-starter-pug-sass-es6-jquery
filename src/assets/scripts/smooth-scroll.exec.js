@@ -9,16 +9,14 @@ import {
 } from 'gsap';
 //import assign from 'core-js/fn/object/assign';
 //import assign from 'core-js/modules/es6.object.assign';
-const html = document.getElementsByTagName('html')[0];
- const body =  document.getElementsByTagName('body')[0];
+const html = document.querySelector('html');
+const body =  document.querySelector('body');
 //set smooth scroll after load
+html.classList.remove('no-js');
 smoothScroll(0, 0);
 
 
 // document.querySelector('html').Object.assign(function(){
-
-
- 
 
 
 export function smoothScroll(s, d) {
@@ -27,8 +25,9 @@ export function smoothScroll(s, d) {
   var scrollTime = s; // 1.06;
   var scrollDistance = d; //70;
   //console.log(scrollTime+'aie'+scrollDistance);
+  if (!detectmob()) {
 
-  if (detectmob() != true) {
+    html.classList.add('desktop');
 
     $window.on("mousewheel DOMMouseScroll", function (event) {
 
@@ -49,13 +48,10 @@ export function smoothScroll(s, d) {
       });
     });
   } else {
-      html.style.overflow = "auto";
-      body.style.overflow = "auto";
+      html.style.overflowY = "scroll";
+      body.style.overflowY = "scroll";
   }
 }
-
-
-
 
 /**
  * Smooth scrolling to page anchor on click

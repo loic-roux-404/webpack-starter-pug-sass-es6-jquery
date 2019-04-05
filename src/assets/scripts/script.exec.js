@@ -103,9 +103,7 @@ function nonToggled() {
     position: 'static'
   });
 
-
 }
-
 
 
 /*EVENTS*/
@@ -118,11 +116,7 @@ $('.navbar-toggler').on('click', function (e) {
   } else {
     nonToggled();
   }
-
-
 });
-
-
 
 $('.nav-link').on('click', function (e) {
 

@@ -12,6 +12,9 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const imageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminWebP = require("imagemin-webp");
 const ManifestPlugin = require('webpack-manifest-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
+
 
 // Files
 const utils = require('./utils');
@@ -65,10 +68,12 @@ const config = {
           }
         }]
       },
-      // {
-      //   test:require.resolve('../node_modules/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'),
-      //   use: ['imports?this=>window', 'exports?animation.gsap']
-      // },
+      {
+        test: /\.txt$/,
+        use: [{
+          loader: 'text-loader'
+        }]
+      },
 
       {
         test: /\.css$/,
@@ -109,7 +114,18 @@ const config = {
         }]
       },
       {
-        test: /\.(jpe?g|png|gif|svg|ico)(\?.*)?$/,
+        test: /(manifest\.webmanifest|browserconfig\.xml)$/,
+        use: [
+          {
+            loader: "file-loader"
+          },
+          {
+            loader: "app-manifest-loader"
+          }
+        ]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg|ico|webp)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           publicPath: '../../',
@@ -150,6 +166,9 @@ const config = {
         },
       }),
     ],
+    runtimeChunk: {
+      name: "manifest",
+    },
 
     splitChunks: {
       cacheGroups: {
@@ -193,11 +212,25 @@ const config = {
     //   ...utils.pages(env),
     //   ...utils.pages(env, 'blog'),
 
+    new GoogleFontsPlugin({
+      fonts: [{
+          family: "Didact Gothic"
+        },
+        {
+          family: "Muli",
+          variants: ["200", "300", "400", "700", "800", "900", "900i"]
+        },
+        {
+          family: "Heebo",
+          variants: ["300", "500", "700", "800", "900"]
+
+        }
+      ]
+      /* ...options */
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      //jQuery: 'jquery',
       'window.$': 'jquery',
-      //'window.jQuery': 'jquery',
       'anime': 'animejs/lib/anime.js',
       'scrollTo': 'gsap/ScrollToPlugin.js',
       'window.scrollTo': 'gsap/ScrollToPlugin.js',
@@ -213,6 +246,13 @@ const prod = {
   plugins: [
 
     new CopyWebpackPlugin([{
+        from: '../src/assets/fonts/**',
+        to: '../dist/fonts/[name].[hash:7].woff2'
+      },
+      {
+        from: '../src/assets/fonts/**',
+        to: '../dist/fonts/[name].[hash:7].woff'
+      }, {
         from: '../src/assets/files/*pdf',
         to: '../dist'
       },
@@ -225,17 +265,29 @@ const prod = {
         to: '../dist/'
       },
       {
-        from: '../src/assets/Sites/**',
-        to: '../dist/'
+        from: '../src/assets/fonts/**',
+        to: '../dist/fonts/[name].[hash:7].woff2'
       },
+      // {
+      //   from: '../src/assets/Sites/**',
+      //   to: '../dist/'
+      // },
       {
         from: '../src/sitemap.xml',
         to: '../dist/sitemap.xml'
       },
       {
-        from: '../src/assets/jeu/*',
+        from: '../src/.htaccess',
         to: '../dist/'
       },
+      {
+        from: '../src/*.txt',
+        to: '../dist/'
+      },
+      // {
+      //   from: '../src/assets/jeu/*',
+      //   to: '../dist/'
+      // },
       {
         from: '../src/assets/images/**',
         to: '../dist/assets/images/[name].[hash:7].webp'
@@ -266,6 +318,17 @@ const prod = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
+    new CompressionPlugin({
+      //filename: '[path].br[query]',
+      //algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg|png|jpe?g|mp4|webp|eot|ttf|woff)$/,
+      compressionOptions: {
+        level: 6
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false
+    }),
     new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks 
 
   ]
@@ -276,12 +339,10 @@ const prod = {
 module.exports = env => {
   assetPath = '../../';
   publicPath = '/';
-  devmap="source-map";
+  devmap = "source-map";
   if (env.NODE_ENV === 'development') {
-
     return config;
   } else if (env.NODE_ENV === 'production') {
-
     return merge(config, prod);
   }
 };

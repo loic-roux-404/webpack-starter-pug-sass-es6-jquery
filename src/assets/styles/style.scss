@@ -1,8 +1,6 @@
-
-#main {
+.desktop{
   overflow: hidden;
 }
-
 /*responsive*/
 video,
 img {
@@ -431,9 +429,9 @@ article>div>h1 {
 
 /*separate*/
 .separate {
-  height: 100vh;
+  height: 22vh;
 
-  @media (min-width: $break-sm) {
+  @media (min-width: $break-md) {
     height: 60vh;
   }
 

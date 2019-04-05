@@ -84,7 +84,15 @@ formObj.form.onsubmit = (e) => {
 };
 
 
-
+if(/Android 4\.[0-3]/.test(navigator.appVersion)){
+  window.addEventListener("resize", function(){
+     if(document.activeElement.tagName=="INPUT" || document.activeElement.tagName=="TEXTAREA" ){
+        window.setTimeout(function(){
+           document.activeElement.scrollIntoViewIfNeeded();
+        },0);
+     }
+  });
+}
 
 /*autosize textarea*/
 $(document).ready(function () {
