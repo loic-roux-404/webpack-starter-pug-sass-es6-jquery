@@ -1,4 +1,11 @@
-#Options +FollowSymLinks -Indexes
+Options +FollowSymLinks -Indexes
 RewriteEngine On
 RewriteCond %{SERVER_PORT} 80
 RewriteRule ^(.*)$ https://www.loicroux.fr/$1 [R,L]
+
+<Files sitemap.xml>
+order allow,deny
+Allow from all
+</Files>
+
+ErrorDocument 404 404.php

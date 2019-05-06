@@ -5,20 +5,21 @@ import {
   ns,
   nd,
   d,
-  s
+  s,
+  mobileBool
 } from '../../app';
+import assign from 'core-js/modules/es6.object.assign';
 
 var menu = anime({
   targets: '.menu-lightbox',
-
   opacity: {
     value: [0, 1],
-    duration: 500
+    duration: 400
   },
   scale: {
-    value: [0, 10.6],
+    value: [0, 13.6],
     easing: 'easeInQuint',
-    duration: 200,
+    duration: 450,
     delay: 0
   },
   autoplay: false,
@@ -27,21 +28,30 @@ var menu = anime({
 });
 var menuLi = anime({
   targets: '.navbar li',
-
   opacity: {
     value: [0, 1],
+    duration: 200,
+    
+  },
+  scale:{
+    value: [0.5, 1],
     duration: 300,
-    easing: 'easeInCirc',
+    elasticity: function(target, index, totalTargets) {
+      // Elasticity multiplied by every div index, in descending order
+      return 220 + ((totalTargets - index) * 110);
+    },
+    delay: function (_, i) {
+      return i * 100;
+    },
   },
   translateX: {
-    value: [-50, 0],
-    easing: 'easeInCubic',
-    duration: 450,
-
+    value: [-120, 0],
+    duration: 500,
   },
   delay: function (_, i) {
     return i * 70;
   },
+  easing: 'easeInCubic',
   autoplay: false,
   loop: false,
 
@@ -50,77 +60,85 @@ var menuLi = anime({
 
 /*play pause anime*/
 /*toggle function by class*/
-let click = 0;
+let clicked = true, nbclick=0,
+  navToggler = document.getElementsByClassName('navbar-toggler')[0],
+  htmlEl = document.querySelector('html');
 
-function toggled() {
-  var wrap = $('#presentation').offset();
-  var viewport2 = wrap.top - $(document).scrollTop();
+function toggled(el) {
 
-  document.querySelector('#navbar').style.display = 'block';
+  htmlEl.classList.toggle('overflow-y-hidden');
+  let offT = el.getBoundingClientRect().top - document.body.scrollTop;
+  let offL = el.getBoundingClientRect().left - document.body.scrollLeft;
 
-  $('.menu-lightbox').css({
-    top: -viewport2,
-    left: 0,
+
+  Object.assign([].slice.call(document.getElementsByClassName('menu-lightbox'))[0].style, {
+    top: - offT + "px",
+    left: - offL + "px",
     display: 'block'
   });
-  if (click === 1) {
-    //console.log('began');
+
+  document.querySelector('#navbar').classList.toggle('d-block');
+  navToggler.classList.toggle('toggled');
+  navToggler.classList.toggle('non-toggled');
+
+  if(nbclick  === 0){
+    menu.play();
+    menuLi.play();
+    nbclick = 1;
+  }else{
     menu.reverse();
     menuLi.reverse();
+    menu.play();
+    menuLi.play();
   }
 
-  menu.play();
-  menuLi.play();
+  if (clicked) {
+    document.body.style.position = 'relative';
+    if(!mobileBool){ smoothScroll(ns,nd);}else{smoothScroll(s,d);}
+  } else {
+    document.body.style.position = 'static';
+    if(!mobileBool){  smoothScroll(s,d);}else{smoothScroll(s,d);}
+  }
 
-  $('.navbar-toggler').toggleClass('non-toggled');
-  $('.navbar-toggler').toggleClass('toggled');
-
-
-  smoothScroll(ns, nd);
-
-  $('body').css({
-    position: 'relative'
-  });
-  click = 1;
-
+  clicked = !clicked;
 }
 
-function nonToggled() {
-  menu.reverse();
-  menuLi.reverse();
 
-  menu.play();
-  menuLi.play();
-
-  document.querySelector('#navbar').style.display = 'none';
-
-  $('.navbar-toggler').toggleClass('toggled');
-  $('.navbar-toggler').toggleClass('non-toggled');
-
-  smoothScroll(s, d);
-
-  $('body').css({
-    position: 'static'
-  });
-
-}
 
 
 /*EVENTS*/
-
-$('.navbar-toggler').on('click', function (e) {
+document.querySelector('.navbar-toggler').onclick = (e) => {
   e.preventDefault();
+  
+  
+  toggled(e.target);
+};
 
-  if ($(this).hasClass('non-toggled')) {
-    toggled();
-  } else {
-    nonToggled();
-  }
+document.querySelectorAll('.nav-link').forEach(function (elem) {
+  elem.onclick = (e) => {
+    e.preventDefault();
+    toggled(e.target);
+
+  };
 });
 
-$('.nav-link').on('click', function (e) {
 
-  e.preventDefault();
-  nonToggled();
+// let clicked = false;
+// document.querySelector('.navbar-toggler').addEventListener('click', function (e) {
+//   e.preventDefault();
 
-});
+//   if (clicked === false) {
+//     toggled(e.target);
+//   } else {
+//     nonToggled();
+//   }
+// });
+
+// document.querySelectorAll('.nav-link').forEach(function (elem) {
+//   elem.addEventListener('click', function (e) {
+
+//     e.preventDefault();
+//     nonToggled();
+
+//   });
+// });

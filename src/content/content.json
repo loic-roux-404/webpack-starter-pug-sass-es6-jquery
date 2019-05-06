@@ -1,9 +1,28 @@
 {
+
   "cv": {
-    "title":"à propos",
-    "main": "Découvrez mes compétences en développement web fullstack. Actuellement en stage.",
+    "intro": {
+      "title": "Introduction",
+      "content": {
+        "text1": "I always been a addicted to technologies so i quickly be involved in web development when i discover it at MMI training.",
+        "text2": "My expertise comports the creation of ergonomic and modern applications without forgetting communication processes. I also use some Graphic (PAO) and animated elements to bring more dynamism to the web products.",
+        "text3": "I will also apply my technicals languages skills to build tailor-made back offices with frameworks and CMS."
+      },
+      "button":"See resume for more skills, experiences and my research opportunities",
+      "seo": [
+        "Who am i ?"
+      ]
+    },
+    "title": {
+      "content": "About",
+      "seo": "Discover about me"
+    },
+    "main": {
+      "content": "Currently in a intership of junior fullstack web developer. Swipe left to continue discover about me...",
+      "seo": "My professional situation"
+    },
     "tools": {
-      "title": "MES OUTILS",
+      "title": "MY TOOLS",
       "skills": [
         "HTML5",
         "CSS3",
@@ -15,169 +34,257 @@
         "MySql",
         "Sass",
         "Bootstrap",
+        "VueJs",
         "Webpack",
         "Typescript"
       ]
     },
-    "mainTools":{
-      "1":{
-        "res":"cv-bg1",
-        "alt":"Css logo",
-        "seo":"Compétences création de site web en design CSS3"
+    "mainTools": [{
+        "res": "loic-roux-main-tool-css3.png",
+        "alt": "Css3 logo",
+        "seo": "Website creation Skills : CSS3"
       },
-      "2":{
-        "res":"cv-bg2",
-        "alt":"PHP logo",
-        "seo":"Développement web Back End PHP 7 orienté objet et CMS"
+      {
+        "res": "loic-roux-main-tool-php-back-end.png",
+        "alt": "PHP logo",
+        "seo": "Back end development skills : PHP7 object oriented"
       },
-      "3":{
-        "res":"cv-bg3",
-        "alt":"Javascript logo",
-        "seo":"Compétences web application Javascript"
+      {
+        "res": "loic-roux-main-tool-javascript-app-front-end.png",
+        "alt": "Javascript logo",
+        "seo": "Web application skills : javascript"
       },
-      "4":{
-        "res":"cv-bg4",
-        "alt":"CSS logo",
-        "seo":"compétences CMS PHP Wordpress"
+      {
+        "res": "loic-roux-main-tool-cms-wordpress.png",
+        "alt": "CSS logo",
+        "seo": "Wordpress skills : CMS with PHP"
       }
+    ]
+  },
+  "dis": {
+    "title": "Distinctions",
+    "content": {
+      "2017": [
+        "B.A (with honours) | Economics - Maths option"
+      ],
+      "2018": [
+        "Permis B",
+        "Bafa"
+      ],
+      "2019": [
+        "Second-year university level : Multimedia and internet works"
+      ],
+      "2019-2022":[
+        "G4 insitute  - Lyon Master degree level : IS management ",
+        {
+          "attached":"https://www.institut-g4.fr",
+          "seotitle":"Diploma : Information system manager (data processing and management)",
+          "seoalt":"Link to my formation website"
+        }
+      ]
     }
+  },
+  "comps": {
+    "mainTitle": "Expertise",
+    "content": [{
+        "title": "Back end dev",
+        "sub": "Development with PHP and CMS",
+        "caption": "I apply my skills in web integration with CMS like Wordpress or Prestashop. I build websites with Symfony 3 & 4 Php framework, MySQL and AJAX asynchronous methods. For finish i know how create a VM (DNS, Ubuntu, Apache).",
+        "seo": {
+          "title": "Back end",
+          "sub": "Web development and networking / hosting",
+          "caption": "Used technologies : PHP/Symfony/MySQL/Wordpress/Prestashop"
+        }
+      },
+      {
+        "title": "Front end dev",
+        "sub": "Integration and UX design",
+        "caption": "I know well about HTML5|CSS3|JS and frameworks like bootstrap. I use SASS prepocessor to get faster. With javascript and libraries ( VueJs and jQuery), good practices and workflows like Webpack i can produce fast loading web app's.",
+        "seo": {
+          "title": "Front end",
+          "sub": "Web integration/UX design",
+          "caption": "HTML CSS JS JQUERY"
+        }
+      },
+      {
+        "title": "Graphic design",
+        "sub": "Graphic and Motion design",
+        "caption": "Adobe XD and InVision Studio allow me to conceive User experience on my web creations. Also i use Adobe PAO softwares to create graphic elements and After effect (Lottie js) to generate modern animations in SVG.",
+        "seo": {
+          "title": "Graphism",
+          "sub": "Graphic design",
+          "caption": "AdobeXD and Invision for design UI. Adobe softwares for create graphics."
+        }
+      },
+      {
+        "title": "Communication and project management",
+        "sub": "Communication & projects methods",
+        "caption": "Applying UX process and analytics tools on web products to catch users behaviours. <br> Also my new formation going to give me project management skills (Agile and V managements methods).",
+        "seo": {
+          "title": "Communication process and project methods",
+          "sub": "Agile development method ans communication processes",
+          "caption": "Using V or Agile methods."
+        }
+      }
+    ]
   },
   "realisations": {
     "rea1": [{
-        "title": "freelance application et site web en PHP / Mysql / AJAX",
+        "title": "Freelance website with Back-office in MySQL / PHP / Ajax",
         "subtitle": "Arinella",
-        "date": "Juillet 2018 - Aujourd'hui",
-        "intro": "Site web pour un proche, présentant une villa en Corse. Les options :",
+        "date": "July 2018 - Today",
+        "intro": "Website for a related person which present a Corsica villa. The options available:",
         "list": {
-          "1": "Un diaporama de la villa en accueil",
-          "2": "Un descriptif des équipements de la villa propulsé par le plugin Jquery UI",
-          "3": "Une galerie d'images dynamique pouvant être gérée dans la page d'administration",
-          "4": "Une page d'administration protégée par un système de connexion. Elle permet de gérer des administrateurs(ajouter et supprimer) et la galerie grâce à MySQL et PHP (ajouter, modifier, réorganiser...).",
-          "5": "Un système d'emailing (rubrique contact) basé sur PHPMailer et le SMTP de google."
+          "1": "A home slider highlighting different views of the villa",
+          "2": "An accordion (jQuery UI) showing the different devices",
+          "3": "A dynamic images gallery able to be managed in administration page",
+          "4": "The admin part is protected by a password system and keeped alive with PHP server session. We can manage admin accounts and images in database with the CRUD system (create, read, update, delete).",
+          "5": "A mailing system based on the PHP plugin PHPMailer and Google SMTP server."
 
         },
-        "link": "http://loicroux.fr/Sites/arinella/index.php",
+        "link": "https://loicroux.fr/Sites/arinella/index.php",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "Arinella project",
+          "date": "Project started in July 2018 and i continue to work on it...",
+          "link": "Link to the digital product stored online"
         }
       },
       {
-        "title": "projet site bd MySQL et PHP",
+        "title": "Dynamic website with database",
         "subtitle": "Alt2crous",
-        "date": "Mars 2018 - Avril 2018",
-        "intro": "Projet de site dynamique visant à trouver des restaurants autour des lieux d'études de Grenoble.",
-        "content": "Site web avec interface d'administration permettant de supprimer, ajouter et modifier des restaurants. Ensuite les restaurants sont affichés en photo avec une description. En sélectionnant le lieu d'étude proche on trouve grâce à un algorithme les restaurants proches avec également un critère de prix.",
+        "date": "March 2018 - April 2018",
+        "intro": "We built a website during a school team work which is aimed at finding restaurants around Studying places in the Grenoble city.",
+        "content": "Website administration user interface allow to create, read, update, delete (CRUD) in a restaurants database. After an algorithm find a restaurant with price and location settings. Try it, there is some good deals ! (I find he mobile version nice check it) Technologies used : PHP / MySQL / JS / HTML5 / CSS3.",
         "link": "http://loicroux.fr/Sites/alt2crous/index.php",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "Alt2crous project",
+          "date": "This project has started in march 2018 and be finished in april 2018",
+          "link": "Link to Alt2crous web page"
         }
       },
       {
-        "title": "projet développement sur le CMS wordpress (php)",
+        "title": "Web development project based on Wordpress CMS",
         "subtitle": "Les plantes urbaines",
-        "date": "Novembre 2018 - Janvier 2019",
-        "intro": "Selon le cahier des charges d'une autre équipe nous avons dû créer un thème Wordpress adapté à leurs demandes. Les options que nous avons pu ajouter sont :",
+        "date": "November 2018 - January 2019",
+        "intro": "According to an other students mission statement we create a wordpress customizable theme. The options we add are :",
         "list": {
-          "1": "Custom type, taxonomies et metaboxes",
-          "2": "Pages d'archives selon les taxonomies",
-          "3": "Personnalisation avec Redux framework : changement des polices sur les titres, choix des couleurs de fonds, choix du du diaporama et ses options sur la page d'accueil",
-          "4": "Slider 3D turtable js paramétrable depuis CMB2",
-          "5": "Création de modules pour afficher des éléments spécifiques"
+          "1": "Archive pages for all post or for a specific taxonomy",
+          "2": "Usage of Redux framework to give global customizations options : The user can modify aspects of fonts (titles, paragraphs) and choose backgrounds color (footer, container, header).",
+          "3": "A 3D slider (turntableJs) editable from CMB2 corresponding post metabox",
+          "4":"On a customizable front page we can enable a slider module, add him images and set options like width, height... Also, we can enable an enchance of posts and pick a one from the list",
+          "5": "Creation of modules to show specific contents"
         },
-        "link": "http://www.plantes-urbaines.loicroux.fr",
+        "link": "https://plantes-urbaines.loicroux.fr/",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "Urban plants school work",
+          "date": "Started from November 2018 to January 2019",
+          "link": "Go to Urban plants (fr) page"
         }
       },
       {
-        "title": "javascript projet inaprod",
+        "title": "HTML/CSS/jQuery Inaprod project",
         "subtitle": "Inaprod",
         "date": "Mai 2018 - Juin 2018",
-        "intro": "Projet universitaire en groupe consistant à la création d'une agence de communication fictive. Le site vitrine s'inspire du design flat, il est basé sur des contenus fait pendant le dossier du projet.",
-        "content": "De nombreux plugin JS et jQuery sont utilisés afin de donner un aspect plus dynamique au site et de vérifier les formulaires de contact. On peut également noter l'utilisation de SVG et de création d'un pack d'icônes personnalisé.",
-        "link": "http://loicroux.site/Sites/inaprod/projets.html",
+        "intro": "A school work involving the creation of a mock communication agency. It's a showcase website inspired by flat design and based on the contents of a planned file. We used various Javascript and jQuery plugins like Isotope, Jquery UI, Aos and Jquery easings. We also create our custom icons pack and used animated SVGs.",
+        "link": "https://loicroux.fr/Sites/inaprod/projets.html",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "Inaprod school project",
+          "date": "From may 2018 to June 2018",
+          "link":"See Inaprod showcase website"
         }
+      },
 
-      },
       {
-        "title": "projet tutoré sur le CMS wordpress (php)",
-        "subtitle": "Projet tutoré",
-        "intro": "Création de la communication à 360° du challenge GCCD au cours d'une semaine de projet intensive. Le projet comporte la définition d'une charte graphique, la création du logo et son animation, réalisation d'un site web événementiel intégral avec back-office Wordpress. Ensuite nous avons pu intégrer des contenus rédactionnels et un kakémono graphique.",
-        "content": "Le cahier des charges concernait le challenge construction durable organisé par le DUT génie civil de Grenoble en 2019. Le site comporte un back office avec des page-template personnalisés et des contenus dynamiques (actualité et vidéos).",
-        "link": "http://www.projet-tut.loicroux.fr",
+        "title": "Final project on wordpress",
+        "subtitle": "GCCD project (2th part)",
+        "date": "February - March 2018",
+        "intro": "During this project we could get all the contents of the all 3th semester projects. So we achieve a Wordpress website after creation of some prototypes on Adobe XD. The back office uses Redux themes options to give 3 templates pages for specific events and choosing from a list of articles. We also give template pages for new articles and pages with ability to add pictures and videos.",
+        "content": "Other several contents like videos, graphics and articles were synthetized to insert web optimized content and SEO friendly. To conclude this project was very rewarding to improve customer relation skills (I talk about trying to explain web development to a person who uses his desktop keyboard very slowly).",
+        "link": "https://iut1-challengecd.univ-grenoble-alpes.fr",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "Wordpress project",
+          "date": "work finished on march 2018",
+          "link": "Website hosted link"
         }
       },
+
       {
-        "title": "(En cours) English Stories...",
+        "title": "English Stories with Bludit blog CMS",
         "subtitle": "English Stories",
-        "intro": "(Projet en cours) Blog sur le CMS Bludit",
-        "content": "Rédaction multilinéaire basés sur une histoire originale de Paul Auster.",
-        "link": "http://www.english-stories.loicroux.fr",
+        "date": "March 2018",
+        "intro": "Blog with Bludit content manager",
+        "content": "This website presents an interactive story around the original first page from 'Ghosts', a novel written by Paul Auster in 1983. Bludit CMS gives a simple structure to modulate blog options. I conceive an interactive story algorithm for the stories follow-up choices. Thanks to Bandersnatch for the idea !",
+        "link": "http://english-stories.loicroux.fr",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "English stories multilinear blog",
+          "date": "Project done on March",
+          "link": "Link to the website"
         }
       }
     ],
     "rea2": [
       1, 2, 3, 4, 5, 6,
       {
-        "title": "jeu codé en typescript (classes et objets)",
-        "subtitle": "Jeu Typescript",
-        "date": "Janvier 2019",
-        "intro": "Création d'un jeu simple basé sur un template typescript et Canvas.",
-        "content": "Le jeu est fait en orienté objet avec l'utilisation des évênements du clavier. On a également des boucles conditionelles pour empécher la sortie du canvas, vérifier des collisions et des méthodes pour dessiner et détruire les éléments sur le canvas.",
-        "link": "./jeu/index.html"
+        "title": "Web game, code written in Typescript (OOP)",
+        "subtitle": "Typescript web game",
+        "date": "January 2019",
+        "intro": "Production of a simple arcade game and based on a Typescript template and Canvas.",
+        "content": "This project is based on oriented object programming with usage of keyboard events to control character. I used methods to control character drawing, directions, positions and destruction. Sorry you can't lose...",
+        "link": "./jeu/index.html",
+        "seo": {
+          "subtile": "Typescript Space Invaders",
+          "date": "Game coding started in 2019",
+          "link": "Link to play"
+        }
       },
       {
-        "title": "Livret d‘illustration photoshop indesign et illustrator",
-        "subtitle": "Livret d‘illustration",
-        "date": "Novembre 2019 - Décembre",
-        "content": "Fait à partir de mots ces dessins ont étés retravailler avec Photoshop et Camera raw. Les typographies sont personnalisées avec illustrator et le tout est mis en page sur Indesign.",
+        "title": "Vue js simple web application",
+        "subtitle": "Vue js monopage app",
+        "date": "April 2019",
+        "intro": "Creation of a simple e-commerce app. The features are :",
+        "list": {
+          "1": "An index of players with their availability",
+          "2": "An input form for selling a player",
+          "3": "Button to add a player to basket",
+          "4": "A Simple basket system with quantities and progressive remove"
+        },
+        "link": "https://onlinemercato.netlify.com",
+        "seo": {
+          "subtile": "App with Vue javascript library",
+          "date": "App production started in 2019",
+          "link": "Link to app"
+        }
+      },
+      {
+        "title": "Book realised with Photoshop Indesign and Illustrator",
+        "subtitle": "Book of illustrations",
+        "date": "November 2018 - December 2018",
+        "content": "Created from a word these paintings are touched up with Camera row and Photoshop. The Typographies are customized with Adobe Illustrator and formatted with InDesign.",
         "link": "https://www.behance.net/gallery/75580385/Livret-dillustration?",
         "seo": {
-          "title": "null",
-          "subtile": "null",
-          "list": "null",
-          "date": "null",
-          "intro": "null",
-          "content": "null"
+          "subtile": "PAO illustrations",
+          "date": "Graphic work started in november 2019",
+          "link": "See my book on behance"
         }
-
+      },
+      {
+        "title": "Project based on the Wordpress Content manager system",
+        "subtitle": "GCCD project (1th part)",
+        "date": "January 2018",
+        "intro": "During a week of hard work we've built the 360 degrees communication of the GCCD challenge organized by Grenoble University. The website use the Wordpress CMS to give a custom page template system, customisation options with Redux framework and Youtube videos (API).",
+        "content": "Also we create the all contents with an interview of a civil engineering , web articles and a complete graphic charter.",
+        "link": "http://www.projet-tut.loicroux.fr",
+        "disabled":true,
+        "seo": {
+          "subtile": "CMS project",
+          "date": "work finished on January",
+          "link": "Link to the project"
+        }
       }
     ]
+  },
+  "focus":{
+    "text":" My key to get concentration.<br> Starts with calm violon and finish with noisy techno.",
+    "spotify":"<iframe class='m-auto img-fluid' src='https://open.spotify.com/embed/user/1137378995/playlist/6VHSqmwb4AYGqZVDtI0Wxo' frameborder='0' allowtransparency='true' allow='encrypted-media'></iframe>"
   }
 }

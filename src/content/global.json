@@ -1,8 +1,39 @@
 {
-    "title":"Loïc Roux | Étudiant en développement fullstack",
-    "pres":[
-        "Loïc Roux",
-        "Etudiant en MMI : spécalité développement web"
-    ],
-    "desc":"Étudiant en deuxième année de DUT métiers du multimédia et de l'internet. Spécialisé dans développement web fullstack j'agis sur la couche Front End et Back End. Trouvez dans mon portfolio mes réalisations en Html5, CSS3, PHP, Javascript et CMS comme Prestashop et Wordpress. Discover Loïc Roux works..."
+    "title":"Loïc Roux | Student in fullstack web development at Lyon",
+    "pres":{
+        "name":"Loïc Roux",
+        "situation":"Student in fullstack web development",
+        "seo":{
+          "image":"Portfolio bitmoji presentation picture",
+          "name":"Loïc Roux",
+          "situation":"Student at Insitut G4 Lyon | Going on a master degree - IS manager "
+        }
+      },
+    "desc":"Finished a Multimedia and Internet works technical degree i'm actually focusing on fullstack web development at Lyon. Find here my portfolio with all my finished web products. My know how include the creation of modern websites and web applications with th help of frameworks and libraries.",
+    "socials":[
+          {
+            "name":"Codepen",
+            "link":"https://codepen.io/loicroux404/",
+            "title":"Mon Codepen : Voir comment je code.",
+            "icon":"fa-codepen"
+          },
+          {
+            "name":"Github",
+            "link":"https://github.com/loicroux69",
+            "title":"Mon Github : découvrez mes projets publiques",
+            "icon":"fa-github"
+          },
+          {
+            "name":"LinkedIn",
+            "link":"https://www.linkedin.com/in/loic-roux-404",
+            "title":"Mon LinkedIn, ma situation professionelle et recherche d'opportunités",
+            "icon":"fa-linkedin1"
+          },
+          {
+            "name":"Twitter",
+            "link":"https://twitter.com/LoicRoux5/",
+            "title":"Mon Twitter, pour faire ma veille...",
+            "icon":"fa-twitter1"
+          }
+    ]
 }

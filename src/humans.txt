@@ -3,11 +3,11 @@
 
 /* TEAM */
 
-   Web developer: Loic Roux
+   Front-end web developer/: Loic Roux
    Site: https://www.loicroux.fr
    From: Lyon, France
 
-/* THANKS */
+/* TECHNOLOGIES */
 
    Scrollmagic: http://scrollmagic.io/
    Gsap : https://greensock.com/gsap
@@ -15,7 +15,6 @@
    Webpack : https://webpack.js.org/
    npm : https://www.npmjs.com/
    bootstrap : https://getbootstrap.com/
-   loic : http://www.loicroux.site/
 
 /* SITE */
 

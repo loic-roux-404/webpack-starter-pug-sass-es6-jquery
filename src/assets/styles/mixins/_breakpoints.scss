@@ -6,10 +6,14 @@ $break-xxl: 1500px;
 
 
 $breakpoints:(
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px
+    sm: $break-sm,
+    md: $break-md,
+    lg: $break-lg,
+    xl: $break-xl
 );
 
-    
+@mixin mediaB($_key) {
+    @media screen and (min-width: map-get($breakpoints, $_key)) {
+        &{ @content; }
+    }
+}

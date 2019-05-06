@@ -1,7 +1,8 @@
 User-agent: *
-Disallow: /assets/php
+Disallow: /assets/php/
 Disallow: /assets/json/
 Disallow: /assets/css/
 Disallow: /assets/js/
+Disallow: /assets/jeu/
 Sitemap: http://www.loicroux.fr/sitemap.xml
 

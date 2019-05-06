@@ -7,21 +7,17 @@ import {
 import {
   TweenLite
 } from 'gsap';
-//import assign from 'core-js/fn/object/assign';
-//import assign from 'core-js/modules/es6.object.assign';
-const html = document.querySelector('html');
-const body =  document.querySelector('body');
+
+export const html = document.querySelector('html');
+export const body = document.querySelector('body');
 //set smooth scroll after load
 html.classList.remove('no-js');
 smoothScroll(0, 0);
 
 
-// document.querySelector('html').Object.assign(function(){
-
-
 export function smoothScroll(s, d) {
 
-  var $window = $(window);
+  var $window = window;
   var scrollTime = s; // 1.06;
   var scrollDistance = d; //70;
   //console.log(scrollTime+'aie'+scrollDistance);
@@ -29,12 +25,12 @@ export function smoothScroll(s, d) {
 
     html.classList.add('desktop');
 
-    $window.on("mousewheel DOMMouseScroll", function (event) {
+    let smooth = function(event) {
 
       event.preventDefault();
-
-      var delta = event.originalEvent.wheelDelta / 120 || -event.originalEvent.detail / 3;
-      var scrollTop = $window.scrollTop();
+      //console.log(event);
+      var delta = event.wheelDelta / 120 || - event.detail / 3;
+      var scrollTop = $window.pageYOffset;
       var finalScroll = scrollTop - parseInt(delta * scrollDistance);
 
 
@@ -46,57 +42,48 @@ export function smoothScroll(s, d) {
         ease: Power4.Linear,
         overwrite: 5
       });
-    });
-  } else {
-      html.style.overflowY = "scroll";
-      body.style.overflowY = "scroll";
-  }
+    };
+
+    var mswEv=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";//FF doesn't recognize mousewheel as of FF3.x
+    $window.addEventListener(mswEv, smooth,false);
+
+
+  } 
 }
+
+
 
 /**
  * Smooth scrolling to page anchor on click
  **/
 document.querySelectorAll("a[href*='#']:not([href='#'])").forEach(function (elem) {
-  elem.addEventListener('click', function () {
-    console.log(elem);
+  elem.addEventListener('click', function (event) {
+    event.preventDefault();
+    //console.log(elem);
     if (
       location.hostname == elem.hostname && elem.pathname.replace(/^\//, "") == location.pathname.replace(/^\//, "")
     ) {
-      var anchor = $(this.hash);
-      anchor = anchor.length ? anchor : document.querySelector("[name=" + this.hash.slice(1) + "]");
-      if (anchor.length) {
-        $("html, body").animate({
-          scrollTop: anchor.offset().top - 50,
-        }, 1200);
-
-        //fix navbar
-        //var nav = document.querySelectorAll('nav a');
-        // console.log(nav.querySelector(a)[0]);
-        // if (this === nav.querySelector(a)[0] || nav.querySelector(a)[1] || nav.querySelector(a)[2]) {
-        //   $('.navbar').css({
-        //     'padding-top': 60
-        //   });
-        //   console.log('succès');
-        // }
+      var anchor = elem.hash;
+      console.log(anchor);
+      //IE8
+      anchor = anchor.length ? anchor : document.querySelector("[name=" + elem.hash.slice(1) + "]");
+      console.log(anchor);
+      if (anchor) {
+        // $("html, body").animate({
+        //   scrollTop: anchor.offset().top - 50,
+        // }, 1200);
+        //console.log(anchor);
+        console.log(document.getElementById(elem.hash.slice(1)));
+        //hjen suis la bg
+        anime({
+          targets: "html, body",
+          scrollTop: (document.getElementById(elem.hash.slice(1)).getBoundingClientRect().top - document.body.scrollTop) - 95,
+          duration: 800,
+          elasticity: 0,
+          easing: 'linear'
+        });
 
       }
     }
   });
-
-
-
-  // let nav = document.querySelector('nav');
-  // let navA = nav.querySelectorAll('a');
-
-  // for (var el in navA) {
-  //   el.addEventListener('click', fixA(), true);
-  // }
-
-  // function fixA(e) {
-  //   e.preventDefault();
-  //   Object.assign(nav, {
-  //     paddingTop: 60
-  //   });
-  // }
-  //console.log(nav);
 });

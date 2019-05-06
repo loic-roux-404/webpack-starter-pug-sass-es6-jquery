@@ -2,30 +2,30 @@
 - const realisations = htmlWebpackPlugin.options.content.realisations;
 - var rea1 = realisations.rea1 ;
 - var rea2 = realisations.rea2 ;
-
+- const none =""; 
 article#realisations.hero3
   span.round-background.d-block
   .buttons-rea
-    button.rounded-circle.site(data-state='1', title='Réalisations web')
+    button.rounded-circle.site(data-state='1', title='Digital products')
       i.fa-globe
-    button.rounded-circle.game(data-state='0', title='Plus de projets : infographie, jeux...')
+    button.rounded-circle.game(data-state='0', title='More projects : PAO, web games & applications')
       i.fa-plus-circle
   .text-center.py-3
-    h1.text-center.text-uppercase.heebo.f900.px-2.text-dark.d-inline.text2(title='réalisation javascript php cms html5 et css3')
-      | Réalisations
-  #bloc-vid.py-2.py-md-5.mt-md-2.mt-lg-3
+    h1.text-center.text-uppercase.heebo.f900.px-2.text-dark.d-inline.text2(title='Projects list and direct links to see them')
+      | Portfolio
+  #bloc-vid.py-2.py-md-5.mt-sm-5.mt-md-2.mt-lg-3
     #videos1.py-sm-0.py-md-5
       .back-desc
         //- lightbox background
         .text-center
-          button.close-wrapper.bg-transparent.align-center.text-center.pt-md-3.pt-2(title='fermer expériences developpeur')
+          button.close-wrapper.bg-transparent.align-center.text-center.pt-md-3.pt-2(title='Close this work')
             span.close.hairline
         - for (var j = 0;j < 6;j++){
         - var item = rea1[j];
         div(class="desc desc-"+j+" px-2")
           .container.container-fluid.w-xl-60
-            h4.pt-2.m-0= item.subtitle
-            p.d-inline= item.date
+            h4.pt-2.m-0(title=item.seo.subtitle)= item.subtitle
+            p.d-inline(title=item.seo.date)= item.date
             p.pt-2.m-0= item.intro
             span.d-block(style='height:4px;')
             if item.content
@@ -34,16 +34,18 @@ article#realisations.hero3
               ul.main-content.text-md-left
                 each val in item.list
                   li= val
-            else
-              | No Project description
-            a(href=item.link, title=item.title) Voir le projet
+              
+            if item.disabled
+              a(href=none, title=item.seo.link onclick="return false;" rel="noreferrer" alt=item.title+" link") Unaivalable  
+            else     
+              a(href=item.link, title=item.seo.link target="_blank" rel="noreferrer" alt=item.title+" link") See the project
         - }//-END FOR
-        - for (var i = 6;i < 8;i++){
+        - for (var i = 6;i < 10;i++){
         - var item = rea2[i];
         div(class="desc desc-"+i+" px-2")
           .container.container-fluid.w-xl-60
-            h4.pt-2.m-0= item.subtitle
-            p.d-inline= item.date
+            h4.pt-2.m-0(title=item.seo.subtitle)= item.subtitle
+            p.d-inline(title=item.seo.date)= item.date
             p.pt-2.m-0= item.intro
 
             span.d-block(style='height:8px;')
@@ -56,12 +58,15 @@ article#realisations.hero3
                   li= val
             else
               | No Project description
-            a(href=item.link, title=item.title) Voir le projet
+            if item.disabled
+              a(href=none, title=item.seo.link onclick="return false;" rel="noreferrer" alt=item.title+" link") Unaivalable  
+            else     
+              a(href=item.link, title=item.seo.link target="_blank" rel="noreferrer" alt=item.title+" link") See the project
         - }//-END FOR
 
       .site-wrap.row.container-vid-1.mx-0
         - for (var l = 0;l < 6;l++){
-          a.video-bloc-1.col-6.btn-6(href='')
+          div.video-bloc-1.col-6.btn-6
             - var item = rea1[l];
               .figure-rea
                 div.img(title=item.title)
@@ -71,16 +76,12 @@ article#realisations.hero3
         - }
 
       .game-wrap.row.container-vid-2.mx-0
-        - for (var k =6;k < 8;k++){
-          a.video-bloc-1.col-6.btn-6.fig-game(href='')
+        - for (var k =6;k < 10;k++){
+          div.video-bloc-1.col-6.btn-6.fig-game
             - var item = rea2[k];
               .figure-rea
                 div.img(title=item.title)
-
               .d-table.w-100.h-100.h-100
                 p.text-white-50.heebo.d-table-cell.align-middle.text-center.text-uppercase(title=item.subtitle)= item.subtitle
-
               span
         - }
-
-

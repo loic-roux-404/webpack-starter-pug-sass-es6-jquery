@@ -122,3 +122,13 @@
     $k:$k+$k;
   }
 }
+
+
+
+//tests
+@function is-percent($value) {
+  @return is-number($value) and unit($value) == '%';
+}
+@function is-vh($value) {
+  @return is-number($value) and unit($value) == 'vh';
+}

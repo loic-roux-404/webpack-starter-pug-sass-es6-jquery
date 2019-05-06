@@ -1,0 +1,244 @@
+{
+
+  "cv": {
+    "intro":{
+      "text1":"Je suis un polyvalent et créatif de la conception web.",
+      "text2":"Je peux réaliser des sites ergonomiques et modernes en utilisant les procédés de communication, en intégrant des élements graphiques et des animations.",
+      "text3":"J'applique ces connaissances pour créer des sites dynamiques comportant des back-offices adaptés aux demandes des clients."
+    },
+    "title": "À propos",
+    "main": "Découvrez mes compétences en développement web fullstack. Actuellement en stage.",
+    "tools": {
+      "title": "MY TOOLS",
+      "skills": [
+        "HTML5",
+        "CSS3",
+        "Js",
+        "jQuery",
+        "Php",
+        "Wordpress",
+        "Prestashop",
+        "MySql",
+        "Sass",
+        "Bootstrap",
+        "Webpack",
+        "Typescript"
+      ]
+    },
+    "mainTools": {
+      "1": {
+        "res": "loic-roux-main-tool-css3.png",
+        "alt": "Css logo",
+        "seo": "Compétences création de site web en design CSS3"
+      },
+      "2": {
+        "res": "loic-roux-main-tool-php-back-end.png",
+        "alt": "PHP logo",
+        "seo": "Développement web Back End PHP 7 orienté objet et CMS"
+      },
+      "3": {
+        "res": "loic-roux-main-tool-javascript-app-front-end",
+        "alt": "Javascript logo",
+        "seo": "Compétences web application Javascript"
+      },
+      "4": {
+        "res": "loic-roux-main-tool-cms-wordpress",
+        "alt": "CSS logo",
+        "seo": "compétences CMS PHP Wordpress"
+      }
+    }
+  },
+  "comps": [{
+      "title": "Développement web",
+      "sub": "Développement PHP/CMS",
+      "caption": "Application de mes compétences en intégration web dans les CMS Wordpress et Prestashop. Connaissance du combo PHP MySql avec l'ajout d'asynchrone (AJAX).",
+      "seo": {
+        "title": "Developpement",
+        "sub": "Web development",
+        "caption": "PHP and wordpress development"
+      }
+    },
+    {
+      "title": "Intégration web",
+      "sub": "Intégration et design web",
+      "caption": "Maïtrise du trio HTML5/CSS3/JS avec l'utilisation des librairies Jquery et de  frameworks comme bootstrap.",
+      "seo": {
+        "title": "Loic Roux",
+        "sub": "Web integration",
+        "caption": "HTML CSS JS JQUERY"
+      }
+    },
+    {
+      "title": "Design graphique",
+      "sub": "Graphisme et motion design",
+      "caption": "J'utilise des logiciels d'Adobe comme Photoshop, Illustrator et InDesign. After effect me permet de créer des SVG animés.",
+      "seo": {
+        "title": "Graphisme",
+        "sub": "Design graphique",
+        "caption": "Adobe softwares comme After Effect, Indesign, "
+      }
+    },
+    {
+      "title": "Communication",
+      "sub": "Procédés de communication",
+      "caption": "Comment diffuser son storytelling, amorçage d'un utilisateur, planification... br Application aux Community management et à la rédaction web.",
+      "seo": {
+        "title": "Communication skill",
+        "sub": "Community management",
+        "caption": "Social medias manager"
+      }
+    }
+  ],
+  "realisations": {
+    "rea1": [{
+        "title": "freelance application et site web en PHP / Mysql / AJAX",
+        "subtitle": "Arinella",
+        "date": "Juillet 2018 - Aujourd'hui",
+        "intro": "Site web pour un proche, présentant une villa en Corse. Les options :",
+        "list": {
+          "1": "Un diaporama de la villa en accueil",
+          "2": "Un descriptif des équipements de la villa propulsé par le plugin Jquery UI",
+          "3": "Une galerie d'images dynamique pouvant être gérée dans la page d'administration",
+          "4": "Une page d'administration protégée par un système de connexion. Elle permet de gérer des administrateurs(ajouter et supprimer) et la galerie grâce à MySQL et PHP (ajouter, modifier, réorganiser...).",
+          "5": "Un système d'emailing (rubrique contact) basé sur PHPMailer et le SMTP de google."
+
+        },
+        "link": "http://loicroux.fr/Sites/arinella/index.php",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      },
+      {
+        "title": "projet site bd MySQL et PHP",
+        "subtitle": "Alt2crous",
+        "date": "Mars 2018 - Avril 2018",
+        "intro": "Projet de site dynamique visant à trouver des restaurants autour des lieux d'études de Grenoble.",
+        "content": "Site web avec interface d'administration permettant de supprimer, ajouter et modifier des restaurants. Ensuite les restaurants sont affichés en photo avec une description. En sélectionnant le lieu d'étude proche on trouve grâce à un algorithme les restaurants proches avec également un critère de prix.",
+        "link": "http://loicroux.fr/Sites/alt2crous/index.php",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      },
+      {
+        "title": "projet développement sur le CMS wordpress (php)",
+        "subtitle": "Les plantes urbaines",
+        "date": "Novembre 2018 - Janvier 2019",
+        "intro": "Selon le cahier des charges d'une autre équipe nous avons dû créer un thème Wordpress adapté à leurs demandes. Les options que nous avons pu ajouter sont :",
+        "list": {
+          "1": "Custom type, taxonomies et metaboxes",
+          "2": "Pages d'archives selon les taxonomies",
+          "3": "Personnalisation avec Redux framework : changement des polices sur les titres, choix des couleurs de fonds, choix du du diaporama et ses options sur la page d'accueil",
+          "4": "Slider 3D turtable js paramétrable depuis CMB2",
+          "5": "Création de modules pour afficher des éléments spécifiques"
+        },
+        "link": "http://www.plantes-urbaines.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      },
+      {
+        "title": "javascript projet inaprod",
+        "subtitle": "Inaprod",
+        "date": "Mai 2018 - Juin 2018",
+        "intro": "Projet universitaire en groupe consistant à la création d'une agence de communication fictive. Le site vitrine s'inspire du design flat, il est basé sur des contenus fait pendant le dossier du projet.",
+        "content": "De nombreux plugin JS et jQuery sont utilisés afin de donner un aspect plus dynamique au site et de vérifier les formulaires de contact. On peut également noter l'utilisation de SVG et de création d'un pack d'icônes personnalisé.",
+        "link": "http://loicroux.site/Sites/inaprod/projets.html",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+
+      },
+      {
+        "title": "projet tutoré sur le CMS wordpress (php)",
+        "subtitle": "Projet tutoré",
+        "intro": "Création de la communication à 360° du challenge GCCD au cours d'une semaine de projet intensive. Le projet comporte la définition d'une charte graphique, la création du logo et son animation, réalisation d'un site web événementiel intégral avec back-office Wordpress. Ensuite nous avons pu intégrer des contenus rédactionnels et un kakémono graphique.",
+        "content": "Le cahier des charges concernait le challenge construction durable organisé par le DUT génie civil de Grenoble en 2019. Le site comporte un back office avec des page-template personnalisés et des contenus dynamiques (actualité et vidéos).",
+        "link": "http://www.projet-tut.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      },
+      {
+        "title": "(En cours) English Stories...",
+        "subtitle": "English Stories",
+        "intro": "(Projet en cours) Blog sur le CMS Bludit",
+        "content": "Rédaction multilinéaire basés sur une histoire originale de Paul Auster.",
+        "link": "http://www.english-stories.loicroux.fr",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      }
+    ],
+    "rea2": [
+      1, 2, 3, 4, 5, 6,
+      {
+        "title": "jeu codé en typescript (classes et objets)",
+        "subtitle": "Jeu Typescript",
+        "date": "Janvier 2019",
+        "intro": "Création d'un jeu simple basé sur un template typescript et Canvas.",
+        "content": "Le jeu est fait en orienté objet avec l'utilisation des évênements du clavier. On a également des boucles conditionelles pour empécher la sortie du canvas, vérifier des collisions et des méthodes pour dessiner et détruire les éléments sur le canvas.",
+        "link": "./jeu/index.html"
+      },
+      {
+        "title": "Application web Vue Js",
+        "subtitle": "Vue js app",
+        "date": "Avril 2019",
+        "intro": "Création d'une application e-commerce en Vue Js. Les fonctionnalités sont :",
+        "list": {
+          "1": "Catalogue des joueurs avec leur status (disponible ou indisponible)",
+          "2": "Formulaire d'ajout au catalogue",
+          "3": "Bouton d'ajout au catalogue si le joueur est disponible",
+          "4": "Panier avec quantité de joueur, total et possibilité de suppression un par un"
+        },
+        "link": "https://onlinemercato.netlify.com"
+      },
+      {
+        "title": "Livret d‘illustration photoshop indesign et illustrator",
+        "subtitle": "Livret d‘illustration",
+        "date": "Novembre 2019 - Décembre",
+        "content": "Fait à partir de mots ces dessins ont étés retravailler avec Photoshop et Camera raw. Les typographies sont personnalisées avec illustrator et le tout est mis en page sur Indesign.",
+        "link": "https://www.behance.net/gallery/75580385/Livret-dillustration?",
+        "seo": {
+          "title": "null",
+          "subtile": "null",
+          "list": "null",
+          "date": "null",
+          "intro": "null",
+          "content": "null"
+        }
+      }
+    ]
+  }
+}
+
+

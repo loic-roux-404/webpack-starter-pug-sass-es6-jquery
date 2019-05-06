@@ -29,16 +29,7 @@ let cvWrapper = {
     momentum: false,
     snapSpeed: 200,
     eventPassthrough: true,
-    probeType: 3,
-    scrollbars: 'custom',
-    interactiveScrollbars: true,
-    //preventDefault: false
-    // bounceEasing: {
-    //   style: 'quadratic',
-    //   fn: function (k) {
-    //     return k;
-    //   }
-    // }
+    probeType: 3
   }),
   animes: {
     anime0: anime({
@@ -206,8 +197,7 @@ let cvWrapper = {
   },
   //methods
   activeP: function () {
-    var iObj = this;
-    var activePage = iObj.iscroll.currentPage.pageX;
+    var activePage = this.iscroll.currentPage.pageX;
     return activePage;
   },
   myscroll: function () {
@@ -225,7 +215,7 @@ let cvWrapper = {
     //console.log(this.iscroll);
     /*section 1*/
     let it = 0;
-    this.iscroll.on('scroll', () => {
+    this.iscroll.on('scroll', (e) => {
       Ipage();
       //get object pageX element with page number start to 0
       //console.log(pageVisible);
@@ -251,6 +241,9 @@ let cvWrapper = {
         anm.anime4.play();
         it = 5;
         Ipage();
+        //iframe lazy load
+        let iframe = require('../../content/content.json').focus.spotify;
+        document.getElementsByClassName('lazy-iframe')[0].innerHTML = iframe;
       } else {
         return false;
       }

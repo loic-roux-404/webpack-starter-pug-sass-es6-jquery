@@ -1,18 +1,13 @@
-.desktop{
-  overflow: hidden;
-}
 /*responsive*/
 video,
 img {
   width: 100%;
   height: auto;
 }
-
 /*=====NAVBAR SETTINGS=====*/
 .nav-link {
   font-size: 1.25rem;
 }
-
 .menu-lightbox {
   position: absolute;
   border-radius: 50%;
@@ -22,8 +17,7 @@ img {
   height: 12em;
   display: none;
 }
-
-@media (max-width: $break-md) {
+@media (max-width: 767px) {
   .navbar-collapse {
     position: absolute;
     top: 4em;
@@ -70,10 +64,13 @@ img {
 
 .navbar-text {
   i {
-    -webkit-transition: color 0.1s ease-in;
-    transition: color 0.1s ease-in;
-    font-size: 2.3em;
+    font-size: 2.1em;
     color: rgba(39, 39, 39, 0.9);
+    transition: color 0.1s ease-in;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.3em;
+    }
   }
 
   i.fa-github:hover {
@@ -83,7 +80,12 @@ img {
   i.fa-linkedin1:hover {
     color: rgba(42, 109, 255, 0.9);
   }
-
+  i.fa-twitter1:hover {
+    color: rgba(17, 184, 255, 0.913);
+  }
+  i.fa-codepen:hover {
+    color: rgba(0, 0, 0, 0.9);
+  }
 }
 
 /*arrow pres css taked from scroll.css about line 700*/
@@ -95,14 +97,12 @@ a.arrow-pres {
   transform: translate(-53%, -93%) rotate(90deg);
   z-index: 11;
 
-
   @media (min-height: 900px) {
     a.arrow-pres {
       top: 93.5%;
     }
   }
 }
-
 
 /*@media (min-width:$break-md){
 	a.arrow-pres{
@@ -132,7 +132,7 @@ a.arrow-pres .arrow {
   z-index: 1;
 
   &.visible {
-    background-image: url("../images/carre-portfolio.png");
+    background-image: url("../images/loicroux.png");
   }
 }
 
@@ -159,10 +159,12 @@ a.arrow-pres .arrow {
   }
 
   .filter {
-    background: radial-gradient(circle,
+    background: radial-gradient(
+      circle,
       rgba(235, 238, 238, 1) 0%,
       rgba(189, 207, 226, 0) 0%,
-      rgba(242, 245, 245, 1) 44%);
+      rgba(242, 245, 245, 1) 44%
+    );
   }
 }
 
@@ -173,10 +175,12 @@ a.arrow-pres .arrow {
   }
 
   .filter {
-    background: radial-gradient(circle,
+    background: radial-gradient(
+      circle,
       rgba(235, 238, 238, 1) 0%,
       rgba(189, 207, 226, 0) 0%,
-      rgba(242, 245, 245, 0.99) 36%);
+      rgba(242, 245, 245, 0.99) 36%
+    );
   }
 }
 
@@ -188,10 +192,12 @@ a.arrow-pres .arrow {
   }
 
   .filter {
-    background: radial-gradient(circle,
+    background: radial-gradient(
+      circle,
       rgba(235, 238, 238, 0.986) 0%,
       rgba(189, 207, 226, 0) 0%,
-      rgba(242, 245, 245, 0.986) 41%);
+      rgba(242, 245, 245, 0.986) 41%
+    );
   }
 }
 
@@ -211,24 +217,22 @@ a.arrow-pres .arrow {
   z-index: 7;
 }
 
-.caption p {
-  font-size: 1.34rem;
-  position: absolute;
-  left: 40%;
-  z-index: 2;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+.caption {
+  p {
+    font-size: 1.34rem;
+    position: absolute;
+    left: 40%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+  }
+  span {
+    font-size: 0.7rem;
+    position: absolute;
+    left: 40%;
+    z-index: 2;
+    transform: translate(-10%, 45%);
+  }
 }
-
-.caption span {
-  font-size: 0.7rem;
-  position: absolute;
-  left: 40%;
-  z-index: 2;
-  -webkit-transform: translate(-10%, 45%);
-  transform: translate(-10%, 45%);
-}
-
 @media (min-width: $break-sm) {
   .caption {
     position: relative;
@@ -250,7 +254,6 @@ a.arrow-pres .arrow {
 }
 
 @media (min-width: $break-md) {
-
   .caption {
     bottom: 10em;
   }
@@ -363,30 +366,30 @@ a.arrow-pres .arrow {
   box-shadow: inset -5px 133px 175px -101px rgba(0, 0, 0, 0.59);
 }
 
-article>div>h1 {
+article > div > h1 {
   font-size: 2.5rem;
 }
 
 @media (min-width: $break-sm) {
-  article>div>h1 {
+  article > div > h1 {
     font-size: 4rem;
   }
 }
 
 @media (min-width: $break-md) {
-  article>div>h1 {
+  article > div > h1 {
     font-size: 4.3rem;
   }
 }
 
 @media (min-width: $break-lg) {
-  article>div>h1 {
+  article > div > h1 {
     font-size: 4.7rem;
   }
 }
 
 @media (min-width: $break-lg) {
-  article>div>h1 {
+  article > div > h1 {
     font-size: 6.1rem;
   }
 }
@@ -424,18 +427,6 @@ article>div>h1 {
 
 #scrolltop:hover i {
   color: #fafafa;
-}
-
-
-/*separate*/
-.separate {
-  height: 22vh;
-
-  @media (min-width: $break-md) {
-    height: 60vh;
-  }
-
-
 }
 
 //=========Footer parralax====
