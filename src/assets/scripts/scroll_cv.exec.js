@@ -15,7 +15,8 @@ import IScroll from 'iscroll/build/iscroll-probe';
 // };
 
 
-
+//let circle = document.querySelectorAll('circle');
+ //         let data = circle.dataset.level;
 
 /*get width and divide it to get a more earlier event*/
 /*ANIMATIONS CV*/
@@ -173,27 +174,25 @@ let cvWrapper = {
         delay: 300,
         loop: 1
       }).add({
-        targets: '.tools li div',
-        rotate: {
-          value: ['30deg', 0]
+        targets: '.tools li circle',    
+        strokeDasharray:function(el){
+          return el.dataset.start +",20000";
         },
-        scale: {
-          value: [0.9, 0.8]
-        },
-        duration: 500,
+        duration: 1700,
         delay: function (_, i) {
-          return i * 30;
+          return i * 130;
         },
         easing: "easeInExpo"
       })
       .add({
         targets: '.tools',
         opacity: {
-          value: [0.7, 1],
+          value: [0.8, 1],
           easing: "easeInExpo"
         },
-        duration: 800
-      })
+        duration: 200
+      }),
+
   },
   //methods
   activeP: function () {
@@ -208,8 +207,6 @@ let cvWrapper = {
     let Ipage = () => {
       pageVisible = this.activeP();
     };
-
-
 
     const anm = this.animes;
     //console.log(this.iscroll);
@@ -239,6 +236,7 @@ let cvWrapper = {
         Ipage();
       } else if (pageVisible == 4 && it < 5) {
         anm.anime4.play();
+
         it = 5;
         Ipage();
         //iframe lazy load
@@ -284,24 +282,24 @@ const loaded = () => {
 };
 
 
-// function isPassive() {
-//   var supportsPassiveOption = false;
-//   try {
-//       addEventListener("test", null, Object.defineProperty({}, 'passive', {
-//           get: function () {
-//               supportsPassiveOption = true;
-//           }
-//       }));
-//   } catch(e) {}
-//   return supportsPassiveOption;
-// }
+function isPassive() {
+  var supportsPassiveOption = false;
+  try {
+      addEventListener("test", null, Object.defineProperty({}, 'passive', {
+          get: function () {
+              supportsPassiveOption = true;
+          }
+      }));
+  } catch(e) {}
+  return supportsPassiveOption;
+}
       
 
-// document.querySelector('#wrapper').addEventListener('touchstart touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
-// 	capture: false,
-// 	passive: false
-// } : false);
- //document.querySelector('#wrapper').addEventListener("touchstart touchmove",function (e) { e.preventDefault(); }, false);
+document.querySelector('#wrapper').addEventListener('touchstart touchmove', function (e) { e.preventDefault(); }, isPassive() ? {
+	capture: false,
+	passive: false
+} : false);
+ document.querySelector('#wrapper').addEventListener("touchstart touchmove",function (e) { e.preventDefault(); }, false);
 
 
 

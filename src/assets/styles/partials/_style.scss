@@ -291,7 +291,7 @@ a.arrow-pres .arrow {
 
 @media (min-width: $break-xl) {
   .caption {
-    bottom: 14em;
+    bottom: 10.5em;
   }
 
   .caption p {
@@ -307,93 +307,31 @@ a.arrow-pres .arrow {
   }
 }
 
-/*===PORTFOLIO ICONS*====*/
-
-#icons i {
-  position: absolute;
-  z-index: 4;
-  font-size: 6rem;
-  cursor: pointer;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-}
-
-#icons .fa-timer {
-  top: 9%;
-  left: 17%;
-}
-
-#icons .fa-code {
-  top: 15%;
-  left: 25%;
-}
-
-#icons .fa-calendar {
-  top: 21%;
-  left: 36%;
-}
-
-@media (min-width: $break-md) {
-  #icons .fa-timer {
-    top: 23%;
-    left: 25%;
-    -webkit-transform: translate(20%, 50%);
-    transform: translate(20%, 50%);
-  }
-
-  #icons .fa-code {
-    top: 23%;
-    left: 63%;
-    -webkit-transform: translate(20%, 50%);
-    transform: translate(20%, 50%);
-  }
-
-  #icons .fa-calendar {
-    top: 67%;
-    right: 40%;
-    -webkit-transform: translate(40%, 67%);
-    transform: translate(40%, 67%);
-  }
-}
-
 /*=======title categories========*/
 
 /*========CV=======*/
 
 /*parrallax*/
 #presentation {
-  -webkit-box-shadow: inset -5px 133px 175px -101px rgba(0, 0, 0, 0.59);
   box-shadow: inset -5px 133px 175px -101px rgba(0, 0, 0, 0.59);
 }
 
-article > div > h1 {
+article > h1.n-1 {
   font-size: 2.5rem;
-}
 
-@media (min-width: $break-sm) {
-  article > div > h1 {
+  @media (min-width: $break-sm) {
     font-size: 4rem;
   }
-}
-
-@media (min-width: $break-md) {
-  article > div > h1 {
+  @media (min-width: $break-md) {
     font-size: 4.3rem;
   }
-}
-
-@media (min-width: $break-lg) {
-  article > div > h1 {
+  @media (min-width: $break-lg) {
     font-size: 4.7rem;
   }
-}
-
-@media (min-width: $break-lg) {
-  article > div > h1 {
+  @media (min-width: $break-lg) {
     font-size: 6.1rem;
   }
 }
-
 /*scroll to top design button*/
 #scrolltop {
   margin: auto;

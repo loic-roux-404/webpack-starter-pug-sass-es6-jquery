@@ -1,7 +1,4 @@
 import {
-  smoothScroll
-} from './smooth-scroll.exec';
-import {
   scrollToTop,
   s,
   d,
@@ -11,7 +8,7 @@ import {
 } from '../../app.js';
 
 import {
-  TimelineLite
+  TimelineLite, TweenLite
 } from 'gsap';
 import ScrollMagic from 'scrollmagic';
 //require('scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js');
@@ -38,13 +35,7 @@ function resize() {
 // On lie l'événement resize à la fonction
 window.addEventListener('resize', resize, false);
 
-
-// Enable ScrollMagic only for desktop, disable on touch and mobile devices
-//if (!Modernizr.touch) {
-//$('.round-background').offset().top;
-
 var controller = new ScrollMagic.Controller();
-
 
 // parallax effect on caption 
 //PRESENTATION
@@ -78,7 +69,7 @@ a2.fromTo(document.querySelector('#presentation>div'), 1, {
 
 //CV bottom move parralax effect
 var scene2 = new ScrollMagic.Scene({
-  triggerElement: "#main #cv",
+  triggerElement: "#main .cv",
   duration: "100%",
   triggerHook: 'onEnter',
   offset: 150
@@ -89,7 +80,7 @@ var scene2 = new ScrollMagic.Scene({
 
 //CV titelemove parralax effect
 var cv_parralax = new TimelineLite();
-cv_parralax.fromTo(document.getElementById('cv-title'), 1, {
+cv_parralax.fromTo(document.getElementById('cv'), 1, {
   y: 0,
   autoAlpha: 1
 }, {
@@ -100,7 +91,7 @@ cv_parralax.fromTo(document.getElementById('cv-title'), 1, {
   }, "=0.1");
 
 var cv_title = new ScrollMagic.Scene({
-  triggerElement: "#cv .frise",
+  triggerElement: ".cv .frise",
   duration: "100%",
   triggerHook: 'onEnter',
   offset: 70
@@ -149,7 +140,7 @@ parralax2.fromTo(document.getElementById('wrapper'), 1, {
 var parralax2scene = new ScrollMagic.Scene({
   triggerElement: "#main #cv",
   triggerHook: 'onLeave',
-  offset: window.innerHeight/4, //-100 onENTER
+  offset: window.innerHeight / 4, //-100 onENTER
   duration: '100%'
 })
   .setTween(parralax2)
@@ -157,13 +148,13 @@ var parralax2scene = new ScrollMagic.Scene({
 
 //---tween realisations---\\
 var anim = new TimelineLite();
-anim.set(document.querySelector('#realisations h1'), {
+anim.set(document.querySelector('#realisations h1 > div'), {
   autoAlpha: 0,
   letterSpacing: "0.2em",
   color: "#dfe6e9",
   y: -270
 })
-  .to(document.querySelector('#realisations h1'), 1, {
+  .to(document.querySelector('#realisations h1 > div'), 1, {
     autoAlpha: 1,
     letterSpacing: "3px",
     color: "#797979",
@@ -173,35 +164,6 @@ anim.set(document.querySelector('#realisations h1'), {
     ease: Elastic.easeInCubic
   }, "+=0.5");
 
-//split tween
-// anim.set($('.site'), {
-// 		rotation:110,
-// 		y: -100,
-// 		x:-100,
-// 		autoAlpha:0
-// 	})
-// 	.to($('.site'), 0.7, {
-// 		rotation:0,
-// 		y: 0,
-// 		x: 0,
-// 		autoAlpha:1,
-// 		ease: Power2.easeInCubic
-// 	}, "+=2.5"); //end tween
-// 	anim.set($('.game'), {
-// 		rotation:110,
-// 		y: -150,
-// 		x:-150,
-// 		autoAlpha:0
-// 	})
-// 	.to($('.game'), 0.7, {
-// 		rotation:0,
-// 		y: 0,
-// 		x: 0,
-// 		autoAlpha:1,
-// 		ease: Power1.easeInCubic
-// 	}, "+=2.5");
-
-//merge in a timeline
 
 //==============SCENE3============\\
 //
@@ -218,9 +180,18 @@ var scene3 = new ScrollMagic.Scene({
 
 //==========CSS plugin=====//
 //========scene with css animate==========\\
-var roundBck = TweenLite.set(document.querySelector('#realisations h1'), {
+
+let frise = document.getElementsByClassName('frise')[0];
+
+var roundBck = new TimelineLite();
+roundBck.set(document.querySelector('#realisations h1 > div'), {
   className: "z-index-rounded"
-});
+})
+  .set(frise, {
+    zIndex: 1,
+  }).to(frise, 1, {
+    zIndex: -1,
+  });
 
 var scene3velo = new ScrollMagic.Scene({
   triggerElement: "#realisations",
@@ -267,34 +238,34 @@ var scene4 = new ScrollMagic.Scene({
 let temp;
 let blocs = document.getElementsByClassName('video-bloc-1');
 Array.prototype.forEach.call(blocs, function (el, k) {
-  temp = new TimelineLite().fromTo(el, 0.6, {
+  temp = new TimelineLite().fromTo(el, 0.1, {
 
-    x: k % 2 ? 400 * (k/10) : - 300 * (k/10),
-    y: 300,
+    x: k % 2 ? 400 * (k / 10) : - 300 * (k / 10),
+    y: 200,
     autoAlpha: 0
   }, {
       x: 0,
       y: 0,
       autoAlpha: 1,
-     
+
       ease: Power1.easeOutExpo
     }, "+=0.7");
-    temp.timeScale(1 + (k*k));
-    new ScrollMagic.Scene({
-      triggerElement: el,
-      triggerHook: "onEnter",
-      offset: - 1150,
-      duration: "100%"
-    })
-      .setTween(temp)
-      .addTo(controller);
+  temp.timeScale(1 + (k * k));
+  new ScrollMagic.Scene({
+    triggerElement: el,
+    triggerHook: "onEnter",
+    offset: - 1050,
+    duration: "100%"
+  })
+    .setTween(temp)
+    .addTo(controller);
 });
 
 
 
 //=======SCENE 5 contact=======//
 var tw5 = new TimelineLite();
-tw5.fromTo(document.querySelector('#contact>div>h1'), 1, {
+tw5.fromTo(document.querySelector('#contact'), 1, {
   letterSpacing: '30px',
   autoAlpha: 0.1
 }, {

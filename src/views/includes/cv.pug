@@ -4,11 +4,11 @@
 - const focus = htmlWebpackPlugin.options.content.focus;
 
 
-#cv-title.pb-3.d-table.m-auto(style='height:40vh;')
-	h1.text-uppercase.heebo.f900.px-2.text-light.d-table-cell.align-middle(title=cv.title.seo)= cv.title.content
+h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
+	div.text-uppercase.heebo.f900.px-2.text-light.d-table-cell.align-middle(title=cv.title.seo)= cv.title.content
 #viewport
 	#wrapper
-		ul#frise.frise(style='padding-top:10vh;')
+		ul.frise(style='padding-top:10vh;')
 			li#section-1.cv-text.px-2.px-sm-0
 				.m-auto.row.w-100.justify-content-around
 					.heebo.f900.text-uppercase.text-white.w-lg-80
@@ -26,9 +26,10 @@
 			li#section-2.clearfix.mt-md-2.mt-2
 				.d-flex.mt-lg-3
 					#text-sec1.float-right.float-md-none.align-items-end.text-left
-						.d-inline-flex.heebo.f900.title.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm.animate.animate-1= cv.intro.title
+						.d-inline-flex.text-center.w-100.w-sm-auto.text-sm-left.justify-content-center.justify-content-sm-start
+							span.heebo.f900.title.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm.animate.animate-1= cv.intro.title
 							
-						.didact.w-100.w-sm-80.w-md-60.w-xl-50.text-center.text-white.pt-2.pt-md-5(style="font-size:1.15em")
+						.didact.w-100.w-sm-80.w-md-60.w-xl-50.text-center.text-sm-left.text-white.pt-2.pt-md-5(style="font-size:1.15em")
 							each item in cv.intro.content
 								p.animate.animate-1
 									span=  item
@@ -36,7 +37,7 @@
 							.row.bg-cv.px-2.mt-5.mt-md-3.h-100.justify-content-around.align-items-end.align-items-sm-center.align-items-md-start
 								- let img;
 								each val,i in cv.mainTools
-									div(class="col-6 cv-bg"+i style="background-image:url("+require('../../assets/images/icons/'+val.res)+")" alt=val.alt title=val.seo)
+									div(class="col-6 cv-bg"+i style="background-image:url("+require('../../assets/images/icons/'+val.res)+")" title=val.seo)
 
 			//- END SECTION 2 --- FORMATIONS ---
 			li#section-3
@@ -49,13 +50,12 @@
 								if item.length > 0
 									if typeof item[1] === "object"
 
-										a(href=item[1].attached title=item[1].seotitle alt=item[1].seoalt target="_blank")
+										a(href=item[1].attached title=item[1].seotitle target="_blank")
 
 											span.text-light
 
 												| !{item[0]}
 
-											
 											span.text-light.font-weight-bold.fa-plus-circle
 											
 									else
@@ -88,7 +88,7 @@
 													h4.text-center.muli.f300.text-white.d-table-cell.align-middle(title=comp.seo.title)= comp.title
 												.figcaption.text-dark
 													h3.muli.f700.text-uppercase(title=comp.seo.sub)= comp.sub
-													p.didact(title=comp.seo.caption) !{comp.caption}
+													p.didact !{comp.caption}
 				
 			li#section-5
 				.m-auto.row.w-100.d-flex.justify-content-around.align-content-center
@@ -99,9 +99,15 @@
 					.w-100.h-100
 						//-icons
 						ul.tools.px-2.d-flex.justify-content-around
+							- let i = 0;
 							each val in cv.tools.skills
 								li.round-comp.rounded-circle
-									span= val
+									.resp-svg
+										svg(x="0px" y="0px" viewBox="0 0 500 500" )
+											circle.back-circle(cx="250" cy="250" r="250" fill="")
+											circle(cx="250" cy="250" r="250" fill="" data-start=val stroke-dasharray="0,20000" transform="rotate(-90,250,250)")
+											span= Object.keys(cv.tools.skills)[i]
+								- i++;
 
 			li#section-6
 				h1.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.shadow-sm.d-inline-flex.px-2(title='What i use to focus more...')

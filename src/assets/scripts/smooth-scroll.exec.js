@@ -1,6 +1,8 @@
 import {
   s,
   d,
+  ns,
+  nd,
   loadTiming,
   detectmob
 } from '../../app';
@@ -12,8 +14,6 @@ export const html = document.querySelector('html');
 export const body = document.querySelector('body');
 //set smooth scroll after load
 html.classList.remove('no-js');
-smoothScroll(0, 0);
-
 
 export function smoothScroll(s, d) {
 
@@ -23,11 +23,11 @@ export function smoothScroll(s, d) {
   //console.log(scrollTime+'aie'+scrollDistance);
   if (!detectmob()) {
 
-    html.classList.add('desktop');
+    //html.classList.add('desktop');
 
-    let smooth = function(event) {
+    let smooth = function (event) {
 
-      event.preventDefault();
+      //event.preventDefault();
       //console.log(event);
       var delta = event.wheelDelta / 120 || - event.detail / 3;
       var scrollTop = $window.pageYOffset;
@@ -39,19 +39,15 @@ export function smoothScroll(s, d) {
           y: finalScroll,
           autoKill: true
         },
-        ease: Power4.Linear,
+        ease: Power4.EaseOut,
         overwrite: 5
       });
     };
 
-    var mswEv=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";//FF doesn't recognize mousewheel as of FF3.x
-    $window.addEventListener(mswEv, smooth,false);
-
-
-  } 
+    var mswEv = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel";//FF doesn't recognize mousewheel as of FF3.x
+    $window.addEventListener(mswEv, smooth, true);
+  }
 }
-
-
 
 /**
  * Smooth scrolling to page anchor on click
@@ -64,17 +60,12 @@ document.querySelectorAll("a[href*='#']:not([href='#'])").forEach(function (elem
       location.hostname == elem.hostname && elem.pathname.replace(/^\//, "") == location.pathname.replace(/^\//, "")
     ) {
       var anchor = elem.hash;
-      console.log(anchor);
+      //console.log(anchor);
       //IE8
       anchor = anchor.length ? anchor : document.querySelector("[name=" + elem.hash.slice(1) + "]");
-      console.log(anchor);
+      //console.log(anchor);
       if (anchor) {
-        // $("html, body").animate({
-        //   scrollTop: anchor.offset().top - 50,
-        // }, 1200);
-        //console.log(anchor);
-        console.log(document.getElementById(elem.hash.slice(1)));
-        //hjen suis la bg
+
         anime({
           targets: "html, body",
           scrollTop: (document.getElementById(elem.hash.slice(1)).getBoundingClientRect().top - document.body.scrollTop) - 95,
@@ -87,3 +78,20 @@ document.querySelectorAll("a[href*='#']:not([href='#'])").forEach(function (elem
     }
   });
 });
+
+
+smoothScroll(0, 0);
+//enable scroll after load
+
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(function(){
+    if (detectmob()) {
+      html.classList.toggle('overflow-y-hidden');
+      body.classList.remove('overflow-y-hidden');
+    } else {
+      smoothScroll(s, d);
+    }
+  },loadTiming*3);
+
+
+}, false);

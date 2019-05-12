@@ -22,6 +22,7 @@ require.context("./assets/fonts", true, /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/);
 /*scrollToTop essential function*/
 document.querySelector('.toTopButton').addEventListener("click", scrollToTop, true);
 
+
 export function scrollToTop() {
   anime({
     targets: "html, body",
@@ -32,7 +33,7 @@ export function scrollToTop() {
   });
 }
 //loading time    || speed / val || scroll distance || no scroll
-var loadTiming = 678, s = 1 / 5, d = 210,         ns = 0,  nd = 0;
+var loadTiming = 600, s = 1 / 5, d = 210,         ns = 0,  nd = 0;
 
 export {
   s,
@@ -45,11 +46,14 @@ export {
 //================================
 //===============Personnal scripts
 import * as load from './assets/scripts/load.exec.js';
-import * as smoothScroll from './assets/scripts/smooth-scroll.exec.js';
+import * as smooth from './assets/scripts/smooth-scroll.exec.js';
 import * as scroll from './assets/scripts/scroll.exec.js';
 import * as button from './assets/scripts/button.exec.js';
 import * as video from './assets/scripts/video.exec.js';
 import * as scroll_cv from './assets/scripts/scroll_cv.exec.js';
+
+
+
 
 //================================
 //============Set some content when page loaded
@@ -59,11 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function(){
       let elemD = [].slice.call(document.getElementsByTagName('main'))[0], elemF = document.getElementById('footer');
       elemD.classList.remove('wrappers');
-      elemD.style.height = 'auto';
+      //elemD.style.height = 'auto';
       elemF.classList.remove('wrappers');
-      elemF.style.height = 'auto';
+      //elemF.style.height = 'auto';
 
-  },loadTiming*2);
+  },loadTiming);
 
   //=============================
   /*Load video after document ready*/

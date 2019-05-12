@@ -18,26 +18,26 @@
       "seo": "Discover about me"
     },
     "main": {
-      "content": "Currently in a intership of junior fullstack web developer. Swipe left to continue discover about me...",
+      "content": "Currently in an intership of junior fullstack web developer. Swipe left to continue discover about me...",
       "seo": "My professional situation"
     },
     "tools": {
       "title": "MY TOOLS",
-      "skills": [
-        "HTML5",
-        "CSS3",
-        "Js",
-        "jQuery",
-        "Php",
-        "Wordpress",
-        "Prestashop",
-        "MySql",
-        "Sass",
-        "Bootstrap",
-        "VueJs",
-        "Webpack",
-        "Typescript"
-      ]
+      "skills": {
+        "HTML5":1500,
+        "CSS3":1300,
+        "Js":1400,
+        "jQuery":1400,
+        "Php":1150,
+        "Wordpress":1100,
+        "Prestashop":900,
+        "MySql":900,
+        "Sass":800,
+        "Bootstrap":1500,
+        "VueJs":1000,
+        "Webpack":1100,
+        "Typescript":900
+      }
     },
     "mainTools": [{
         "res": "loic-roux-main-tool-css3.png",

@@ -75,6 +75,7 @@
     "fast-sass-loader": "^1.4.7",
     "google-fonts-webpack-plugin": "^0.4.4",
     "gsap": "^1.20.4",
+    "html-validator": "^4.0.2",
     "imagemin": "^6.1.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-webp": "^5.0.0",

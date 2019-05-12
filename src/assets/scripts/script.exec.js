@@ -6,7 +6,7 @@ import {
   nd,
   d,
   s,
-  mobileBool
+  detectmob
 } from '../../app';
 import assign from 'core-js/modules/es6.object.assign';
 
@@ -62,11 +62,13 @@ var menuLi = anime({
 /*toggle function by class*/
 let clicked = true, nbclick=0,
   navToggler = document.getElementsByClassName('navbar-toggler')[0],
-  htmlEl = document.querySelector('html');
+  htmlEl = document.querySelector('html'),
+  bodyEl = document.querySelector('body');
 
 function toggled(el) {
 
   htmlEl.classList.toggle('overflow-y-hidden');
+  bodyEl.classList.toggle('overflow-y-hidden');
   let offT = el.getBoundingClientRect().top - document.body.scrollTop;
   let offL = el.getBoundingClientRect().left - document.body.scrollLeft;
 
@@ -94,10 +96,10 @@ function toggled(el) {
 
   if (clicked) {
     document.body.style.position = 'relative';
-    if(!mobileBool){ smoothScroll(ns,nd);}else{smoothScroll(s,d);}
+    if(!detectmob){ smoothScroll(ns,nd);}else{smoothScroll(s,d);}
   } else {
     document.body.style.position = 'static';
-    if(!mobileBool){  smoothScroll(s,d);}else{smoothScroll(s,d);}
+    if(!detectmob){  smoothScroll(s,d);}else{smoothScroll(s,d);}
   }
 
   clicked = !clicked;

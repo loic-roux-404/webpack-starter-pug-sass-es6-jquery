@@ -1,4 +1,6 @@
-$Ftitle : 1.3rem;
+
+
+$Ftitle: 1.3rem;
 
 /*fix autofill colors
 /* Change autocomplete styles in WebKit */
@@ -14,6 +16,7 @@ select:-webkit-autofill:focus {
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
+
 
 /*validate*/
 
@@ -67,15 +70,14 @@ $j: 0;
   width: 1px;
   height: 25px;
 
-  @for $j from 1 through 4 {}
+  @for $j from 1 through 4 {
+  }
 
   @if ($j==1) {
     :nth-child($j) {
       background: #ecf0f1;
     }
-  }
-
-  @else {
+  } @else {
     $decale: ($j - 1) * $decale;
 
     :nth-child($j) {
@@ -188,11 +190,11 @@ $j: 0;
   transform-origin: left top;
 }
 
-.form-element-field:focus~.form-element-bar {
+.form-element-field:focus ~ .form-element-bar {
   background: #62b6ff;
 }
 
-.form-element-field:focus~.form-element-label {
+.form-element-field:focus ~ .form-element-label {
   color: #6ab9ff;
 }
 
@@ -201,8 +203,8 @@ $j: 0;
   opacity: 1;
 }
 
-.form-element-field.-hasvalue~.form-element-label,
-.form-element-field:focus~.form-element-label {
+.form-element-field.-hasvalue ~ .form-element-label,
+.form-element-field:focus ~ .form-element-label {
   -webkit-transform: translateY(-100%) translateY(-0.5em) translateY(-2px) scale(0.9);
   transform: translateY(-100%) translateY(-0.5em) translateY(-2px) scale(0.9);
   cursor: pointer;
@@ -214,8 +216,8 @@ textarea.form-element-field:not(:placeholder-shown) {
   opacity: 1;
 }
 
-input.form-element-field:not(:placeholder-shown)~.form-element-label,
-textarea.form-element-field:not(:placeholder-shown)~.form-element-label {
+input.form-element-field:not(:placeholder-shown) ~ .form-element-label,
+textarea.form-element-field:not(:placeholder-shown) ~ .form-element-label {
   -webkit-transform: translateY(-100%) translateY(-0.5em) translateY(-2px) scale(0.9);
   transform: translateY(-100%) translateY(-0.5em) translateY(-2px) scale(0.9);
   cursor: pointer;
@@ -225,13 +227,13 @@ textarea.form-element-field:not(:placeholder-shown)~.form-element-label {
 textarea.form-element-field {
   height: auto;
   min-height: 2rem;
-  height:40px;
+  height: 40px;
   max-height: 10em;
   resize: none;
   padding-right: 2em;
   color: #fff;
   @include heebo;
-  font-weight:300;
+  font-weight: 300;
 }
 
 .form-select-placeholder {
@@ -251,13 +253,12 @@ textarea.form-element-field {
   bottom: 0;
 }
 
-
 /*contact button*/
 
 $but-border: 5px dotted #fafafa;
 $outline-border: 5px solid #fafafa;
 
-#contact .btn {
+.contact .btn {
   position: relative;
   margin: 7vh auto 0 auto;
   letter-spacing: 0.15em;
@@ -290,7 +291,7 @@ $outline-border: 5px solid #fafafa;
 }
 
 /*button after submit*/
-#contact .success-ajax {
+.contact .btn.success-ajax {
   color: #fff;
   background: #3cd13a;
   border: none;
@@ -302,13 +303,11 @@ $outline-border: 5px solid #fafafa;
   animation: slidein 3s infinite;
   -webkit-box-shadow: none;
   box-shadow: none;
-  font-size: 0.9em !important;
-}
-
-#contact .success-ajax:hover {
-  background: #3cd13a;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  font-size: 0.9em;
+  &:hover {
+    background: #3cd13a;
+    border: none;
+  }
 }
 
 @keyframes slidein {
@@ -342,8 +341,6 @@ $outline-border: 5px solid #fafafa;
     }
   }
 
-
-
   .carte-visite-wrapper {
     height: 100%;
     width: 100%;
@@ -363,9 +360,8 @@ $outline-border: 5px solid #fafafa;
         }
       }
 
-      z-index:-1;
+      z-index: -1;
     }
-
 
     button {
       @include posAll;
@@ -373,7 +369,7 @@ $outline-border: 5px solid #fafafa;
       font-size: 2em;
       font-weight: 700;
       color: $info;
-      height: 95%;
+      height: 93.7%;
       width: 100%;
       opacity: 0;
       z-index: -1;

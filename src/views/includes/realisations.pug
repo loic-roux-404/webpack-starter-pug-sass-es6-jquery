@@ -10,8 +10,8 @@ article#realisations.hero3
       i.fa-globe
     button.rounded-circle.game(data-state='0', title='More projects : PAO, web games & applications')
       i.fa-plus-circle
-  .text-center.py-3
-    h1.text-center.text-uppercase.heebo.f900.px-2.text-dark.d-inline.text2(title='Projects list and direct links to see them')
+  h1.text-center.py-3.py-lg-5.n-1(title='Projects list and direct links to see them')
+    .text-center.text-uppercase.heebo.f900.px-2.text-dark.d-inline.text2
       | Portfolio
   #bloc-vid.py-2.py-md-5.mt-sm-5.mt-md-2.mt-lg-3
     #videos1.py-sm-0.py-md-5
@@ -36,9 +36,9 @@ article#realisations.hero3
                   li= val
               
             if item.disabled
-              a(href=none, title=item.seo.link onclick="return false;" rel="noreferrer" alt=item.title+" link") Unaivalable  
+              a(href=none, title=item.seo.link onclick="return false;" rel="noreferrer") Unaivalable  
             else     
-              a(href=item.link, title=item.seo.link target="_blank" rel="noreferrer" alt=item.title+" link") See the project
+              a(href=item.link, title=item.seo.link target="_blank" rel="noreferrer") See the project
         - }//-END FOR
         - for (var i = 6;i < 10;i++){
         - var item = rea2[i];
@@ -59,9 +59,9 @@ article#realisations.hero3
             else
               | No Project description
             if item.disabled
-              a(href=none, title=item.seo.link onclick="return false;" rel="noreferrer" alt=item.title+" link") Unaivalable  
+              a(href=none, title=item.seo.link onclick="return false;" rel="noreferrer") Unaivalable  
             else     
-              a(href=item.link, title=item.seo.link target="_blank" rel="noreferrer" alt=item.title+" link") See the project
+              a(href=item.link, title=item.seo.link target="_blank" rel="noreferrer") See the project
         - }//-END FOR
 
       .site-wrap.row.container-vid-1.mx-0

@@ -8,34 +8,9 @@ import {
   detectmob
 } from '../../app.js';
 
-import {
-  smoothScroll, html, body
-} from './smooth-scroll.exec';
-
 import fade from 'fade';
 
-//toggle overflow
-function ovfl(bool) {
-  if (bool) {
-    if (!detectmob()) {
-      smoothScroll(s, d);
-    } else {
-      [html, body].forEach(function (elem) {
-        elem.classList.toggle('overflow-y-hidden');
-      });
-    }
-  } else {
-    if (!detectmob()) {
-      smoothScroll(ns, nd);
-    } else {
-      [html, body].forEach(function (elem) {
-        elem.classList.toggle('overflow-y-hidden');
-      });
-    }
-  }
-}
 
-window.onload = ovfl(true);
 
 // Wrap every letter in a span
 const loadText = document.querySelectorAll('.load-text');
@@ -81,8 +56,8 @@ var ID = document.getElementsByClassName("percentage"),
   durataion = time;
 if (!detectmob()) {
   animateValue(ID, start, end, durataion);
-}else{
-  animateValue(ID, 0,20, 1000);
+} else {
+  animateValue(ID, 0, 20, 1000);
 }
 function animateValue(id, start, end, duration) {
 
@@ -152,14 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   setTimeout(function () {
-
     fade.out(loadbar, 1000, function (elt = loadbar) {
       elt.style.display = 'none'; // set display to none after fade out
-
     });
-    ovfl(false);
-
-
   }, loadTiming * 3);
 
 }, true);

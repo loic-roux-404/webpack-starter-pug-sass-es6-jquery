@@ -1,4 +1,3 @@
-
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
@@ -68,7 +67,7 @@
   overflow: hidden;
 }
 
-#cv .frise {
+.cv .frise {
   touch-action: pan-y;
   z-index: 1;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -84,7 +83,7 @@
   }
 }
 
-#cv button {
+.cv button {
   letter-spacing: 1px;
 
   &:hover {
@@ -101,7 +100,7 @@ $hfrise: 100vh * 1.76;
   text-align: center;
   position: relative;
   min-height: $hfrise;
-  
+
   @media screen and (min-height: $break-sm) {
     min-height: $hfrise / 1.76;
   }
@@ -162,18 +161,18 @@ $hfrise: 100vh * 1.76;
 /*==============PAGE 1=============*/
 /*svg manage*/
 #bm svg {
+  height: 80px;
+  width: 80px;
   max-height: 100px;
   max-width: 100px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin: auto;
   padding-left: 10px;
 }
 
 @media (min-width: $break-sm) {
-  #bm svg {
-    max-height: 136px;
+  #bm .resp-svg {
+    max-height: 1px;
     max-width: 136px;
   }
 }
@@ -219,7 +218,6 @@ $hfrise: 100vh * 1.76;
     color: #fff;
   }
 }
-
 
 /*==============THEME COLORS============*/
 .th-grey {
@@ -511,7 +509,6 @@ $hfrise: 100vh * 1.76;
   }
 }
 
-
 /*==============SECTION 4============*/
 
 #section-4 {
@@ -794,8 +791,33 @@ $round-b: map-merge(
     flex-basis: calc(100% / 3.5);
     max-width: calc(100% / 3.5);
     @include heebo;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 0.82em;
+
+    .resp-svg {
+      display: inline-block;
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      vertical-align: middle;
+    }
+
+    svg {
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      circle {
+        fill-opacity: 0;
+        stroke-width: 20px;
+      }
+    }
+    span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     $i: 4;
 
@@ -810,33 +832,32 @@ $round-b: map-merge(
       $i: $i + 1;
     }
 
-    &:before {
-      content: "";
-      display: block;
-      padding-bottom: 100%;
-    }
+    // &:before {
+    //   content: "";
+    //   display: block;
+    //   padding-bottom: 100%;
+    // }
 
-    //   // Change the perspective of each alternating line
-    //   &:nth-child(odd) {
-    //     transform: skew(50deg, -10deg) scaleY(0.8888);
-    //   }
-
-    //   &:nth-child(even) {
-    //     transform: skew(15deg, -10deg) scaleY(1.2222);
-    //   }
-
-    // Loop over the total lines and apply a left offset
     $j: 0;
 
+    // @each $j, $val in $round-b {
+
+    //   &:nth-child(#{$j}) {
+    //     border: 9px solid $val;
+    //     color: $val;
+    //   }
+    // }
+    .back-circle{
+      opacity: 0.25;
+      stroke:#424242;
+    }
     @each $j, $val in $round-b {
-      // &:nth-child(#{$i}) {
-      //   left: $left-offset * $i;
-      // }
-      &:nth-child(#{$j}) {
-        //background: url(../images/tools/t-#{$i}.png);
-        border: 9px solid $val;
+      &:nth-child(#{$j}) circle:not(.back-circle) {
+        //border: 9px solid $val;
+        stroke: $val;
+      }
+      &:nth-child(#{$j}) span {
         color: $val;
-        //@include background-contain;
       }
     }
   }
@@ -846,12 +867,10 @@ $round-b: map-merge(
  Fine-grained text styles
 */
 .tools div {
-  height: $clip-height;
-  line-height: $line-height;
+  //height: $clip-height;
+  //line-height: $line-height;
   padding: 0 10px;
-  -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   vertical-align: top;
   white-space: nowrap;
