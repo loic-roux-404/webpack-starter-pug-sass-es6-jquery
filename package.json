@@ -1,6 +1,6 @@
 {
   "name": "portfolio-loic-roux",
-  "version": "3.0.1",
+  "version": "3.3.0",
   "description": "Portfolio website to presents web products.",
   "main": "app.js",
   "repository": "git@github.com:my-user/my-repo.git",
@@ -8,14 +8,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev-network": "webpack-dev-server --config ./build/webpack.config.js --progress --open --host 0.0.0.0",
-    "dev": "webpack-dev-server --config ./build/webpack.config.js --env.NODE_ENV=development --progress",
+    "dev": "webpack-dev-server --config ./build/webpack.config.js --env.NODE_ENV=development --devtool source-map --progress",
     "prod": "webpack --config ./build/webpack.config.js --env.NODE_ENV=production -p --progress"
   },
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-object-assign": "^7.2.0",
     "app-manifest-loader": "^2.2.3",
-    "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.5",
     "babel-plugin-dynamic-import-webpack": "^1.1.0",
@@ -27,9 +26,8 @@
     "compression-webpack-plugin": "^2.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "eslint": "^4.19.1",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "favicons-webpack-plugin": "0.0.9",
-    "file-loader": "^1.1.11",
+    "file-loader": "^4.2.0",
+    "google-fonts-plugin": "^5.0.0",
     "html-webpack-plugin": "^3.1.0",
     "install": "^0.12.2",
     "mini-css-extract-plugin": "^0.5.0",
@@ -50,6 +48,7 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
     "webpack-cli": "^3.2.3",
+    "webpack-dashboard": "^3.0.7",
     "webpack-dev-server": "^3.2.1",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-notifier": "^1.6.0"
@@ -60,13 +59,13 @@
     "animate-display-property": "^1.0.1",
     "animejs": "^2.2.0",
     "app-manifest-webpack-plugin": "^1.2.0",
+    "autoprefixer": "^9.6.1",
     "babel-minify": "^0.5.0",
     "babel-minify-webpack-plugin": "^0.3.1",
     "babel-polyfill": "^6.26.0",
     "bodymovin": "^4.13.0",
     "bootstrap": "^4.3.1",
     "bundle-loader": "^0.5.6",
-    "chmod-webpack-plugin": "^0.1.2",
     "core-js": "^2.6.5",
     "core-js-bundle": "^3.0.0-beta.18",
     "css-loader": "^0.28.11",
@@ -82,19 +81,20 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "imports-loader": "^0.8.0",
     "iscroll": "^5.2.0",
-    "jquery": "^3.4.0",
-    "jquery-validation": "^1.19.0",
-    "jquery.easing": "^1.4.1",
     "merge": "^1.2.1",
     "mime-types": "^2.1.22",
     "multi-loader": "^0.1.0",
-    "nodemailer": "^5.1.1",
-    "recaptcha-v3": "^1.5.0",
+    "postcss-preset-env": "^6.7.0",
     "scrollmagic": "^2.0.5",
     "text-loader": "0.0.1",
-    "velocity-animate": "^1.5.2",
     "webp-loader": "^0.4.0",
     "webp-url-loader": "0.0.2",
     "webpack-merge": "^4.2.1"
-  }
+  },
+  "browsers": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "NOT IE < 9"
+  ]
 }

@@ -1,16 +1,16 @@
-
-<?php
-header("HTTP/1.0 404 Not Found");
-?>
+<!DOCTYPE Html>
 <html>
 <head>
   <title>404 Error - Page Not Found</title>
-  <meta http-equiv="refresh" content="5;URL=https://www.loicroux.fr">
+  <meta http-equiv="refresh" content="5;URL=https://www.loicroux.com">
   <style>
       *{
           font-family:sans-serif;
           font-weight:900;
-          font-size:5rem;
+          font-size:4rem;
+      }
+      h1{
+          text-align:center;
       }
   </style>
 </head>
@@ -24,4 +24,3 @@ header("HTTP/1.0 404 Not Found");
 </body>
 </html>
 
-?>

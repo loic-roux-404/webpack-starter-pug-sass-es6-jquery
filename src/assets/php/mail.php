@@ -45,7 +45,7 @@ if (isset($_GET['nom']) && isset($_GET['email']) && isset($_GET['message'])) {
 	//Username to use for SMTP authentication - use full email address for gmail
 	$mail->Username = 'andregope999@gmail.com';
 //Password to use for SMTP authentication
-	$mail->Password = 'igsoft3299A';
+	$mail->Password = 'Azye-69igsoft';
 //Set who the message is to be sent from
 	$mail->SetFrom('andregope999@gmail.com');
 //Set an alternative reply-to address
@@ -54,7 +54,7 @@ if (isset($_GET['nom']) && isset($_GET['email']) && isset($_GET['message'])) {
 
 	//---search all admin mail in BD--\\
 
-	$mail->AddAddress("69loloro10@gmail.com");
+	$mail->AddAddress("loic.roux.404@gmail.com");
 	//test addresses to be sent
 	//Set the subject line
 	$mail->Subject = 'Message portfolio';

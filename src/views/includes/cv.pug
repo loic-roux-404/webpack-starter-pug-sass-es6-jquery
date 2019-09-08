@@ -2,7 +2,7 @@
 - const comps = htmlWebpackPlugin.options.content.comps;
 - const dis = htmlWebpackPlugin.options.content.dis;
 - const focus = htmlWebpackPlugin.options.content.focus;
-
+- const scroll = htmlWebpackPlugin.options.content.cv.intro.scroll;
 
 h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 	div.text-uppercase.heebo.f900.px-2.text-light.d-table-cell.align-middle(title=cv.title.seo)= cv.title.content
@@ -12,13 +12,13 @@ h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 			li#section-1.cv-text.px-2.px-sm-0
 				.m-auto.row.w-100.justify-content-around
 					.heebo.f900.text-uppercase.text-white.w-lg-80
-						span(title=cv.main.seo)=  cv.main.content
-						form.my-3.my-md-5.pt-3.pt-md-5(action='./assets/files/cv-loic.pdf', method='get', accept-charset='utf-8' target="_blank")
-							button.btn.btn-outline-light.muli.f700.px-5.py-3.rounded-0(type='submit' title=cv.intro.button) Resume (FR)
+						h2.d-inline(title=cv.main.seo)=  cv.main.content
+						form.my-3.my-md-5.pt-3.pt-md-5(action=require('../../assets/files/cv-loic.pdf'), method='get', accept-charset='utf-8' target="_blank")
+							button.btn.btn-outline-light.muli.f700.px-5.py-3.rounded-0(type='submit' title=cv.intro.button)= cv.intro.file +"(PDF)"
 					h5#bm.text-center.muli.text-uppercase(title="Touch wrapper iscroll")
-						| horizontal scroll
+						| #{scroll[0]}
 						br
-						| keep touching
+						| #{scroll[1]}
 					.round-arrow.arrow-wrapper
 						.cta
 							span.arrow.primera.next.bounceAlpha
@@ -27,8 +27,8 @@ h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 				.d-flex.mt-lg-3
 					#text-sec1.float-right.float-md-none.align-items-end.text-left
 						.d-inline-flex.text-center.w-100.w-sm-auto.text-sm-left.justify-content-center.justify-content-sm-start
-							span.heebo.f900.title.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm.animate.animate-1= cv.intro.title
-							
+							h1.d-inline.heebo.f900.title.text-uppercase.text-white.bg-dark.f900.pt-1.px-2.shadow-sm.animate.animate-1= cv.intro.title
+
 						.didact.w-100.w-sm-80.w-md-60.w-xl-50.text-center.text-sm-left.text-white.pt-2.pt-md-5(style="font-size:1.15em")
 							each item in cv.intro.content
 								p.animate.animate-1
@@ -57,7 +57,7 @@ h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 												| !{item[0]}
 
 											span.text-light.font-weight-bold.fa-plus-circle
-											
+
 									else
 										span 
 											| !{item[0]}
@@ -89,7 +89,7 @@ h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 												.figcaption.text-dark
 													h3.muli.f700.text-uppercase(title=comp.seo.sub)= comp.sub
 													p.didact !{comp.caption}
-				
+
 			li#section-5
 				.m-auto.row.w-100.d-flex.justify-content-around.align-content-center
 					.col-md-6.px-2
@@ -103,7 +103,9 @@ h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 							each val in cv.tools.skills
 								li.round-comp.rounded-circle
 									.resp-svg
-										svg(x="0px" y="0px" viewBox="0 0 500 500" )
+
+										svg(x="0px" y="0px" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" preserveAspectRatio="xMinYMin none"
+										)
 											circle.back-circle(cx="250" cy="250" r="250" fill="")
 											circle(cx="250" cy="250" r="250" fill="" data-start=val stroke-dasharray="0,20000" transform="rotate(-90,250,250)")
 											span= Object.keys(cv.tools.skills)[i]
@@ -111,14 +113,14 @@ h1#cv.pb-3.d-table.m-auto.n-1(style='height:40vh;')
 
 			li#section-6
 				h1.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.shadow-sm.d-inline-flex.px-2(title='What i use to focus more...')
-					| To focus
+					| Get concentration
 				.col-12.text-light.heebo.f300.mt-1.mt-md-2.mt-lg-5
 					| !{focus.text}
 
 				.text-light.heebo.f300.mt-1.mt-md-2.mt-lg-5.shadow-md.embed-responsive.container.lazy-iframe
-						
+
 			li#section-7
 				h1.title.heebo.f900.text-uppercase.text-white.bg-dark.f900.shadow-sm.d-inline-flex.px-2(title='My interests')
-						| My Hobbies
+					| Hobbies
 				.col-12.text-light.heebo.f300
-						| Now in production...
+					| Be patient, the git push is not far ...

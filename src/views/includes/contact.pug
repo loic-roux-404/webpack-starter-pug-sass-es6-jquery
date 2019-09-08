@@ -2,58 +2,54 @@
 -    video:require('../../assets/video/business-card-loic.mp4'),
 -    poster:require('../../assets/images/preview-business-card.png')
 - };
+- const contact = htmlWebpackPlugin.options.global.contact;
+- const cBut = htmlWebpackPlugin.options.global.contactButton;
+- const card = htmlWebpackPlugin.options.global.card;
+// = require('../../content/')
 
 
 
 h1.text-center.text-uppercase.heebo.f900.text2.n-1(title="contact" id="contact") 
-    span Contact
+	span Contact
+
 
 .container
-    form#contact-form.form-card(action='assets/php/mail.php', method='get')
-        .row.justify-content-around
-            .col-md-7.mb-sm-3.mb-2.mx-sm-2
-                .form-element.form-input.p-md-0.px-3
-                    input#nom.form-element-field(type="text" placeholder=' ', name='nom' required)
-                    .form-element-bar
-                    label.form-element-label(for='nom', title='nom')
-                        span.fa-user.pr-2
-                        | Title / Name
-            .col-md-7.mb-sm-3.mb-2.mx-sm-2
-                .form-element.form-input.p-md-0.px-3
-                    input#email.form-element-field(type="email" placeholder=' ', name='email' , title="Provide an email", required)
-                    .form-element-bar
-                    label.form-element-label(for='email' title="email")
-                        span.fa-at-sign.pr-2
-                        | Email
-            .col-md-7.mb-sm-3.mb-2.mx-sm-2
-                .form-element.form-textarea.p-md-0.px-3
-                    textarea#message.form-element-field(name='message',  title="provide a text message", placeholder='', required)
-                    .form-element-bar
-                    label.form-element-label(for='message' title="Message attached")
-                        span.fa-align-justify.pr-2
-                        | Request
-        .row.justify-content-around
-            .col-sm-4.col-8
-                button.btn.f700.heebo.text-white.text-uppercase(type='submit', aria-label="Submit form", value="envoi" ) Send
-                #loader
-                    .loader-contact.float-right.mb-5.d-block
-                        .line
-                        .line
-                        .line
-                        .line
-        .d-table.w-100.text-center
-            button#scrolltop.my-5.d-table-cell.align-middle.toTopButton(type='button', title="remonter en haut", value="top" aria-label="scroll to top")
-                i.fa-chevron-up
-    #carte-visite
-        h1.title-carte.text-center.mt-5(title='carte de visite developpeur loic roux') 
-            div.muli.f700.text-white.mt-1 Business Card
-        .d-flex.justify-content-around
-            .vid-carte-visite.mb-5
-                div.carte-visite-wrapper.position-relative
-                    video.d-block.lazy(autoplay muted, loop, preload='none', poster=vid.poster, title='Business card video preview')
-                        source(data-src=vid.video, type='video/mp4')
-                    form.form-carte-visite.text-light.pb-5(action='./assets/files/visit-card-loic.pdf', target="_blank", accept-charset='utf-8')
-                        .text-center
-                            button.border-0.heebo.f300(type='submit', title='See or download my business card' aria-label="Submit form", value="envoi")
-                                | PDF
-                                
+	form#contact-form.form-card(action='assets/php/mail.php', method='get')
+		.row.justify-content-around
+			each item in contact
+				.col-md-7.mb-sm-3.mb-2.mx-sm-2
+					.form-element.form-input.p-md-0.px-3
+						if !item.textarea
+							input(id=item.name).form-element-field(type="text" placeholder=' ', name=item.name required title=item.seo.input)
+							.form-element-bar
+							label.form-element-label(for=item.name, title=item.seo.label)
+								span.fa-user.pr-2
+								| !{item.text}
+						else
+							textarea#message.form-element-field(name='message',  title=item.seo.input, placeholder='', required)
+							.form-element-bar
+							label.form-element-label(for=item.name title=item.seo.label)
+								span.fa-align-justify.pr-2
+								| !{item.text}
+
+		.row.justify-content-around
+			.col-sm-4.col-8
+				button.btn.f700.heebo.text-white.text-uppercase(type='submit')= cBut
+
+		.d-table.w-100.text-center
+			button#scrolltop.my-5.d-table-cell.align-middle.toTopButton(type='button', title="remonter en haut", value="top" aria-label="scroll to top")
+				i.fa-chevron-up
+	#carte-visite
+		h1.title-carte.text-center.mt-5(title=card.titleText)
+			div.muli.f700.text-white.mt-1 #{card.text}
+		.d-flex.justify-content-around
+			.vid-carte-visite.mb-5
+				div.carte-visite-wrapper.position-relative
+					video.d-block.lazy(autoplay muted, loop, preload='none', poster=vid.poster, title='Business card video preview')
+						source(data-src=vid.video, type='video/mp4')
+					form.form-carte-visite.text-light.pb-5(action=require("../../assets/files/visit-card-loic.pdf"), target="_blank", accept-charset='utf-8')
+						.text-center
+							button.border-0.heebo.f300(type='submit', title='See or download my business card' aria-label="Submit form", value="envoi")
+								| PDF
+
+

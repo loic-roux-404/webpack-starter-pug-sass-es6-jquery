@@ -1,11 +1,45 @@
-Options +FollowSymLinks -Indexes
-RewriteEngine On
-RewriteCond %{SERVER_PORT} 80
-RewriteRule ^(.*)$ https://www.loicroux.fr/$1 [R,L]
+Options All +FollowSymLinks -Indexes
+
+IndexIgnore *
+AddDefaultCharset utf-8
+#AllowOverride None
+<ifmodule mod_php4.c>
+	php_value zlib.output_compression 16386
+</ifmodule>
+ServerSignature Off
+
+# implement minimal caching during site development
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|js|css|pdf|swf|html|htm|txt)$">
+	Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+<FilesMatch "\.(ttf|otf|woff|svg|woff2)$">
+	Header set Cache-Control "max-age=2628000, public"
+</FilesMatch>
+# disable caching for scripts and other dynamic files
+<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+	ExpiresActive Off
+</FilesMatch>
 
 <Files sitemap.xml>
 order allow,deny
 Allow from all
 </Files>
 
-ErrorDocument 404 404.php
+<FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+	Order Allow,Deny
+	Deny from all
+</FilesMatch>
+
+ErrorDocument 404 /404.php
+SetEnv SERVER_ADMIN loic.roux.404@gmail.com
+
+## rewrites
+RewriteEngine on
+	RewriteCond %{HTTP:Accept-Language} (fr) [NC]
+	RewriteRule ^$ https://loicroux.fr/fr [R,L]
+	RewriteCond %{HTTP:Accept-Language} (en) [NC]
+	RewriteRule ^$ https://loicroux.com/en [R,L]
+	# if no language in list
+	RewriteBase / 
+	RewriteRule ^$ /en [L,R=permanent]

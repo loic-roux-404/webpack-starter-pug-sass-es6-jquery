@@ -1,9 +1,9 @@
 exports.pages = function (env, folder = '') {
-  const rootPagesFolderName = 'pages';
+  //const rootPagesFolderName = 'pages';
   const HtmlWebpackPlugin = require('html-webpack-plugin');
   const fs = require('fs');
   const path = require('path');
-  const viewsFolder = path.resolve(__dirname, `../src/views/${rootPagesFolderName}/${folder}`);
+  const viewsFolder = path.resolve(__dirname, `../src/views/${folder}`);//${rootPagesFolderName}/
 
   var pages = [];
 
@@ -15,7 +15,7 @@ exports.pages = function (env, folder = '') {
     const fileName = folder === '' ? `${viewName}/index.html` : `${folder}/${viewName}/index.html`;
     const options = {
       filename: fileName,
-      template: `views/${rootPagesFolderName}/${folder}/${view}`,
+      template: `views/${folder}/${view}`,//${rootPagesFolderName}
       inject: true
     };
 
@@ -31,4 +31,4 @@ exports.pages = function (env, folder = '') {
   });
 
   return pages;
-}
+};

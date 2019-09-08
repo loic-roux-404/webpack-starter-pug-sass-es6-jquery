@@ -1,14 +1,18 @@
 {
-
   "cv": {
     "intro": {
       "title": "Introduction",
       "content": {
-        "text1": "I always been a addicted to technologies so i quickly be involved in web development when i discover it at MMI training.",
+        "text1": "I always been a addicted to technologies so i have naturally been involved in web development when i discover it at MMI training.",
         "text2": "My expertise comports the creation of ergonomic and modern applications without forgetting communication processes. I also use some Graphic (PAO) and animated elements to bring more dynamism to the web products.",
         "text3": "I will also apply my technicals languages skills to build tailor-made back offices with frameworks and CMS."
       },
       "button":"See resume for more skills, experiences and my research opportunities",
+      "file":"Resume",
+      "scroll":[
+        "horizontal scroll",
+        "keep touching"
+      ],
       "seo": [
         "Who am i ?"
       ]
@@ -18,25 +22,25 @@
       "seo": "Discover about me"
     },
     "main": {
-      "content": "Currently in an intership of junior fullstack web developer. Swipe left to continue discover about me...",
+      "content": "Currently web developer at Fiducial Group. Swipe left to continue discover about me...",
       "seo": "My professional situation"
     },
     "tools": {
-      "title": "MY TOOLS",
+      "title": "My techno's",
       "skills": {
-        "HTML5":1500,
-        "CSS3":1300,
-        "Js":1400,
-        "jQuery":1400,
-        "Php":1150,
-        "Wordpress":1100,
-        "Prestashop":900,
-        "MySql":900,
-        "Sass":800,
-        "Bootstrap":1500,
-        "VueJs":1000,
-        "Webpack":1100,
-        "Typescript":900
+        "HTML5": 1450,
+        "CSS3": 1100,
+        "Js": 1200,
+        "jQuery": 1300,
+        "Php": 1050,
+        "Wordpress": 1000,
+        "Prestashop": 850,
+        "MySql": 900,
+        "Sass": 800,
+        "Bootstrap": 1350,
+        "VueJs": 950,
+        "Webpack": 1000,
+        "Typescript": 1000
       }
     },
     "mainTools": [{
@@ -68,7 +72,7 @@
         "B.A (with honours) | Economics - Maths option"
       ],
       "2018": [
-        "Permis B",
+        "Driver licence",
         "Bafa"
       ],
       "2019": [
@@ -207,17 +211,17 @@
           "link": "Website hosted link"
         }
       },
-
       {
-        "title": "English Stories with Bludit blog CMS",
-        "subtitle": "English Stories",
-        "date": "March 2018",
-        "intro": "Blog with Bludit content manager",
-        "content": "This website presents an interactive story around the original first page from 'Ghosts', a novel written by Paul Auster in 1983. Bludit CMS gives a simple structure to modulate blog options. I conceive an interactive story algorithm for the stories follow-up choices. Thanks to Bandersnatch for the idea !",
-        "link": "http://english-stories.loicroux.fr",
+        "title": "Prestashop website",
+        "subtitle": "Eklipsis (Prestashop)",
+        "date": "March 2019 - Now",
+        "intro": "E-commerce solution with Prestashop content manager",
+        "content": "During a 4th semester project we were working like a web agency. We do wireframes and models of the e-commerce, after we are building with webpack a new fully original theme and adapt it to SEO. I'm going to deploy it soon... sorry.",
+        "link": "#",
+        "disabled":true,
         "seo": {
-          "subtile": "English stories multilinear blog",
-          "date": "Project done on March",
+          "subtile": "Prestashop e-commerce project",
+          "date": "Actually working on this project",
           "link": "Link to the website"
         }
       }
@@ -228,8 +232,8 @@
         "title": "Web game, code written in Typescript (OOP)",
         "subtitle": "Typescript web game",
         "date": "January 2019",
-        "intro": "Production of a simple arcade game and based on a Typescript template and Canvas.",
-        "content": "This project is based on oriented object programming with usage of keyboard events to control character. I used methods to control character drawing, directions, positions and destruction. Sorry you can't lose...",
+        "intro": "Production of a simple arcade game based on a Typescript template and canvas element.",
+        "content": "This project is based on oriented object programming with usage of keyboard events to control character. I also use methods to control character drawing, directions, positions and destruction. But..., Sorry you can't lose.",
         "link": "./jeu/index.html",
         "seo": {
           "subtile": "Typescript Space Invaders",
@@ -268,9 +272,22 @@
         }
       },
       {
+        "title": "English Stories with Bludit blog CMS",
+        "subtitle": "English Stories",
+        "date": "March 2019",
+        "intro": "Blog with Bludit content manager",
+        "content": "This website presents an interactive story around the original first page from 'Ghosts', a novel written by Paul Auster in 1983. Bludit CMS gives a simple structure to modulate blog options. I conceive an interactive story algorithm for the stories follow-up choices. Thanks to Bandersnatch for the idea !",
+        "link": "http://english-stories.loicroux.fr",
+        "seo": {
+          "subtile": "English stories multilinear blog",
+          "date": "Project done on March",
+          "link": "Link to the website"
+        }
+      },
+      {
         "title": "Project based on the Wordpress Content manager system",
-        "subtitle": "GCCD project (1th part)",
-        "date": "January 2018",
+        "subtitle": "GCCD (Wordpress)",
+        "date": "January 2018 - first part",
         "intro": "During a week of hard work we've built the 360 degrees communication of the GCCD challenge organized by Grenoble University. The website use the Wordpress CMS to give a custom page template system, customisation options with Redux framework and Youtube videos (API).",
         "content": "Also we create the all contents with an interview of a civil engineering , web articles and a complete graphic charter.",
         "link": "http://www.projet-tut.loicroux.fr",
@@ -278,6 +295,26 @@
         "seo": {
           "subtile": "CMS project",
           "date": "work finished on January",
+          "link": "Link to the project"
+        }
+      },
+      {
+        "title": "Loic roux portfolio website",
+        "subtitle": "This website",
+        "date": "Working on it every day since november 2018",
+        "intro": "This website is built on a full webpack automated configuration and npm modules. With these wonderful tools i have scored more than 95% on some websites auditors. The techno's i have used : ",
+        "list": {
+          "1": "PUG template engine : because i'm a PHP addict i like use it with JSON files as database.",
+          "2": "SASS codebase to manage much better my stylesheets.",
+          "3": "Iscroll plugin to get a fully responsive horizontal scroll (refer to the previous section)",
+          "4": "Others npm extensions like PostCss, imagemin, google fonts and many others...",
+          "5": "Anime js is just the best library to do animations <3  "
+        },
+        "link": "#",
+        "disabled":true,
+        "seo": {
+          "subtile": "Portfolio website",
+          "date": "Work started in november 2018",
           "link": "Link to the project"
         }
       }

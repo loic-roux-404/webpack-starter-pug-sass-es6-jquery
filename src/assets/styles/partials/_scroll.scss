@@ -30,6 +30,7 @@
   transition: all 1.2s ease;
   overflow: hidden !important;
   opacity: 0.98 !important;
+  pointer-events: none;
 }
 
 /*==scroll background scale velocity===*/
@@ -54,8 +55,8 @@
 }
 
 #presentations .bg-light {
-  -webkit-transition: background-position 0.3s ease;
   transition: background-position 0.3s ease;
+  pointer-events: none;
 }
 
 /*=======CV scroll css============*/
@@ -793,6 +794,7 @@ $round-b: map-merge(
     @include heebo;
     font-weight: 400;
     font-size: 0.82em;
+    pointer-events: none;
 
     .resp-svg {
       display: inline-block;
@@ -800,6 +802,7 @@ $round-b: map-merge(
       width: 100%;
       padding-bottom: 100%;
       vertical-align: middle;
+      pointer-events: none;
     }
 
     svg {
@@ -807,6 +810,7 @@ $round-b: map-merge(
       position: absolute;
       top: 0;
       left: 0;
+      pointer-events: none;
       circle {
         fill-opacity: 0;
         stroke-width: 20px;

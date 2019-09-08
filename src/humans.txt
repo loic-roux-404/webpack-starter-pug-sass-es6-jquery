@@ -3,8 +3,8 @@
 
 /* TEAM */
 
-   Front-end web developer/: Loic Roux
-   Site: https://www.loicroux.fr
+   Web developer/: Loic Roux
+   Site: https://www.loicroux.com
    From: Lyon, France
 
 /* TECHNOLOGIES */
@@ -23,3 +23,7 @@
    Standards: HTML5, CSS3, JS
    Doctype: HTML5
    Software: VS CODE
+
+/* LICENSE */
+
+    MIT

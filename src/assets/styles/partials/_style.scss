@@ -16,6 +16,7 @@ img {
   width: 12em;
   height: 12em;
   display: none;
+  pointer-events: none;
 }
 @media (max-width: 767px) {
   .navbar-collapse {
@@ -130,6 +131,7 @@ a.arrow-pres .arrow {
   min-height: 93vh;
   width: 100%;
   z-index: 1;
+  pointer-events: none;
 
   &.visible {
     background-image: url("../images/loicroux.png");

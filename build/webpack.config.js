@@ -13,14 +13,22 @@ const imageminMozjpeg = require('imagemin-mozjpeg');
 const ImageminWebP = require("imagemin-webp");
 const ManifestPlugin = require('webpack-manifest-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const GoogleFontsPlugin = require("@beyonk/google-fonts-webpack-plugin");
+const GoogleFontsPlugin = require("google-fonts-plugin");
 const AppManifestWebpackPlugin = require('app-manifest-webpack-plugin');
-const ChmodWebpackPlugin = require("chmod-webpack-plugin");
+const DashboardPlugin = require("webpack-dashboard/plugin");
+//post css plugins
+const autoprefixer = require("autoprefixer");
+const postcss_import = require("postcss-import");
+const post_env = require("postcss-preset-env")
 
+
+
+const $version = "3.3.0";
 
 // Files
 const utils = require('./utils');
-const plugins = require('../postcss.config');
+const isDev = env === 'development';
+
 
 var env = null,
   publicPath = '',
@@ -29,13 +37,9 @@ var env = null,
 
 const config = {
   context: path.resolve(__dirname, '../src'),
+  devtool: 'inline-source-map',
   entry: {
     app: "./app.js",
-  },
-  output: {
-    path: path.resolve(__dirname, '../dist'),
-    publicPath: publicPath,
-    filename: 'assets/js/[name].[hash:7].bundle.js'
   },
   devServer: {
     contentBase: path.resolve(__dirname, '../src'),
@@ -52,7 +56,6 @@ const config = {
       fonts: path.resolve(__dirname, '../src/assets/fonts'), // Relative path of fonts
     }
   },
-
 
   /*
     Loaders with configurations
@@ -78,12 +81,12 @@ const config = {
     {
       test: /\.css$/,
       use: [
-        env === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
+        env === 'development' ? MiniCssExtractPlugin.loader : 'style-loader',
         {
           loader: 'css-loader',
           options: {
             importLoaders: 1,
-            sourceMap: true,
+            sourceMap: isDev,
             minimize: true,
             colormin: false,
           },
@@ -93,10 +96,36 @@ const config = {
     {
       test: /\.scss$/,
       use: [
-        env === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader, // creates style nodes from JS strings
-        { loader: 'css-loader', options: { importLoaders: 1, minimize: true, sourceMap: true, colormin: false } }, // translates CSS into CommonJS
-        'postcss-loader',
-        'sass-loader', // compiles Sass to CSS
+        isDev ? MiniCssExtractPlugin.loader : 'style-loader', // creates style nodes from JS strings
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 1,
+            minimize: true,
+            sourceMap:isDev,
+            colormin: false
+          }
+        }, // translates CSS into CommonJS
+        {
+          loader: 'postcss-loader',
+          options:
+          {
+            sourceMap: isDev,
+            plugins: function () {
+              return [
+                autoprefixer,
+                postcss_import,
+                post_env
+              ]
+            }
+          }
+        },
+        {
+          loader: 'sass-loader',
+          options: {
+            sourceMap: isDev
+          }
+        }, // compiles Sass to CSS
       ],
     },
     {
@@ -138,9 +167,16 @@ const config = {
       test: /\.(mp4)(\?.*)?$/,
       loader: 'url-loader',
       options: {
-        publicPath: './',
+        publicPath:'../../',
         limit: 1000,
         name: 'assets/videos/[name].[hash:7].[ext]'
+      }
+    },
+    {
+      test:/\.(pdf)(\?.*)?$/,
+      loader: 'file-loader',
+      options: {
+        name: 'assets/files/[name].[ext]'
       }
     }
     ]
@@ -158,8 +194,6 @@ const config = {
         },
       }),
     ],
-
-
     splitChunks: {
       cacheGroups: {
         default: false,
@@ -177,58 +211,47 @@ const config = {
   },
 
   plugins: [
-    ///////\\\\\\\\\\
+    /////////\\\\\\\\\\
     new MiniCssExtractPlugin({
       filename: 'assets/css/[name].[hash:7].bundle.css',
       allChunks: true,
+      options: { sourceMap: true },
     }),
-
     /*
       Pages
     */
-
     ////////// Desktop page\\\\\\\\\\
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'views/index.pug',
+      filename: 'en/index.html',
+      template: 'views/en/index.pug',
       inject: true,
       title: require('../src/content/global.json').title,
       global: require('../src/content/global.json'),
       content: require('../src/content/content.json'),
+      version: $version
       //chunks:['fonts','images','TweenMax','iscroll']
     }),
 
-    //   ...utils.pages(env),
+    new HtmlWebpackPlugin({
+      filename: `fr/index.html`,
+      template: 'views/fr/index.pug',
+      inject: true,
+      title: require('../src/content/fr/global.json').title,
+      global: require('../src/content/fr/global.json'),
+      content: require('../src/content/fr/content.json'),
+      version: $version
+    }),
     //   ...utils.pages(env, 'blog'),
 
-    new GoogleFontsPlugin({
-      fonts: [{
-        family: "Didact Gothic"
-      },
-      {
-        family: "Muli",
-        variants: ["200", "400", "700", "900"]
-      },
-      {
-        family: "Heebo",
-        variants: ["300", "500", "900"]
-
-      }
-      ],
-      path:'/assets/fonts/',
-      filename:"google-fonts.[hash:7].css"
-      /* ...options */
-    }),
     new webpack.ProvidePlugin({
-      //$: 'jquery',
-      //'window.$': 'jquery',
       'anime': 'animejs/anime.js',
       'scrollTo': 'gsap/ScrollToPlugin.js',
       'window.scrollTo': 'gsap/ScrollToPlugin.js',
     }),
     new WebpackNotifierPlugin({
       title: 'Portfolio'
-    })
+    }),
+    //new DashboardPlugin()
   ]
 };
 
@@ -238,29 +261,14 @@ const prod = {
 
     new CopyWebpackPlugin([{
       from: '../src/assets/fonts/**',
-      to: '../dist/assets/fonts/[name].[hash:7].woff2'
+      to: '../dist/assets/fonts/[name].[hash:7].[ext]'
     },
     {
-      from: '../src/assets/fonts/**',
-      to: '../dist/assets/fonts/[name].[hash:7].woff'
-    }, 
-    {
-      from: '../src/assets/fonts/**',
-      to: '../dist/assets/fonts/[name].[hash:7].eot'
-    }, 
-    {
-      from: '../src/assets/fonts/**',
-      to: '../dist/assets/fonts/[name].[hash:7].ttf'
-    },
-    {
-      from: '../src/assets/fonts/**',
-      to: '../dist/assets/fonts/[name].[hash:7].svg'
-    },  {
       from: '../src/assets/files/*pdf',
       to: '../dist'
     },
     {
-      from: '../src/assets/*.php',
+      from: '../src/**.php',
       to: '../dist/'
     },
     {
@@ -312,29 +320,23 @@ const prod = {
     }),
     new AppManifestWebpackPlugin({
       logo: '../src/assets/images/favicon.png',
-      //prefix: 'icons.[hash:7]', // default '/'
       output: '/manifest/', // default '/'. Can be absolute or relative
-      emitStats: true,
-      statsFilename: 'iconstats.json', // can be absolute path
-      // Encode html entities in stats file (Example json_decode from php doesn't support html strings with escaped double quotes but it's valid json)
-      statsEncodeHtml: true,
-      // Generate a cache file with control hashes and
-      // don't rebuild the favicons until those hashes change
-      persistentCache: false,
+
+      persistentCache: true,
       // Inject the html into the html-webpack-plugin. Default true
       inject: true,
       config: {
         path: '../src/assets/images/',
-        appName: 'portfolio-website-loic-roux', // Your application's name. `string`
-        appDescription: 'Fullstack Web developer at Lyon', // Your application's description. `string`
-        developerName: 'Loïc Roux', // Your (or your developer's) name. `string`
-        developerURL: 'https://www.loicroux.fr', // Your (or your developer's) URL. `string`
-        background: '#f0f5f5', // Background colour for flattened icons. `string`
-        theme_color: '#3c6382', // Theme color for browser chrome. `string`
-        display: 'standalone', // Android display: "browser" or "standalone". `string`
+        appName: 'portfolio-website-loic-roux',
+        appDescription: 'Portfolio of a fullstack Web developer at Lyon',
+        developerName: 'Loïc Roux',
+        developerURL: 'https://www.loicroux.com',
+        //background: '#F0F5F5', 
+        theme_color: '#3C6382',
+        display: 'browser',
         orientation: 'portrait', // Android orientation: "portrait" or "landscape". `string`
-        start_url: '/?homescreen=1', // Android start application's URL. `string`
-        version: '3.0.1', // Your application's version number. `number`
+        start_url: '/', // Android start application's URL. `string`
+        version: $version, // Your application's version number. `number`
         icons: {
           android: true, // Create Android homescreen icon. `boolean` or `{ offset, background, shadow }`
           appleIcon: true, // Create Apple touch icons. `boolean` or `{ offset, background }`
@@ -343,12 +345,12 @@ const prod = {
           favicons: true, // Create regular favicons. `boolean`
           firefox: true, // Create Firefox OS icons. `boolean` or `{ offset, background }`
           windows: true, // Create Windows 8 tile icons. `boolean` or `{ background }`
-          yandex: true, // Create Yandex browser icon. `boolean` or `{ background }`
+          yandex: false
         }
       }
     }),
 
-    new webpack.DefinePlugin({ 
+    new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
@@ -373,8 +375,8 @@ const prod = {
 
 module.exports = env => {
   assetPath = '../../';
-  publicPath = '/';
-  devMap = "source-map";
+  publicPath = '../';
+  devMap = "cheap-module-eval-source-map";
   if (env.NODE_ENV === 'development') {
     return config;
   } else if (env.NODE_ENV === 'production') {

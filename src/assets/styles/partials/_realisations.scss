@@ -96,7 +96,7 @@ $desc-decale: 1.6vh;
   .container-fluid {
     overflow: scroll;
     height: 86.5vh;
-    @media screen and (min-width:$break-lg){
+    @media screen and (min-width: $break-lg) {
       height: 73vh;
     }
   }
@@ -179,12 +179,12 @@ $desc-decale: 1.6vh;
     color: #0984e3;
     &[href=""] {
       color: #5c5c5c;
-      &:hover{
+      &:hover {
         cursor: not-allowed;
       }
       &:hover::after {
         background: transparent;
-        width:0;
+        width: 0;
       }
     }
     &:after {
@@ -259,16 +259,33 @@ $desc-decale: 1.6vh;
   }
 }
 
-.row.game-wrap {
-  display: none;
-}
+// .row.game-wrap {
+//   display: none;
+// }
 
 /*======toggle transition 3D=========*/
+#videos1 {
+  width: 200%;
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+  ::after {
+    display: table;
+    content: " ";
+    clear: both;
+  }
+  .game-wrap {
+    margin-left: -110%;
+  }
+}
 .site-wrap,
 .game-wrap {
   position: relative;
-  margin-top: 16.5%;
-  width: 102vw;
+  margin: 16.5% 0 0 0;
+  width: 51%;
+  float: left;
+  transition: all 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   @media (min-width: $break-sm) {
     margin-top: 7%;
@@ -287,14 +304,16 @@ $map-rea-color: (
   2: #78e08f,
   3: #d980fa,
   4: #0984e3,
-  5: #e45063
+  5: #f16caf
 );
 
 $map-rea-color-2: (
   0: #273c75,
   1: #70d4a2,
   2: #777777de,
-  3: #0984e3,
+  3: #e45063,
+  4: #0984e3,
+  5: $info
 );
 
 $cube-decale: 9em;
@@ -313,8 +332,8 @@ $i: 2;
     height: $cube-decale * 1.3;
     width: 100%;
 
-    &:hover{
-      cursor:pointer;
+    &:hover {
+      cursor: pointer;
     }
 
     @each $bp, $val in $breakpoints {

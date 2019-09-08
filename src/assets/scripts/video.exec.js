@@ -62,46 +62,25 @@ let animeGame = [], animeSite = [];
 // tempAnime(gameWrapper.childNodes,animeGame);
 // tempAnime(siteWrapper.childNodes,animeSite);
 
-
+let state;
 function toggleW(ev) {
   ev.preventDefault();
 
   if (ev.target.className.toString().match(/[^\s]+/gi)[1] === 'game' && ev.target.dataset.state == 0) {
     console.log("game");
     orgToggle = [gameWrapper, siteWrapper, animeGame, animeSite];
+    state = "-100%";
 
   } else {
     console.log("site");
     orgToggle = [siteWrapper, gameWrapper, animeSite, animeGame];
+    state = "100%";
   }
 
+  
+  orgToggle[0].style.marginLeft= '0px'; 
+  orgToggle[1].style.marginLeft = state; 
 
-  orgToggle[0].style.display = 'flex'; 
-  orgToggle[1].style.display = 'none'; 
-
-
-
-  // orgToggle[2].forEach(function (orgD) {
-  //   console.log('show');
-  //   orgToggle[0].style.display = 'flex'; 
-  //   orgD.play();
-
-  //   setTimeout(function () {
-  //     orgD.restart();
-  //   }, timing);
-  // });
-
-  // console.log(orgToggle[3][0].animations[0].animatable.target.parentNode);
-  // orgToggle[3].forEach(function (orgH) {
-  //   orgH.reverse();
-  //   orgH.play();
-  //   setTimeout(function () {
-  //     orgToggle[1].style.display = 'none'; 
-  //     orgH.restart();
-
-  //   }, timing);
-  // });
-  //to hide
 
 }
 

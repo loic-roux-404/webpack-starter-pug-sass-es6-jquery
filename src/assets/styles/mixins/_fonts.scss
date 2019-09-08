@@ -1,42 +1,59 @@
-// @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
-
-// @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900');
-
-// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600');
-
-//@import url('https://fonts.googleapis.com/css?family=Didact+Gothic');
-
-//@import url('https://fonts.googleapis.com/css?family=Roboto:700,900');
-
-//@import url('https://fonts.googleapis.com/css?family=Muli:200,300,400,700,800,900,900i');
-
-// @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,700,800,900');
-
-//@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
-
-// @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Rubik:300,400,700');
-
-// @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400|Nunito:300,400,600');
-
-// @import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500|IBM+Plex+Sans:300,400,600|Pontano+Sans');
-
-// @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
-
-//@import url('https://fonts.googleapis.com/css?family=Heebo:300,500,700,800,900');
-
-// @import url('https://fonts.googleapis.com/css?family=Kanit:100,400');
-
-/*fin imports*/
 /*classes parametre de font*/
+@mixin fface($path, $family, $format, $weight) {
+  @font-face {
+    font-family: $family;
+    @if (type-of($weight) == "number") {
+      font-weight: $weight;
+    }
+    src: url("../fonts/#{unquote($path)}.#{unquote($format)}") format($format);
+  }
+}
 
-@font-face {
-  font-family: "SF Compact";
-  src: url("../fonts/loic-font.otf") format("otf");
- }
+$font_map: (
+  "DidactGothic-Regular": (
+    family: "Didact Gothic",
+    format: "ttf",
+    weight: null
+  ),
+  "Heebo-Light": (
+    family: "Heebo",
+    format: "ttf",
+    weight: 300
+  ),
+  "Heebo-Black": (
+    family: "Heebo",
+    format: "ttf",
+    weight: 900
+  ),
+  "Muli-ExtraLight": (
+    family: "Muli",
+    format: "ttf",
+    weight: 200
+  ),
+  "Muli-Bold": (
+    family: "Muli",
+    format: "ttf",
+    weight: 700
+  ),
+  "Muli-Black": (
+    family: "Muli",
+    format: "ttf",
+    weight: 900
+  ),
+  "loic-font": (
+    family: "SF Compact",
+    format: "otf",
+    weight: null
+  )
+);
+
+@each $path, $infos in $font_map {
+  @include fface($path, map_get($infos, family), map_get($infos, format), map_get($infos, weight));
+}
+
 /*type de police (google)*/
-
 @mixin heebo {
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
 }
 
 .heebo {
@@ -44,7 +61,7 @@
 }
 
 @mixin lato {
-  font-family: 'Lato', 'Muli', 'Helvetica', sans-serif;
+  font-family: "Lato", "Helvetica", sans-serif;
 }
 
 .lato {
@@ -52,76 +69,28 @@
 }
 
 @mixin didact {
-  font-family: 'Didact Gothic', 'Muli', 'Helvetica', 'Calibri', 'Arial', sans-serif;
+  font-family: "Didact Gothic", "Helvetica", "Calibri", "Arial", sans-serif;
 }
 
 .didact {
   @include didact;
 }
 
-@mixin calibri{
-  font-family:'Calibri', 'Helvetica', sans-serif;
+@mixin calibri {
+  font-family: "Calibri", "Helvetica", sans-serif;
 }
 
 .calibri {
   @include calibri;
 }
 
-// .opensans {
-//   font-family: 'Open Sans', 'Helvetica', 'Calibri', sans-serif;
-// }
-
-// .roboto {
-//   font-family: 'Roboto', 'Open Sans', 'Helvetica', 'Calibri', sans-serif;;
-// }
 @mixin muli {
-  font-family: 'Muli', 'Helvetica', 'Calibri', sans-serif;
+  font-family: "Muli", "Helvetica", "Calibri", sans-serif;
 }
 
 .muli {
   @include muli;
 }
-
-// .oswald {
-//   font-family: 'Oswald', 'Roboto', 'Helvetica', 'Calibri', 'Arial', sans-serif;
-// }
-
-// .source-sans {
-//   font-family: 'Sources Sans Pro', 'Roboto', 'Helvetica', 'Calibri', sans-serif;
-//   letter-spacing: 1px;
-// }
-
-// .rubik {
-//   font-family: 'Rubik', 'Roboto', 'Helvetica', 'Calibri';
-// }
-
-// .comfortaa {
-//   font-family: 'Comfortaa', 'Roboto', 'Helvetica', 'Calibri', sans-serif
-// }
-
-// .nunito {
-//   font-family: 'Nunito', 'Roboto', 'Helvetica', 'Calibri', sans-serif
-// }
-
-// .nunito-sans {
-//   font-family: 'Nunito Sans', 'Roboto', 'Helvetica', 'Calibri', sans-serif
-// }
-
-// .barlow {
-//   font-family: 'Barlow', 'Helvetica', 'Calibri', 'Arial';
-// }
-
-// .pontano-sans {
-//   font-family: 'Pontano Sans', 'Helvetica', 'Calibri', 'Arial';
-// }
-
-// .ibm-plex-sans {
-//   font-family: 'IBM Plex Sans', 'Helvetica', 'Calibri';
-// }
-// .kanit {
-//   font-family: 'Kanit', 'Helvetica', 'Calibri';
-// }
-
 
 /*line-height settings*/
 
@@ -144,8 +113,6 @@
 .lh-xl {
   line-height: 2.5;
 }
-
-
 
 /*weights of fonts
   !!!TAKE CARE OF FONTS WITH ONLY ONE WEIGHT!!!
@@ -183,8 +150,6 @@
   font-weight: 900;
 }
 
-
-
 $icomoon-font-family: "portfolio" !default;
 $icomoon-font-path: "../fonts" !default;
 
@@ -206,19 +171,20 @@ $fa-spinner3: "\eb76";
 $fa-star-empty: "\eb77";
 
 @font-face {
-  font-family: '#{$icomoon-font-family}';
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rngoqw');
-  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rngoqw#iefix') format('embedded-opentype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?rngoqw') format('truetype'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?rngoqw') format('woff'),
-    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?rngoqw##{$icomoon-font-family}') format('svg');
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rngoqw");
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rngoqw#iefix") format("embedded-opentype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?rngoqw") format("truetype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?rngoqw") format("woff"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?rngoqw##{$icomoon-font-family}") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
-[class^="fa-"], [class*=" fa-"] {
+[class^="fa-"],
+[class*=" fa-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: '#{$icomoon-font-family}' !important;
+  font-family: "#{$icomoon-font-family}" !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -233,83 +199,81 @@ $fa-star-empty: "\eb77";
 
 .fa-align-justify {
   &:before {
-    content: $fa-align-justify; 
+    content: $fa-align-justify;
   }
 }
 .fa-at-sign {
   &:before {
-    content: $fa-at-sign; 
+    content: $fa-at-sign;
   }
 }
 .fa-chevron-up {
   &:before {
-    content: $fa-chevron-up; 
+    content: $fa-chevron-up;
   }
 }
 .fa-code1 {
   &:before {
-    content: $fa-code1; 
+    content: $fa-code1;
   }
 }
 .fa-codepen {
   &:before {
-    content: $fa-codepen; 
+    content: $fa-codepen;
   }
 }
 .fa-github {
   &:before {
-    content: $fa-github; 
+    content: $fa-github;
   }
 }
 .fa-globe {
   &:before {
-    content: $fa-globe; 
+    content: $fa-globe;
   }
 }
 .fa-linkedin1 {
   &:before {
-    content: $fa-linkedin1; 
+    content: $fa-linkedin1;
   }
 }
 .fa-plus-circle {
   &:before {
-    content: $fa-plus-circle; 
+    content: $fa-plus-circle;
   }
 }
 .fa-terminal {
   &:before {
-    content: $fa-terminal; 
+    content: $fa-terminal;
   }
 }
 .fa-twitter1 {
   &:before {
-    content: $fa-twitter1; 
+    content: $fa-twitter1;
   }
 }
 .fa-user {
   &:before {
-    content: $fa-user; 
+    content: $fa-user;
   }
 }
 .fa-x {
   &:before {
-    content: $fa-x; 
+    content: $fa-x;
   }
 }
 .fa-database {
   &:before {
-    content: $fa-database; 
+    content: $fa-database;
   }
 }
 .fa-spinner3 {
   &:before {
-    content: $fa-spinner3; 
+    content: $fa-spinner3;
   }
 }
 .fa-star-empty {
   &:before {
-    content: $fa-star-empty; 
+    content: $fa-star-empty;
   }
 }
-
-

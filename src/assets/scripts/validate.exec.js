@@ -1,15 +1,5 @@
 //const mailPhp = require('./php/mail.php');
-import { async,load } from 'recaptcha-v3';
 
-
-function captcha(){
-   
-  const recaptcha = load('6LeKo6EUAAAAANJ3aYen-njErJhQEyGAdiM_QKgC');
-  const token =  recaptcha.execute('homepage');//<> chevron ?
- 
-  console.log(token); // Will also print the token
-    
-}
 
 var name = null;
 const formObj = {
@@ -49,7 +39,6 @@ const formObj = {
   sendForm: function () {
 
 
-
     const form = this.form;
     var XHR = new XMLHttpRequest();
     var formData = this.data();
@@ -62,13 +51,10 @@ const formObj = {
     };
 
     XHR.onreadystatechange = function () {
-      document.querySelector('#loader').style.display = "block";
       document.querySelector('#contact-form .btn').classList.add('success-ajax');
       document.querySelector('#contact-form .btn').innerText = 'Envoi...';
       if (this.readyState == 4 && this.status == 200) {
-        //console.log(this.responseText);
-        
-        //console.log("sended");
+
 
         setTimeout(function () {document.querySelector('#contact-form .btn').innerText = 'Envoyé !';}, 700);
         setTimeout(function () {
@@ -92,7 +78,13 @@ formObj.form.onsubmit = (e) => {
   e.preventDefault();
 
   //console.log('=======');
-  formObj.sendForm();
+  if (formObj.form.elements[3].value.match('([^0-9]|^)13([^0-9]|$)')){
+    formObj.sendForm();
+    setTimeout(function(){location.reload();},2000);
+  }else{
+    document.querySelector('#contact-form .btn').classList.add('error-form');
+    document.querySelector('#contact-form .btn').innerText = 'Are you as bad in math ?';
+  }
 
 };
 
@@ -112,8 +104,6 @@ if(/Android 4\.[0-3]/.test(navigator.appVersion)){
 
 /*autosize textarea*/
 let textarea = document.getElementsByTagName('textarea')[0];
-
-
 
   const animeTxt = anime({
     targets:'textarea',

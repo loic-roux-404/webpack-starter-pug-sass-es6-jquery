@@ -1,6 +1,5 @@
-
-
 $Ftitle: 1.3rem;
+
 
 /*fix autofill colors
 /* Change autocomplete styles in WebKit */
@@ -13,10 +12,10 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: rgb(255, 255, 255) !important;
   -webkit-box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
+  box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0) inset;
   -webkit-transition: background-color 5000s ease-in-out 0s;
   transition: background-color 5000s ease-in-out 0s;
 }
-
 
 /*validate*/
 
@@ -256,7 +255,6 @@ textarea.form-element-field {
 /*contact button*/
 
 $but-border: 5px dotted #fafafa;
-$outline-border: 5px solid #fafafa;
 
 .contact .btn {
   position: relative;
@@ -284,29 +282,38 @@ $outline-border: 5px solid #fafafa;
     color: #fafafa;
   }
 
-  &:hover::before {
-    content: "";
-    outline: $outline-border;
-  }
 }
 
 /*button after submit*/
 .contact .btn.success-ajax {
   color: #fff;
-  background: #3cd13a;
+  background: linear-gradient(#3cd13a, #57df55);
+
   border: none;
   background-size: 100px 100px;
   background-position: 0 -100%;
-  -webkit-animation: slidein 3s infinite;
-  animation: slidein 3s infinite;
-  animation: slidein 3s infinite;
-  animation: slidein 3s infinite;
-  -webkit-box-shadow: none;
+  animation: slidein 3s 1;
   box-shadow: none;
   font-size: 0.9em;
   &:hover {
-    background: #3cd13a;
+    background: linear-gradient(#3cd13a, #57df55);
     border: none;
+  }
+  &:before,
+  &:hover:before {
+    outline: none;
+  }
+}
+.contact .error-form {
+  background: #d34950;
+  outline: none;
+  &:hover {
+    background: #d34950;
+    outline: none;
+  }
+  &:before,
+  &:hover:before {
+    outline: none;
   }
 }
 
@@ -344,35 +351,35 @@ $outline-border: 5px solid #fafafa;
   .carte-visite-wrapper {
     height: 100%;
     width: 100%;
-    box-sizing: unset;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+
 
     video {
       @include posAll;
       object-fit: cover;
       width: 100%;
+      height: auto;
       transition: box-shadow 0.8s ease;
-
-      @media (min-width: 576px) {
-        box-shadow: 20px 20px 0px -5px #fff;
-
-        &:hover video {
-          box-shadow: 25px 25px 0px -5px #fff;
-        }
-      }
-
-      z-index: -1;
+      z-index:2;
     }
 
     button {
-      @include posAll;
+      object-fit: cover;
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
       @include heebo;
       font-size: 2em;
       font-weight: 700;
       color: $info;
-      height: 93.7%;
+      height: 100%;
       width: 100%;
       opacity: 0;
-      z-index: -1;
+      z-index: 2;
       transition: transform 0.2s ease-in-out, opacity 0.25s ease-in, z-index 0.2s linear;
       @include button;
 
@@ -381,13 +388,9 @@ $outline-border: 5px solid #fafafa;
         outline: none;
       }
     }
-    @media (min-width: 576px) {
-      height: 107.5%;
-    }
 
     &:hover button {
       opacity: 0.7;
-      z-index: 0;
     }
   }
 }

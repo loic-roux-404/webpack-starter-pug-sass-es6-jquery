@@ -1,38 +1,38 @@
 {
-    "title":"Loïc Roux | Student in fullstack web development at Lyon",
+    "title":"Loïc Roux | Étudiant en développement fullstack",
     "pres":{
         "name":"Loïc Roux",
-        "situation":"Student in fullstack web development",
+        "situation":"Étudiant en développepment fullstack",
         "seo":{
-          "image":"Portfolio bitmoji presentation picture",
+          "image":"Portfolio loic bitmoji",
           "name":"Loïc Roux",
-          "situation":"Student at Insitut G4 Lyon | Going on a master degree - IS manager "
+          "situation":"Étudiant à Insitut G4 Lyon | Equivalent master - Chef de projet SI "
         }
-      },
-    "desc":"Finished a Multimedia and Internet works technical degree i'm actually focusing on fullstack web development at Lyon. Find here my portfolio with all my finished web products. My know how include the creation of modern websites and web applications with the help of frameworks and libraries.",
+    },
+    "desc":"Ayant bientôt fini de valider un DUT métiers du multimédia et de l’internet, je fait désormais du développement fullstack ma priorité. Retrouvez sur ce site mes réalisations web et plus de détails sur ma personne. Mon expertise comprend donc la création de sites web modernes ou d'applications basées sur des frameworks et librairies.",
     "socials":[
           {
             "name":"Codepen",
             "link":"https://codepen.io/loicroux404/",
-            "title":"How i'm programming ?",
+            "title":"Mon Codepen : Voir comment je code.",
             "icon":"fa-codepen"
           },
           {
             "name":"Github",
             "link":"https://github.com/loicroux69",
-            "title":"My public repositories",
+            "title":"Mon Github : découvrez mes projets publiques",
             "icon":"fa-github"
           },
           {
             "name":"LinkedIn",
             "link":"https://www.linkedin.com/in/loic-roux-404",
-            "title":"Professional situation ans opportunities",
+            "title":"Mon LinkedIn, ma situation professionelle et recherche d'opportunités",
             "icon":"fa-linkedin1"
           },
           {
             "name":"Twitter",
             "link":"https://twitter.com/LoicRoux5/",
-            "title":"My researchs on web trends",
+            "title":"Mon Twitter, pour faire ma veille...",
             "icon":"fa-twitter1"
           }
     ],
@@ -40,10 +40,10 @@
       "input1":{
         "textarea":false,
         "name":"nom",
-        "text":"Title / Name",
+        "text":"Titre / Nom",
         "seo":{
-          "input":"Provide a name",
-          "label":"Title or name"
+          "input":"Renseignez un nom",
+          "label":"Titre ou nom"
         }
       },
       "input2":{
@@ -51,16 +51,16 @@
         "name":"email",
         "text":"Mail",
         "seo":{
-          "input":"Provide an email",
-          "label":"Email"
+          "input":"renseignez un email",
+          "label":"Mail"
         }
       },
       "input3":{
         "textarea":true,
         "name":"message",
-        "text":"Request",
+        "text":"Message",
         "seo":{
-          "input":"Provide a text message",
+          "input":"Entrez un message texte",
           "label":"Message"
         }
       },
@@ -69,14 +69,15 @@
         "name":"check",
         "text":"6 + 7",
         "seo":{
-          "input":"Help me to avoid spam",
-          "label":"Checking"
+          "input":"Aidez moi à eviter le spam",
+          "label":"Vérification"
         }
       }
     },
-    "contactButton":"Send",
+    "contactButton":"Envoyer",
     "card":{
       "text":"Carte de visite",
       "textTitle":"Voir la carte"
     }
+
 }
