@@ -176,6 +176,7 @@ const config = {
       test:/\.(pdf)(\?.*)?$/,
       loader: 'file-loader',
       options: {
+        publicPath:'../../',
         name: 'assets/files/[name].[ext]'
       }
     }
@@ -333,7 +334,7 @@ const prod = {
         developerURL: 'https://www.loicroux.com',
         //background: '#F0F5F5', 
         theme_color: '#3C6382',
-        display: 'browser',
+        display: 'minimal-ui',
         orientation: 'portrait', // Android orientation: "portrait" or "landscape". `string`
         start_url: '/', // Android start application's URL. `string`
         version: $version, // Your application's version number. `number`
